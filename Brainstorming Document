@@ -1,1 +1,5 @@
-Nothing yet...
+This is a document for team members to jot down ideas to guide the direction of the game jam.
+Discussion in the Discord server is also welcome, but longer elaboration on some ideas may be best to put here
+
+Any folklore related to body-swapping/possession could allow for an easy implementation of the 'transfer takeover' wildcard.
+For instance, we could make a puzzle/adventure game where the player can change which character they are controlling at will, with each character interacting with others + the world differently.  Paired with this, my first thought for implementing the 'turtles all the way down' and 'actions have consequences' wildcard would be to use either a roguelike or timeloop (e.g. Majora's Mask) structure, with some elements persisting between loops.  For instance, maybe the characters will continue to act out whatever the player had them do on previous loops unless the player intervenes by taking control of the character again.
