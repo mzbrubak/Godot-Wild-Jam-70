@@ -74,7 +74,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	#pass
+	
+	# If the player presses the ESCAPE key, then quit the game
+	if Input.is_action_pressed("Quit"):
+		get_tree().quit()
 
 
 func IfOptionsButtonIsPressed():
