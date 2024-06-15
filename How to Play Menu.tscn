@@ -1,12 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0ri8eb2c04dq"]
+[gd_scene load_steps=3 format=3 uid="uid://dqb2n6sadssyu"]
 
-[ext_resource type="Script" path="res://Options Menu.gd" id="1_vynna"]
-[ext_resource type="Texture2D" uid="uid://c7vjhi35m78nu" path="res://Art/Button5.png" id="2_i53x6"]
+[ext_resource type="Script" path="res://How to Play Menu.gd" id="1_bvo52"]
+[ext_resource type="Texture2D" uid="uid://c7vjhi35m78nu" path="res://Art/Button5.png" id="1_fpce2"]
 
-[node name="Options Menu Node" type="Node"]
-script = ExtResource("1_vynna")
+[node name="How to Play Node" type="Node"]
+script = ExtResource("1_bvo52")
 
-[node name="Options Menu Title" type="Label" parent="."]
+[node name="How to Play Title" type="Label" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -28,7 +28,7 @@ offset_bottom = -172.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(2, 2)
-icon = ExtResource("2_i53x6")
+icon = ExtResource("1_fpce2")
 
 [node name="Back Text" type="Label" parent="Back Button"]
 layout_mode = 0

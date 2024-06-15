@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://r6s1y7uc8dcf"]
+[gd_scene load_steps=6 format=3 uid="uid://r6s1y7uc8dcf"]
 
 [ext_resource type="Script" path="res://Main Menu.gd" id="1_dhl8a"]
 [ext_resource type="Texture2D" uid="uid://rtdoilkakqy8" path="res://Art/Button.png" id="2_8ai8w"]
+[ext_resource type="Texture2D" uid="uid://cj2d5v5jte81h" path="res://Art/Button2.png" id="3_ld4wt"]
+[ext_resource type="Texture2D" uid="uid://cke31uf07no68" path="res://Art/Button3.png" id="4_efmbh"]
+[ext_resource type="Texture2D" uid="uid://76fafx1qryfn" path="res://Art/Button4.png" id="5_lwb86"]
 
 [node name="Main Menu Node" type="Node"]
 script = ExtResource("1_dhl8a")
@@ -21,12 +24,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -54.0
-offset_top = -29.0
-offset_right = 54.0
-offset_bottom = 29.0
+offset_left = -100.0
+offset_top = -140.0
+offset_right = 8.0
+offset_bottom = -82.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
 icon = ExtResource("2_8ai8w")
 
 [node name="Play Button Text" type="Label" parent="Play Button"]
@@ -41,13 +45,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -54.0
-offset_top = 71.0
-offset_right = 54.0
-offset_bottom = 129.0
+offset_left = -100.0
+offset_top = 10.0
+offset_right = 8.0
+offset_bottom = 68.0
 grow_horizontal = 2
 grow_vertical = 2
-icon = ExtResource("2_8ai8w")
+scale = Vector2(2, 2)
+icon = ExtResource("3_ld4wt")
 
 [node name="How to Play Text" type="Label" parent="How to Play Button"]
 layout_mode = 1
@@ -61,13 +66,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -54.0
-offset_top = 171.0
-offset_right = 54.0
-offset_bottom = 229.0
+offset_left = -100.0
+offset_top = 160.0
+offset_right = 8.0
+offset_bottom = 218.0
 grow_horizontal = 2
 grow_vertical = 2
-icon = ExtResource("2_8ai8w")
+scale = Vector2(2, 2)
+icon = ExtResource("4_efmbh")
 
 [node name="Options Text" type="Label" parent="Options Button"]
 layout_mode = 0
@@ -81,13 +87,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -54.0
-offset_top = 271.0
-offset_right = 54.0
-offset_bottom = 329.0
+offset_left = -100.0
+offset_top = 310.0
+offset_right = 8.0
+offset_bottom = 368.0
 grow_horizontal = 2
 grow_vertical = 2
-icon = ExtResource("2_8ai8w")
+scale = Vector2(2, 2)
+icon = ExtResource("5_lwb86")
 
 [node name="Credits Text" type="Label" parent="Credits Button"]
 layout_mode = 0
@@ -95,4 +102,6 @@ offset_right = 40.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 
+[connection signal="pressed" from="How to Play Button" to="." method="IfHowToPlayButtonIsPressed"]
 [connection signal="pressed" from="Options Button" to="." method="IfOptionsButtonIsPressed"]
+[connection signal="pressed" from="Credits Button" to="." method="IfCreditsButtonIsPressed"]

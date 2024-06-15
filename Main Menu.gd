@@ -12,7 +12,7 @@ func _ready():
 	$"Main Menu Title".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	$"Main Menu Title".horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	
-	# Set the Main Menu title text size to x = 1 and y = 50
+	# Set the Main Menu title text size to x = 100 and y = 50
 	$"Main Menu Title".size = Vector2(100, 50)
 	
 	# Initialize the play button to say Play
@@ -25,7 +25,7 @@ func _ready():
 	$"Play Button/Play Button Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	$"Play Button/Play Button Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	
-	# Set the play button text size to x = 100 and y = 50
+	# Set the play button text size to x = 107 and y = 55
 	$"Play Button".size = Vector2(107, 50)
 	
 	# Initialize the options button to say Options
@@ -38,7 +38,7 @@ func _ready():
 	$"How to Play Button/How to Play Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	$"How to Play Button/How to Play Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	
-	# Set the How to Play button text size to x = 100 and y = 50
+	# Set the How to Play button text size to x = 107 and y = 55
 	$"How to Play Button".size = Vector2(107, 50)
 	
 	# Initialize the options button to say Options
@@ -51,7 +51,7 @@ func _ready():
 	$"Options Button/Options Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	$"Options Button/Options Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	
-	# Set the options button text size to x = 100 and y = 50
+	# Set the options button text size to x = 107 and y = 55
 	$"Options Button/Options Text".size = Vector2(107, 55)
 	
 	# Initialize the credits button to say Credits
@@ -64,7 +64,7 @@ func _ready():
 	$"Credits Button/Credits Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	$"Credits Button/Credits Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	
-	# Set the credits button text size to x = 100 and y = 50
+	# Set the credits button text size to x = 107 and y = 55
 	$"Credits Button/Credits Text".size = Vector2(107, 55)
 	
 
@@ -79,3 +79,17 @@ func IfOptionsButtonIsPressed():
 	
 	# Go to the options menu if the player presses the options button inside the main menu
 	get_tree().change_scene_to_file("res://Options Menu.tscn")
+
+
+func IfHowToPlayButtonIsPressed():
+	#pass # Replace with function body.
+	
+	# Go to the how to play menu if the player presses the how to play button inside the main menu
+	get_tree().change_scene_to_file("res://How to Play Menu.tscn")
+
+
+func IfCreditsButtonIsPressed():
+	#pass # Replace with function body.
+	
+	# Go to the credits menu if the player presses the credits button inside the main menu
+	get_tree().change_scene_to_file("res://Credits Menu.tscn")
