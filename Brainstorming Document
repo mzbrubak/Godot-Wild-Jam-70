@@ -3,3 +3,21 @@ Discussion in the Discord server is also welcome, but longer elaboration on some
 
 Any folklore related to body-swapping/possession could allow for an easy implementation of the 'transfer takeover' wildcard.
 For instance, we could make a puzzle/adventure game where the player can change which character they are controlling at will, with each character interacting with others + the world differently.  Paired with this, my first thought for implementing the 'turtles all the way down' and 'actions have consequences' wildcard would be to use either a roguelike or timeloop (e.g. Majora's Mask) structure, with some elements persisting between loops.  For instance, maybe the characters will continue to act out whatever the player had them do on previous loops unless the player intervenes by taking control of the character again.
+
+The main character is a fairy.  While fairies are often presented as good in media, in other contexts e.g. Celtic folklore they are presented as mischief-makers; accordingly, the majority of the characters in the game will fear you.  This can be expressed in their dialogue with other human characters (or perhaps also with they fairy directly; still debating whether or not most characters should be able to see the fairy while not possessing another character)
+
+Ideally the puzzles that the player needs to solve will have multiple solutions.  Some of these solutions will conform the the NPCs' preconceptions about fairies/folklore, whereas others will not.  Which choice is "better" should not necessarily align with which choice fits the folklore.
+
+Combat may or may not be included.  If it is included, the player's combat abilities should depend heavily on what character the player is possessing.  The fairy may have some light combat abilities on its own, but it should be preferred to be controlling a character.
+
+I think it would also be cool to add a witch/hag-like character.  This character would also be frequently discussed in the game's folklore, and could serve as either an ally or an adversary to the fairy, potentially depending on the choices that the player makes.  I have two possible directions for this character's involvement in mind:
+
+1) The witch is the one responsible for creating the time loop.  If the witch's power is dependent on e.g. the phase of the moon, this could serve as a potential motive: she creates a time loop to prolong the time that she is at her strongest to allow her to cause more mischief.  In this case the witch would serve as a final boss of sorts, and one can beat the game by either defeating the witch in combat or possessing the witch.
+
+2) The witch is not responsible for the time loop, but instead knows how to break it.  In this case finding the witch would be the first major objective, after which the witch can give the player guidance on how to break the cycle.  For instance, maybe the witch can break the spell if provided with components for a ritual, which the fairy must then obtain and deliver to the witch, with each component requiring significant effort to obtain.
+
+Also the witch could serve as a source of magic items that help complete more difficult puzzles.  The first example I can think of is a magic box that the player can store an item in and will then start subsequent loops with.
+
+In terms of programming, we will require at least two major systems:
+1) A framework for defining NPCs with a schedule that can respond to player actions
+2) An in-game clock that is used to signal to NPCs what action they should be taking
