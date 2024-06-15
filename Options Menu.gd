@@ -39,6 +39,25 @@ func _ready():
 	$"Resolution Drop Down Menu".add_item("1024x768")
 	$"Resolution Drop Down Menu".add_item("800x600")
 	
+	# These if statements below fixes the resolution drop down glitch always selecting the first index
+	if DisplayServer.window_get_size().x == 1920 and DisplayServer.window_get_size().y == 1080:
+		$"Resolution Drop Down Menu".selected = 0
+	
+	if DisplayServer.window_get_size().x == 1600 and DisplayServer.window_get_size().y == 900:
+		$"Resolution Drop Down Menu".selected = 1
+	
+	if DisplayServer.window_get_size().x == 1360 and DisplayServer.window_get_size().y == 768:
+		$"Resolution Drop Down Menu".selected = 2
+	
+	if DisplayServer.window_get_size().x == 1280 and DisplayServer.window_get_size().y == 960:
+		$"Resolution Drop Down Menu".selected = 3
+	
+	if DisplayServer.window_get_size().x == 1024 and DisplayServer.window_get_size().y == 768:
+		$"Resolution Drop Down Menu".selected = 4
+	
+	if DisplayServer.window_get_size().x == 800 and DisplayServer.window_get_size().y == 600:
+		$"Resolution Drop Down Menu".selected = 5
+	
 	# Make the drop down color yellow for now
 	$"Resolution Drop Down Color".color = Color(1.0, 1.0, 0.0, 1.0)
 	
@@ -84,14 +103,14 @@ func _ready():
 	# Initialize the SFX volume size here
 	$"SFX Volume Text".size = Vector2(100, 50)
 	
-	# Set the min and max values of the music volume slider to be 0 and 100, respectively
+	# Set the min and max values of the SFX volume slider to be 0 and 100, respectively
 	$"SFX Volume Slider".min_value = 0
 	$"SFX Volume Slider".max_value = 100
 	
-	# Initialize the music volume slider here
+	# Initialize the SFX volume slider here
 	$"SFX Volume Slider".size = Vector2(100, 50)
 	
-	# Set the music volume slider value to equal to its max value by default
+	# Set the SFX volume value equal to the max value of the SFX volume slider
 	$"SFX Volume Slider".value = $"SFX Volume Slider".max_value
 	
 	# Initialize the SFX volume percentage to say whatever the SFX volume slider value currently is
