@@ -5,6 +5,9 @@ extends Node
 func _ready():
 	#pass # Replace with function body.
 	
+	# Set the window mode to windowed at start
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	
 	# Initialize the main menu title text to say Main Menu for now
 	$"Main Menu Title".text = "Main Menu"
 	
