@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0ri8eb2c04dq"]
+
+[ext_resource type="Script" path="res://Options Menu.gd" id="1_vynna"]
+
+[node name="Options Menu Node" type="Node"]
+script = ExtResource("1_vynna")
+
+[node name="Options Menu Title" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
