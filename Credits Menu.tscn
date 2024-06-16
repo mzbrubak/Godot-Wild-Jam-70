@@ -1,18 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxiw7n0s2pgje"]
+[gd_scene load_steps=4 format=3 uid="uid://bxiw7n0s2pgje"]
 
 [ext_resource type="Script" path="res://Credits Menu.gd" id="1_iy17k"]
 [ext_resource type="Texture2D" uid="uid://c7vjhi35m78nu" path="res://Art/Button5.png" id="1_kncpg"]
+[ext_resource type="FontFile" uid="uid://c78kxo36torct" path="res://Fonts/CHERI___.TTF" id="2_kg4yb"]
 
 [node name="Credits Menu Node" type="Node"]
 script = ExtResource("1_iy17k")
+creditsMenuFont = ExtResource("2_kg4yb")
 
 [node name="Credits Menu Title" type="Label" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -55.0
-offset_right = -15.0
-offset_bottom = 23.0
+offset_top = 30.0
+offset_right = 40.0
+offset_bottom = 53.0
 grow_horizontal = 2
 
 [node name="Back Button" type="Button" parent="."]
@@ -55,9 +57,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
+offset_left = -5.0
 offset_top = -240.0
-offset_right = 20.0
+offset_right = 35.0
 offset_bottom = -217.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -81,9 +83,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -30.0
+offset_left = -10.0
 offset_top = -140.0
-offset_right = 10.0
+offset_right = 30.0
 offset_bottom = -117.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -107,9 +109,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -30.0
+offset_left = -10.0
 offset_top = -40.0
-offset_right = 10.0
+offset_right = 30.0
 offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -133,9 +135,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -25.0
+offset_left = -10.0
 offset_top = 60.0
-offset_right = 15.0
+offset_right = 30.0
 offset_bottom = 83.0
 grow_horizontal = 2
 grow_vertical = 2

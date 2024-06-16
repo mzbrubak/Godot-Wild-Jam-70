@@ -1,5 +1,8 @@
 extends Node
 
+# Set the font to whatever we want inside the inspector
+@export var optionsMenuFont : Font
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#pass # Replace with function body.
@@ -10,6 +13,12 @@ func _ready():
 	# Align both the vertical and horizontal alignments of the options menu text at the center of the text box
 	$"Options Menu Title".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	$"Options Menu Title".horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	
+	# Use the main menu add theme font override to use the font we set in the inspector
+	$"Options Menu Title".add_theme_font_override("font", optionsMenuFont)
+	
+	# Use the main menu add theme font size override to set the font size to 50
+	$"Options Menu Title".add_theme_font_size_override("font_size", 50)
 	
 	# Set the options menu title text size to x = 100 and y = 50
 	$"Options Menu Title".size = Vector2(100, 50)
@@ -24,12 +33,24 @@ func _ready():
 	$"Back Button/Back Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	$"Back Button/Back Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	
-	# Set the back button text size to x = 107 and y = 55
-	$"Back Button/Back Text".size = Vector2(107, 55)
+	# Use the options button text to add theme font override to use the font we set in the inspector
+	$"Back Button/Back Text".add_theme_font_override("font", optionsMenuFont)
+	
+	# Use the options button text to add theme font size override to set the font size to 30
+	$"Back Button/Back Text".add_theme_font_size_override("font_size", 30)
+	
+	# Set the back button text size to x = 107 and y = 60
+	$"Back Button/Back Text".size = Vector2(107, 60)
 	
 	# Initialize the resolution drop down color and menu here
-	$"Resolution Drop Down Color".size = Vector2(107, 50)
+	$"Resolution Drop Down Color".size = Vector2(120, 50)
 	$"Resolution Drop Down Menu".size = Vector2(100, 50)
+	
+	# Use the resolution drop down menu text to add theme font override to use the font we set in the inspector
+	$"Resolution Drop Down Menu".add_theme_font_override("font", optionsMenuFont)
+	
+	# Use the resolution drop down menu text to add theme font size override to set the font size to 20
+	$"Resolution Drop Down Menu".add_theme_font_size_override("font_size", 20)
 	
 	# Add the resolution settings below for the player to pick the window resolution
 	$"Resolution Drop Down Menu".add_item("1920x1080")
@@ -67,6 +88,12 @@ func _ready():
 	$"Resolution Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	$"Resolution Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	
+	# Use the resolution text to add theme font override to use the font we set in the inspector
+	$"Resolution Text".add_theme_font_override("font", optionsMenuFont)
+	
+	# Use the resolution text to add theme font size override to set the font size to 25
+	$"Resolution Text".add_theme_font_size_override("font_size", 25)
+	
 	# Initialize the fullscreen text size here
 	$"Resolution Text".size = Vector2(100, 50)
 	
@@ -76,6 +103,12 @@ func _ready():
 	# Align the music volume text center vertically and right horizontally
 	$"Music Volume Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	$"Music Volume Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	
+	# Use the music volume text to add theme font override to use the font we set in the inspector
+	$"Music Volume Text".add_theme_font_override("font", optionsMenuFont)
+	
+	# Use the music volume text to add theme font size override to set the font size to 20
+	$"Music Volume Text".add_theme_font_size_override("font_size", 20)
 	
 	# Initialize the music volume size here
 	$"Music Volume Text".size = Vector2(100, 50)
@@ -90,8 +123,14 @@ func _ready():
 	# Set the music volume slider value to equal to its max value by default
 	$"Music Volume Slider".value = $"Music Volume Slider".max_value
 	
+	# Use the music volume percentage text to add theme font override to use the font we set in the inspector
+	$"Music Volume Slider/Music Volume Percentage".add_theme_font_override("font", optionsMenuFont)
+	
+	# Use the music volume percentage text to add theme font size override to set the font size to 20
+	$"Music Volume Slider/Music Volume Percentage".add_theme_font_size_override("font_size", 25)
+	
 	# Initialize the music volume percentage to say whatever the music volume slider value currently is
-	$"Music Volume Slider/Music Volume Percentage".text = "%s" % $"Music Volume Slider".value + "%"
+	$"Music Volume Slider/Music Volume Percentage".text = "%s" % $"Music Volume Slider".value
 	
 	# Set the SFX volume text to say SFX Volume
 	$"SFX Volume Text".text = "SFX Volume"
@@ -99,6 +138,12 @@ func _ready():
 	# Align the SFX volume text center vertically and right horizontally
 	$"SFX Volume Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	$"SFX Volume Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	
+	# Use the SFX volume text to add theme font override to use the font we set in the inspector
+	$"SFX Volume Text".add_theme_font_override("font", optionsMenuFont)
+	
+	# Use the SFX volume text to add theme font size override to set the font size to 20
+	$"SFX Volume Text".add_theme_font_size_override("font_size", 20)
 	
 	# Initialize the SFX volume size here
 	$"SFX Volume Text".size = Vector2(100, 50)
@@ -113,8 +158,14 @@ func _ready():
 	# Set the SFX volume value equal to the max value of the SFX volume slider
 	$"SFX Volume Slider".value = $"SFX Volume Slider".max_value
 	
+	# Use the SFX volume percentage text to add theme font override to use the font we set in the inspector
+	$"SFX Volume Slider/SFX Volume Percentage".add_theme_font_override("font", optionsMenuFont)
+	
+	# Use the SFX volume percentage text to add theme font size override to set the font size to 20
+	$"SFX Volume Slider/SFX Volume Percentage".add_theme_font_size_override("font_size", 25)
+	
 	# Initialize the SFX volume percentage to say whatever the SFX volume slider value currently is
-	$"SFX Volume Slider/SFX Volume Percentage".text = "%s" % $"SFX Volume Slider".value + "%"
+	$"SFX Volume Slider/SFX Volume Percentage".text = "%s" % $"SFX Volume Slider".value
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -122,10 +173,10 @@ func _process(delta):
 	#pass
 	
 	# Initialize the music volume percentage to say whatever the music volume slider value currently is on process
-	$"Music Volume Slider/Music Volume Percentage".text = "%s" % $"Music Volume Slider".value + "%"
+	$"Music Volume Slider/Music Volume Percentage".text = "%s" % $"Music Volume Slider".value
 	
 	# Initialize the SFX volume percentage to say whatever the SFX volume slider value currently is
-	$"SFX Volume Slider/SFX Volume Percentage".text = "%s" % $"SFX Volume Slider".value + "%"
+	$"SFX Volume Slider/SFX Volume Percentage".text = "%s" % $"SFX Volume Slider".value
 
 
 func IfBackButtonIsPressed():

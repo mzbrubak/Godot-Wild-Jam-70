@@ -1,5 +1,7 @@
 extends Node
 
+# Set the font to whatever we want inside the inspector
+@export var creditsMenuFont : Font
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,6 +13,12 @@ func _ready():
 	# Align both the vertical and horizontal alignments of the credits menu title text at the center of the text box
 	$"Credits Menu Title".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	$"Credits Menu Title".horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	
+	# Use the credits menu title add theme font override to use the font we set in the inspector
+	$"Credits Menu Title".add_theme_font_override("font", creditsMenuFont)
+	
+	# Use the credits menu title add theme font size override to set the font size to 50
+	$"Credits Menu Title".add_theme_font_size_override("font_size", 50)
 	
 	# Set the credits menu title text size to x = 100 and y = 50
 	$"Credits Menu Title".size = Vector2(100, 50)
@@ -25,6 +33,12 @@ func _ready():
 	$"Back Button/Back Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	$"Back Button/Back Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	
+	# Use the back button text to add theme font override to use the font we set in the inspector
+	$"Back Button/Back Text".add_theme_font_override("font", creditsMenuFont)
+	
+	# Use the back button text to add theme font size override to set the font size to 30
+	$"Back Button/Back Text".add_theme_font_size_override("font_size", 30)
+	
 	# Set the back button text size to x = 107 and y = 55
 	$"Back Button/Back Text".size = Vector2(107, 55)
 	
@@ -38,8 +52,11 @@ func _ready():
 	$"Programmer Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	$"Programmer Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	
-	# Add the programmer theme font size to override the value set in the inspector from 1 to size 20
-	$"Programmer Text".add_theme_font_size_override("font_size", 20)
+	# Use the programmer text add theme font override to use the font we set in the inspector
+	$"Programmer Text".add_theme_font_override("font", creditsMenuFont)
+	
+	# Add the programmer theme font size to override the value set in the inspector from 1 to size 25
+	$"Programmer Text".add_theme_font_size_override("font_size", 25)
 	
 	# Set the programmer names text to equal to our programming team
 	$"Programmer Names Text".text = "Osama Hussein\nFelix DuBois"
@@ -51,8 +68,11 @@ func _ready():
 	$"Programmer Names Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	$"Programmer Names Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 	
-	# Use the add theme font size override to set the font size of the Programmer Names Text
-	$"Programmer Names Text".add_theme_font_size_override("font_size", 20)
+	# Use the programmer names text add theme font override to use the font we set in the inspector
+	$"Programmer Names Text".add_theme_font_override("font", creditsMenuFont)
+	
+	# Use the add theme font size override to set the font size to 25 of the Programmer Names Text
+	$"Programmer Names Text".add_theme_font_size_override("font_size", 25)
 	
 	# Set the Art Design text to say Art design
 	$"Art Design Text".text = "Art design"
@@ -64,8 +84,11 @@ func _ready():
 	$"Art Design Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	$"Art Design Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	
-	# Set the art design theme font size to override to font size 20
-	$"Art Design Text".add_theme_font_size_override("font_size", 20)
+	# Use the art design text add theme font override to use the font we set in the inspector
+	$"Art Design Text".add_theme_font_override("font", creditsMenuFont)
+	
+	# Set the art design theme font size to override to font size 25
+	$"Art Design Text".add_theme_font_size_override("font_size", 25)
 	
 	# Give credit to the artist in our team
 	$"Art Design Name Text".text = "DrillMonttv"
@@ -77,8 +100,11 @@ func _ready():
 	$"Art Design Name Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	$"Art Design Name Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 	
-	# Set the art design name theme font size to override to font size 20
-	$"Art Design Name Text".add_theme_font_size_override("font_size", 20)
+	# Use the art design name text add theme font override to use the font we set in the inspector
+	$"Art Design Name Text".add_theme_font_override("font", creditsMenuFont)
+	
+	# Set the art design name theme font size to override to font size 25
+	$"Art Design Name Text".add_theme_font_size_override("font_size", 25)
 	
 	# Make the sound composer text say Sound composer
 	$"Sound Composer Text".text = "Sound composer"
@@ -90,8 +116,11 @@ func _ready():
 	$"Sound Composer Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	$"Sound Composer Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	
-	# Set the sound composer theme font size to override to font size 20
-	$"Sound Composer Text".add_theme_font_size_override("font_size", 20)
+	# Use the sound composer text add theme font override to use the font we set in the inspector
+	$"Sound Composer Text".add_theme_font_override("font", creditsMenuFont)
+	
+	# Set the sound composer theme font size to override to font size 25
+	$"Sound Composer Text".add_theme_font_size_override("font_size", 25)
 	
 	# Set the sound composer name text equal to our sound composer team
 	$"Sound Composer Name Text".text = "Felipe Yatri"
@@ -103,8 +132,11 @@ func _ready():
 	$"Sound Composer Name Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	$"Sound Composer Name Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 	
-	# Set the sound composer name theme font size to override to font size 20
-	$"Sound Composer Name Text".add_theme_font_size_override("font_size", 20)
+	# Use the sound composer name text add theme font override to use the font we set in the inspector
+	$"Sound Composer Name Text".add_theme_font_override("font", creditsMenuFont)
+	
+	# Set the sound composer name theme font size to override to font size 25
+	$"Sound Composer Name Text".add_theme_font_size_override("font_size", 25)
 	
 	# Make the producer text say Producer
 	$"Producer Text".text = "Producer"
@@ -116,8 +148,11 @@ func _ready():
 	$"Producer Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	$"Producer Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	
-	# Set the producer theme font size to override to font size 20
-	$"Producer Text".add_theme_font_size_override("font_size", 20)
+	# Use the producer text add theme font override to use the font we set in the inspector
+	$"Producer Text".add_theme_font_override("font", creditsMenuFont)
+	
+	# Set the producer theme font size to override to font size 25
+	$"Producer Text".add_theme_font_size_override("font_size", 25)
 	
 	# Give credit to our producer team
 	$"Producer Name Text".text = "Felix DuBois"
@@ -129,8 +164,11 @@ func _ready():
 	$"Producer Name Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	$"Producer Name Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 	
-	# Set the producer name theme font size to override to font size 20
-	$"Producer Name Text".add_theme_font_size_override("font_size", 20)
+	# Use the producer name text add theme font override to use the font we set in the inspector
+	$"Producer Name Text".add_theme_font_override("font", creditsMenuFont)
+	
+	# Set the producer name theme font size to override to font size 25
+	$"Producer Name Text".add_theme_font_size_override("font_size", 25)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
