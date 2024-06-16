@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0ri8eb2c04dq"]
+[gd_scene load_steps=6 format=3 uid="uid://c0ri8eb2c04dq"]
 
+[ext_resource type="Script" path="res://Music Volume.gd" id="1_ltspv"]
 [ext_resource type="Script" path="res://Options Menu.gd" id="1_vynna"]
 [ext_resource type="Texture2D" uid="uid://c7vjhi35m78nu" path="res://Art/Button5.png" id="2_i53x6"]
 [ext_resource type="FontFile" uid="uid://c78kxo36torct" path="res://Fonts/CHERI___.TTF" id="2_sqi0b"]
+[ext_resource type="Script" path="res://SFX Volume.gd" id="5_d3qnu"]
 
 [node name="Options Menu Node" type="Node"]
 script = ExtResource("1_vynna")
@@ -88,6 +90,7 @@ offset_right = -2.0
 offset_bottom = -224.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ltspv")
 
 [node name="Music Volume Percentage" type="Label" parent="Music Volume Slider"]
 layout_mode = 0
@@ -114,6 +117,7 @@ offset_right = -2.0
 offset_bottom = -124.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("5_d3qnu")
 
 [node name="SFX Volume Percentage" type="Label" parent="SFX Volume Slider"]
 layout_mode = 0

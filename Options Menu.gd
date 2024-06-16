@@ -3,6 +3,7 @@ extends Node
 # Set the font to whatever we want inside the inspector
 @export var optionsMenuFont : Font
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#pass # Replace with function body.
@@ -120,8 +121,8 @@ func _ready():
 	# Initialize the music volume slider here
 	$"Music Volume Slider".size = Vector2(100, 50)
 	
-	# Set the music volume slider value to equal to its max value by default
-	$"Music Volume Slider".value = $"Music Volume Slider".max_value
+	# Set the music volume slider to its maximum volume at start
+	$"Music Volume Slider".value = MusicVolume.musicVolume
 	
 	# Use the music volume percentage text to add theme font override to use the font we set in the inspector
 	$"Music Volume Slider/Music Volume Percentage".add_theme_font_override("font", optionsMenuFont)
@@ -155,8 +156,8 @@ func _ready():
 	# Initialize the SFX volume slider here
 	$"SFX Volume Slider".size = Vector2(100, 50)
 	
-	# Set the SFX volume value equal to the max value of the SFX volume slider
-	$"SFX Volume Slider".value = $"SFX Volume Slider".max_value
+	# Set the SFX volume value equal to the sfx volume variable
+	$"SFX Volume Slider".value = SfxVolume.sfxVolume
 	
 	# Use the SFX volume percentage text to add theme font override to use the font we set in the inspector
 	$"SFX Volume Slider/SFX Volume Percentage".add_theme_font_override("font", optionsMenuFont)
@@ -175,8 +176,14 @@ func _process(delta):
 	# Initialize the music volume percentage to say whatever the music volume slider value currently is on process
 	$"Music Volume Slider/Music Volume Percentage".text = "%s" % $"Music Volume Slider".value
 	
+	# Save the music volume to equal whatever the value of the music volume slider the player set it to
+	MusicVolume.musicVolume = $"Music Volume Slider".value
+	
 	# Initialize the SFX volume percentage to say whatever the SFX volume slider value currently is
 	$"SFX Volume Slider/SFX Volume Percentage".text = "%s" % $"SFX Volume Slider".value
+	
+	# Save the SFX volume to equal whatever the value of the SFX volume slider the player set it to
+	SfxVolume.sfxVolume = $"SFX Volume Slider".value
 
 
 func IfBackButtonIsPressed():
