@@ -27,6 +27,110 @@ func _ready():
 	
 	# Set the back button text size to x = 107 and y = 55
 	$"Back Button/Back Text".size = Vector2(107, 55)
+	
+	# Set the programmer text to say Programmer
+	$"Programmer Text".text = "Programmer"
+	
+	# Set the programmer text size to be 100 by 50
+	$"Programmer Text".size = Vector2(100, 50)
+	
+	# Align the programmer text at center right
+	$"Programmer Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	$"Programmer Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	
+	# Add the programmer theme font size to override the value set in the inspector from 1 to size 20
+	$"Programmer Text".add_theme_font_size_override("font_size", 20)
+	
+	# Set the programmer names text to equal to our programming team
+	$"Programmer Names Text".text = "Osama Hussein\nFelix DuBois"
+	
+	# Set the programmer names text size to 100 by 50
+	$"Programmer Names Text".size = Vector2(100, 50)
+	
+	# Set the programmer names text to align at center left
+	$"Programmer Names Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	$"Programmer Names Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	
+	# Use the add theme font size override to set the font size of the Programmer Names Text
+	$"Programmer Names Text".add_theme_font_size_override("font_size", 20)
+	
+	# Set the Art Design text to say Art design
+	$"Art Design Text".text = "Art design"
+	
+	# Set the art design text size to be 100 by 50
+	$"Art Design Text".size = Vector2(100, 50)
+	
+	# Set the art design text to align at center right
+	$"Art Design Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	$"Art Design Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	
+	# Set the art design theme font size to override to font size 20
+	$"Art Design Text".add_theme_font_size_override("font_size", 20)
+	
+	# Give credit to the artist in our team
+	$"Art Design Name Text".text = "DrillMonttv"
+	
+	# Set the art design name text size to be 100 by 50
+	$"Art Design Name Text".size = Vector2(100, 50)
+	
+	# Set the art design name text to align at center left
+	$"Art Design Name Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	$"Art Design Name Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	
+	# Set the art design name theme font size to override to font size 20
+	$"Art Design Name Text".add_theme_font_size_override("font_size", 20)
+	
+	# Make the sound composer text say Sound composer
+	$"Sound Composer Text".text = "Sound composer"
+	
+	# Set the sound composer text size to be 100 by 50
+	$"Sound Composer Text".size = Vector2(100, 50)
+	
+	# Align the sound composer text center right
+	$"Sound Composer Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	$"Sound Composer Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	
+	# Set the sound composer theme font size to override to font size 20
+	$"Sound Composer Text".add_theme_font_size_override("font_size", 20)
+	
+	# Set the sound composer name text equal to our sound composer team
+	$"Sound Composer Name Text".text = "Felipe Yatri"
+	
+	# Set the sound composer name text size to be 100 by 50
+	$"Sound Composer Name Text".size = Vector2(100, 50)
+	
+	# Align the sound composer name text center left
+	$"Sound Composer Name Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	$"Sound Composer Name Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	
+	# Set the sound composer name theme font size to override to font size 20
+	$"Sound Composer Name Text".add_theme_font_size_override("font_size", 20)
+	
+	# Make the producer text say Producer
+	$"Producer Text".text = "Producer"
+	
+	# Set the producer text size to be 100 by 50
+	$"Producer Text".size = Vector2(100, 50)
+	
+	# Align the producer text center right
+	$"Producer Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	$"Producer Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	
+	# Set the producer theme font size to override to font size 20
+	$"Producer Text".add_theme_font_size_override("font_size", 20)
+	
+	# Give credit to our producer team
+	$"Producer Name Text".text = "Felix DuBois"
+	
+	# Set the producer name text size to be 100 by 50
+	$"Producer Name Text".size = Vector2(100, 50)
+	
+	# Align the producer name text center left
+	$"Producer Name Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	$"Producer Name Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	
+	# Set the producer name theme font size to override to font size 20
+	$"Producer Name Text".add_theme_font_size_override("font_size", 20)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
