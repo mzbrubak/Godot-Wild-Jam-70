@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var pause_menu = $PauseMenu
+
 @export var characterBaseFont : Font
 
 var health:int = 10
@@ -14,6 +16,9 @@ var hitbox
 
 var playerMovement
 
+# Set the is game paused to false because the player hasn't paused the game yet
+var isGamePaused = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pathfinder=find_child("NavigationAgent2D")
@@ -23,18 +28,8 @@ func _ready():
 	# Establish the player movement vector to 0 for both x and y because the player hasn't moved yet
 	playerMovement = Vector2(0, 0)
 	
-	# Hide the pause game text at start to tell the player they haven't paused the game yet
-	get_node("Pause Game Label").hide()
-	
-	# Set the pause game text top level to true to prevent it from moving in-game
-	get_node("Pause Game Label").top_level = true
-	
-	# Tell the player that the game is paused
-	get_node("Pause Game Label").text = "Game Paused!"
-	
-	# Use the font we set in the inspector and set the font size to 50 for the pause game text
-	get_node("Pause Game Label").add_theme_font_override("font", characterBaseFont)
-	get_node("Pause Game Label").add_theme_font_size_override("font_size", 50)
+	# Hide the pause menu scene at start of the character base scene
+	pause_menu.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -57,17 +52,9 @@ func _process(delta):
 	if Input.is_action_pressed("Move Up"):
 		playerMovement -= Vector2(0, 1)
 	
-	# If the player wants to pause the game and the game is not paused yet
-	if Input.is_action_just_pressed("Pause Game") and get_tree().paused == false:
-		get_tree().paused = true
-		
-		$"Pause Game Label".show()
-	
-	# Else if the player wants to resume the game and the game is paused (this doesn't work for some reason)
-	elif Input.is_action_just_pressed("Pause Game") and get_tree().paused == true:
-		get_tree().paused = false
-		
-		$"Pause Game Label".hide()
+	# If the player wants to pause the game, then use the pauseMenu function to pause the game
+	if Input.is_action_just_pressed("Pause Game"):
+		pauseMenu()
 	
 	# If the player is currently moving, normalize the playe movement vector to prevent fast diagonal movement
 	if playerMovement.length() > 0:
@@ -79,3 +66,20 @@ func _process(delta):
 func do_currenttask():
 	pass#actually do a thing
 	schedule.popTask()
+
+func pauseMenu():
+	
+	# Basically, if is game paused is false then hide the pause menu and set the engine time scale to 1
+	if isGamePaused:
+		pause_menu.hide()
+		Engine.time_scale = 1
+	
+	# Else if is game paused is true, then show the pause menu and set the engine time scale to 0 to pause the scene
+	else:
+		pause_menu.show()
+		Engine.time_scale = 0
+	
+	# Set the is game paused equal to not paused so that the player can resume the game again
+	isGamePaused = !isGamePaused
+
+

@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://50jtafvlwpyg"]
+
+[ext_resource type="Script" path="res://Scenes/Pause Menu.gd" id="1_647en"]
+[ext_resource type="FontFile" uid="uid://pwg2u1lrabc3" path="res://Fonts/Fairy Font.ttf" id="1_cmfw4"]
+[ext_resource type="Texture2D" uid="uid://rtdoilkakqy8" path="res://Art/Button.png" id="1_x5gkp"]
+[ext_resource type="Texture2D" uid="uid://c7vjhi35m78nu" path="res://Art/Button5.png" id="2_8uyo0"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_647en")
+pauseMenuFont = ExtResource("1_cmfw4")
+
+[node name="Pause Menu Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -55.0
+offset_top = 50.0
+offset_right = 53.0
+offset_bottom = 73.0
+grow_horizontal = 2
+
+[node name="Resume Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -110.0
+offset_top = 500.0
+offset_right = -2.0
+offset_bottom = 558.0
+grow_horizontal = 2
+icon = ExtResource("1_x5gkp")
+
+[node name="Resume Button Text" type="Label" parent="Resume Button"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Quit Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -110.0
+offset_top = 700.0
+offset_right = -2.0
+offset_bottom = 758.0
+grow_horizontal = 2
+icon = ExtResource("2_8uyo0")
+
+[node name="Quit Button Text" type="Label" parent="Quit Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="pressed" from="Resume Button" to="." method="IfResumeButtonIsPressed"]
+[connection signal="pressed" from="Quit Button" to="." method="IfQuitButtonIsPressed"]
