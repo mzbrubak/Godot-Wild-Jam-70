@@ -52,4 +52,4 @@ func IfBackButtonIsPressed():
 	#pass # Replace with function body.
 	
 	# Go back to the main menu
-	get_tree().change_scene_to_file("res://Main Menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Main Menu.tscn")

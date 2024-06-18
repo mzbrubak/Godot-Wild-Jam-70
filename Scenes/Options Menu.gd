@@ -1,5 +1,6 @@
 extends Node
 
+
 # Set the font to whatever we want inside the inspector
 @export var optionsMenuFont : Font
 
@@ -92,8 +93,8 @@ func _ready():
 	# Use the resolution text to add theme font override to use the font we set in the inspector
 	$"Resolution Text".add_theme_font_override("font", optionsMenuFont)
 	
-	# Use the resolution text to add theme font size override to set the font size to 25
-	$"Resolution Text".add_theme_font_size_override("font_size", 25)
+	# Use the resolution text to add theme font size override to set the font size to 20
+	$"Resolution Text".add_theme_font_size_override("font_size", 20)
 	
 	# Initialize the fullscreen text size here
 	$"Resolution Text".size = Vector2(100, 50)
@@ -190,7 +191,7 @@ func IfBackButtonIsPressed():
 	#pass # Replace with function body.
 	
 	# Go back to the main menu when the player presses the back button
-	get_tree().change_scene_to_file("res://Main Menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Main Menu.tscn")
 
 
 func IfResolutionDropDownMenuIsModified(index):

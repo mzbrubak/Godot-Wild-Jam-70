@@ -1,15 +1,15 @@
 [gd_scene load_steps=7 format=3 uid="uid://r6s1y7uc8dcf"]
 
-[ext_resource type="Script" path="res://Main Menu.gd" id="1_dhl8a"]
+[ext_resource type="Script" path="res://Scenes/Main Menu.gd" id="1_dhl8a"]
 [ext_resource type="Texture2D" uid="uid://rtdoilkakqy8" path="res://Art/Button.png" id="2_8ai8w"]
-[ext_resource type="FontFile" uid="uid://c78kxo36torct" path="res://Fonts/CHERI___.TTF" id="2_ie6iu"]
+[ext_resource type="FontFile" uid="uid://pwg2u1lrabc3" path="res://Fonts/Fairy Font.ttf" id="2_umtut"]
 [ext_resource type="Texture2D" uid="uid://cj2d5v5jte81h" path="res://Art/Button2.png" id="3_ld4wt"]
 [ext_resource type="Texture2D" uid="uid://cke31uf07no68" path="res://Art/Button3.png" id="4_efmbh"]
 [ext_resource type="Texture2D" uid="uid://76fafx1qryfn" path="res://Art/Button4.png" id="5_lwb86"]
 
 [node name="Main Menu Node" type="Node"]
 script = ExtResource("1_dhl8a")
-mainMenuFont = ExtResource("2_ie6iu")
+mainMenuFont = ExtResource("2_umtut")
 
 [node name="Main Menu Title" type="Label" parent="."]
 anchors_preset = 5
@@ -58,7 +58,8 @@ icon = ExtResource("3_ld4wt")
 
 [node name="How to Play Text" type="Label" parent="How to Play Button"]
 layout_mode = 1
-offset_right = 40.0
+offset_left = 2.0
+offset_right = 42.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 

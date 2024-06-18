@@ -91,7 +91,7 @@ func _ready():
 	$"Art Design Text".add_theme_font_size_override("font_size", 25)
 	
 	# Give credit to the artist in our team
-	$"Art Design Name Text".text = "DrillMonttv"
+	$"Art Design Name Text".text = "Ken"
 	
 	# Set the art design name text size to be 100 by 50
 	$"Art Design Name Text".size = Vector2(100, 50)
@@ -180,4 +180,4 @@ func IfBackButtonIsPressed():
 	#pass # Replace with function body.
 	
 	# Go back to the main menu
-	get_tree().change_scene_to_file("res://Main Menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Main Menu.tscn")

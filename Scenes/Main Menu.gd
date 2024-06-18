@@ -58,8 +58,8 @@ func _ready():
 	# Use the how to play button text to add theme font override to use the font we set in the inspector
 	$"How to Play Button/How to Play Text".add_theme_font_override("font", mainMenuFont)
 	
-	# Use the how to play button text to add theme font size override to set the font size to 15
-	$"How to Play Button/How to Play Text".add_theme_font_size_override("font_size", 15)
+	# Use the how to play button text to add theme font size override to set the font size to 14
+	$"How to Play Button/How to Play Text".add_theme_font_size_override("font_size", 14)
 	
 	# Set the How to Play button text size to x = 107 and y = 55
 	$"How to Play Button".size = Vector2(107, 50)
@@ -117,18 +117,18 @@ func IfOptionsButtonIsPressed():
 	#pass # Replace with function body.
 	
 	# Go to the options menu if the player presses the options button inside the main menu
-	get_tree().change_scene_to_file("res://Options Menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Options Menu.tscn")
 
 
 func IfHowToPlayButtonIsPressed():
 	#pass # Replace with function body.
 	
 	# Go to the how to play menu if the player presses the how to play button inside the main menu
-	get_tree().change_scene_to_file("res://How to Play Menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/How to Play Menu.tscn")
 
 
 func IfCreditsButtonIsPressed():
 	#pass # Replace with function body.
 	
 	# Go to the credits menu if the player presses the credits button inside the main menu
-	get_tree().change_scene_to_file("res://Credits Menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Credits Menu.tscn")
