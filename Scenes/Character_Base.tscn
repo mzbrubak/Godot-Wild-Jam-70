@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://g3vmjlneoiua"]
+
+[ext_resource type="Script" path="res://Scenes/Character_Base.gd" id="1_f8ipx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxusr"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_f8ipx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xxusr")
+
+[node name="NameEntry" type="TextEdit" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+context_menu_enabled = false
+shortcut_keys_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

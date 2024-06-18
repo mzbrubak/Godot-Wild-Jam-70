@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://sh166g276xjy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_irmmn"]
+
+[node name="ClockUI" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_irmmn")
