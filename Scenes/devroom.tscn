@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://dni5wl2k4e2un"]
+
+[ext_resource type="PackedScene" uid="uid://g3vmjlneoiua" path="res://Scenes/Character_Base.tscn" id="1_j2b0h"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2jvre"]
+normal = Vector2(-1, 0)
+distance = -604.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5wv2g"]
+distance = -978.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cexcf"]
+normal = Vector2(0, 1)
+distance = 111.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ptkku"]
+normal = Vector2(1, 0)
+distance = 452.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vjum6"]
+radius = 273.649
+
+[node name="Polygon2D" type="Polygon2D"]
+color = Color(0.388276, 0.312752, 0.215595, 1)
+polygon = PackedVector2Array(0, 3, 1918, 3, 1921, 1083, -3, 1081)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2(327, 458)
+shape = SubResource("WorldBoundaryShape2D_2jvre")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(280, 68)
+shape = SubResource("WorldBoundaryShape2D_5wv2g")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(283, -65)
+shape = SubResource("WorldBoundaryShape2D_cexcf")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-362, 462)
+shape = SubResource("WorldBoundaryShape2D_ptkku")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_j2b0h")]
+position = Vector2(132, 139)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(612, 589)
+shape = SubResource("CircleShape2D_vjum6")

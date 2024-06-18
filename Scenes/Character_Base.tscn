@@ -7,6 +7,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxusr"]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 5
+collision_mask = 21
+motion_mode = 1
 script = ExtResource("1_f8ipx")
 characterBaseFont = ExtResource("2_gjeim")
 
@@ -14,8 +17,10 @@ characterBaseFont = ExtResource("2_gjeim")
 shape = SubResource("RectangleShape2D_xxusr")
 
 [node name="NameEntry" type="TextEdit" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
 context_menu_enabled = false
 shortcut_keys_enabled = false
 drag_and_drop_selection_enabled = false

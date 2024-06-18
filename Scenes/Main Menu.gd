@@ -112,6 +112,9 @@ func _process(delta):
 	if Input.is_action_pressed("Quit"):
 		get_tree().quit()
 
+func IfPlayButtonIsPressed():
+	#go to dev room for testing when hitting play in the main menu
+	get_tree().change_scene_to_file("res://Scenes/devroom.tscn")
 
 func IfOptionsButtonIsPressed():
 	#pass # Replace with function body.

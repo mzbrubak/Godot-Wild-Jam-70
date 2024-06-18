@@ -6,7 +6,7 @@ extends CharacterBody2D
 
 var health:int = 10
 var NAME:String = "Name"
-var speed:int = 5
+var speed:int = 50
 var patience:int = 3 #how long character will try to do tasks that are late
 var schedule=Schedule.new()
 #also making variables to more easily access children nodes
@@ -34,34 +34,16 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#pass
-	
-	# Move the player to the right when pressing the move right input
-	if Input.is_action_pressed("Move Right"):
-		playerMovement += Vector2(1, 0)
-	
-	# Move the player to the left when pressing the move left input
-	if Input.is_action_pressed("Move Left"):
-		playerMovement -= Vector2(1, 0)
-	
-	# Move the player downward when pressing the move down input
-	if Input.is_action_pressed("Move Down"):
-		playerMovement += Vector2(0, 1)
-	
-	# Move the player upward when pressing the move up input
-	if Input.is_action_pressed("Move Up"):
-		playerMovement -= Vector2(0, 1)
-	
-	# If the player wants to pause the game, then use the pauseMenu function to pause the game
 	if Input.is_action_just_pressed("Pause Game"):
 		pauseMenu()
 	
+
+
+func _physics_process(delta):
+	velocity=Input.get_vector("Move Left","Move Right","Move Up","Move Down")
 	# If the player is currently moving, normalize the playe movement vector to prevent fast diagonal movement
-	if playerMovement.length() > 0:
-		playerMovement = playerMovement.normalized() * speed
-	
-	# Update the player's position consistently per frame using the player movement vector times by delta
-	position += playerMovement * delta
+	if velocity.length() > 0:
+		velocity = velocity.normalized() * speed
 
 func do_currenttask():
 	pass#actually do a thing
