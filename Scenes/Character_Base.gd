@@ -44,6 +44,7 @@ func _physics_process(delta):
 	# If the player is currently moving, normalize the playe movement vector to prevent fast diagonal movement
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
+	move_and_slide()
 
 func do_currenttask():
 	pass#actually do a thing

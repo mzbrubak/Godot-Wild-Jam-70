@@ -43,7 +43,7 @@ position = Vector2(-362, 462)
 shape = SubResource("WorldBoundaryShape2D_ptkku")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_j2b0h")]
-position = Vector2(132, 139)
+position = Vector2(323, 252)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
