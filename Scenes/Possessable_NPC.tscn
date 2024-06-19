@@ -1,13 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bb8odyrqprt6v"]
+[gd_scene load_steps=5 format=3 uid="uid://bb8odyrqprt6v"]
 
 [ext_resource type="Script" path="res://Scenes/Possessable_NPC.gd" id="1_d0muo"]
 [ext_resource type="PackedScene" uid="uid://50jtafvlwpyg" path="res://Scenes/Pause Menu.tscn" id="2_d84pd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxusr"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_txrfd"]
+radius = 24.0208
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
-collision_layer = 5
-collision_mask = 21
 motion_mode = 1
 script = ExtResource("1_d0muo")
 
@@ -30,3 +31,13 @@ drag_and_drop_selection_enabled = false
 [node name="Pause Menu Canvas Layer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="Pause Menu Canvas Layer" instance=ExtResource("2_d84pd")]
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="InteractionAreaShap" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_txrfd")
+
+[connection signal="body_entered" from="InteractionArea" to="." method="IfBodyEntered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="IfBodyExited"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://dni5wl2k4e2un"]
 
-[ext_resource type="PackedScene" uid="uid://g3vmjlneoiua" path="res://Scenes/Character_Base.tscn" id="1_j2b0h"]
-[ext_resource type="Script" path="res://Scenes/Fairy.gd" id="2_orbrw"]
-[ext_resource type="Script" path="res://Scenes/Possessable_NPC.gd" id="3_45gam"]
+[ext_resource type="PackedScene" uid="uid://c0hyana6hkmis" path="res://Scenes/Fairy.tscn" id="2_ylh5w"]
+[ext_resource type="PackedScene" uid="uid://bb8odyrqprt6v" path="res://Scenes/Possessable_NPC.tscn" id="3_xp4y2"]
+[ext_resource type="PackedScene" uid="uid://dcue3mkeww8qw" path="res://Scenes/Interactable_Object.tscn" id="4_lhwlw"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2jvre"]
 normal = Vector2(-1, 0)
@@ -44,16 +44,17 @@ shape = SubResource("WorldBoundaryShape2D_cexcf")
 position = Vector2(-362, 462)
 shape = SubResource("WorldBoundaryShape2D_ptkku")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_j2b0h")]
-position = Vector2(323, 252)
-script = ExtResource("2_orbrw")
+[node name="TestObstacle" type="StaticBody2D" parent="."]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestObstacle"]
 position = Vector2(612, 589)
 shape = SubResource("CircleShape2D_vjum6")
 
-[node name="CharacterBody2D2" parent="." instance=ExtResource("1_j2b0h")]
-position = Vector2(444, 201)
-script = ExtResource("3_45gam")
+[node name="InteractableObject" parent="." instance=ExtResource("4_lhwlw")]
+position = Vector2(378, 173)
+
+[node name="Fairy" parent="." instance=ExtResource("2_ylh5w")]
+position = Vector2(383, 256)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_xp4y2")]
+position = Vector2(560, 174)

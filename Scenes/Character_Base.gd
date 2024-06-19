@@ -32,6 +32,9 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("Pause Game"):
 		pauseMenu()
+	if Input.is_action_just_pressed("Interact"):
+		pass
+
 	
 func _physics_process(delta):
 	velocity=Input.get_vector("Move Left","Move Right","Move Up","Move Down")

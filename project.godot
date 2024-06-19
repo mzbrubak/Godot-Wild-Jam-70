@@ -92,8 +92,6 @@ Unpossess={
 
 [layer_names]
 
-2d_physics/layer_1="Fairy"
-2d_physics/layer_2="Player/PCs"
-2d_physics/layer_3="NPCs"
-2d_physics/layer_4="Interactables"
-2d_physics/layer_5="Walls/Static"
+2d_physics/layer_1="Collision"
+2d_physics/layer_2="InteractionAreas"
+2d_physics/layer_3="Player"

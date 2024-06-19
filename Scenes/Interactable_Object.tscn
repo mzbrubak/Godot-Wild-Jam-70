@@ -1,15 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcue3mkeww8qw"]
+[gd_scene load_steps=4 format=3 uid="uid://dcue3mkeww8qw"]
+
+[ext_resource type="Script" path="res://Scenes/Interactable_Object.gd" id="1_uvber"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_150wk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a5q2o"]
 
-[node name="StaticBody2D" type="StaticBody2D"]
+[node name="Interactable_Object" type="StaticBody2D"]
+script = ExtResource("1_uvber")
 
 [node name="HitboxShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_150wk")
 
 [node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
 
 [node name="InteractionAreaShape" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource("CapsuleShape2D_a5q2o")
+
+[connection signal="body_entered" from="InteractionArea" to="." method="IfBodyEntered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="IfBodyExited"]
