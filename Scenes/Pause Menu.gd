@@ -66,6 +66,28 @@ func _ready():
 	# Use the restart day button text to add theme font size override to set the font size to 14
 	$"Restart Day Button/Restart Day Button Text".add_theme_font_size_override("font_size", 14)
 	
+	# Initialize the options button text to say Options
+	$"Options Button/Options Button Text".text = "Options"
+	
+	# Initialize the quit button size here
+	$"Options Button/Options Button Text".size = Vector2(107, 60)
+	
+	# Set the quit button to scale twice as large than normal
+	$"Options Button".scale = Vector2(2, 2)
+	
+	# ALign both the vertical and horizontal alignments of the quit button text at the center of the text box
+	$"Options Button/Options Button Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	$"Options Button/Options Button Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	
+	# Use the quit button text to add theme font override to use the font we set in the inspector
+	$"Options Button/Options Button Text".add_theme_font_override("font", pauseMenuFont)
+	
+	# Use the quit button text to add theme color override to set the font color to black
+	$"Options Button/Options Button Text".add_theme_color_override("font_color", Color(0, 0, 0, 1))
+	
+	# Use the quit button text to add theme font size override to set the font size to 20
+	$"Options Button/Options Button Text".add_theme_font_size_override("font_size", 20)
+	
 	# Initialize the quit button text to say Quit
 	$"Quit Button/Quit Button Text".text = "Quit"
 	
@@ -87,11 +109,185 @@ func _ready():
 	
 	# Use the quit button text to add theme font size override to set the font size to 20
 	$"Quit Button/Quit Button Text".add_theme_font_size_override("font_size", 20)
+	
+	$"Options Menu In-Game".hide()
+	
+	# Make the options menu title say Options Menu
+	$"Options Menu In-Game/Options Menu In-Game Title".text = "Options Menu"
+	
+	# Align both the vertical and horizontal alignments of the options menu text at the center of the text box
+	$"Options Menu In-Game/Options Menu In-Game Title".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	$"Options Menu In-Game/Options Menu In-Game Title".horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	
+	# Use the main menu add theme font override to use the font we set in the inspector
+	$"Options Menu In-Game/Options Menu In-Game Title".add_theme_font_override("font", pauseMenuFont)
+	
+	# Use the main menu add theme font size override to set the font size to 50
+	$"Options Menu In-Game/Options Menu In-Game Title".add_theme_font_size_override("font_size", 50)
+	
+	# Set the options menu title text size to x = 100 and y = 50
+	$"Options Menu In-Game/Options Menu In-Game Title".size = Vector2(100, 50)
+	
+	# Initialize the back button to say Back
+	$"Options Menu In-Game/Back Button/Back Text".text = "Back"
+	
+	# Initialize the back button size here
+	$"Options Menu In-Game/Back Button".size = Vector2(107, 50)
+	
+	# ALign both the vertical and horizontal alignments of the back text at the center of the text box
+	$"Options Menu In-Game/Back Button/Back Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	$"Options Menu In-Game/Back Button/Back Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	
+	# Use the options button text to add theme font override to use the font we set in the inspector
+	$"Options Menu In-Game/Back Button/Back Text".add_theme_font_override("font", pauseMenuFont)
+	
+	# Use the options button text to add theme font size override to set the font size to 30
+	$"Options Menu In-Game/Back Button/Back Text".add_theme_font_size_override("font_size", 30)
+	
+	# Set the back button text size to x = 107 and y = 60
+	$"Options Menu In-Game/Back Button/Back Text".size = Vector2(107, 60)
+	
+	# Initialize the resolution drop down color and menu here
+	$"Options Menu In-Game/Resolution Drop Down Color".size = Vector2(120, 50)
+	$"Options Menu In-Game/Resolution Drop Down Menu".size = Vector2(100, 50)
+	
+	# Use the resolution drop down menu text to add theme font override to use the font we set in the inspector
+	$"Options Menu In-Game/Resolution Drop Down Menu".add_theme_font_override("font", pauseMenuFont)
+	
+	# Use the resolution drop down menu text to add theme font size override to set the font size to 20
+	$"Options Menu In-Game/Resolution Drop Down Menu".add_theme_font_size_override("font_size", 20)
+	
+	# Add the resolution settings below for the player to pick the window resolution
+	$"Options Menu In-Game/Resolution Drop Down Menu".add_item("1920x1080")
+	$"Options Menu In-Game/Resolution Drop Down Menu".add_item("1600x900")
+	$"Options Menu In-Game/Resolution Drop Down Menu".add_item("1360x768")
+	$"Options Menu In-Game/Resolution Drop Down Menu".add_item("1280x960")
+	$"Options Menu In-Game/Resolution Drop Down Menu".add_item("1024x768")
+	$"Options Menu In-Game/Resolution Drop Down Menu".add_item("800x600")
+	
+	# These if statements below fixes the resolution drop down glitch always selecting the first index
+	if DisplayServer.window_get_size().x == 1920 and DisplayServer.window_get_size().y == 1080:
+		$"Options Menu In-Game/Resolution Drop Down Menu".selected = 0
+	
+	if DisplayServer.window_get_size().x == 1600 and DisplayServer.window_get_size().y == 900:
+		$"Options Menu In-Game/Resolution Drop Down Menu".selected = 1
+	
+	if DisplayServer.window_get_size().x == 1360 and DisplayServer.window_get_size().y == 768:
+		$"Options Menu In-Game/Resolution Drop Down Menu".selected = 2
+	
+	if DisplayServer.window_get_size().x == 1280 and DisplayServer.window_get_size().y == 960:
+		$"Options Menu In-Game/Resolution Drop Down Menu".selected = 3
+	
+	if DisplayServer.window_get_size().x == 1024 and DisplayServer.window_get_size().y == 768:
+		$"Options Menu In-Game/Resolution Drop Down Menu".selected = 4
+	
+	if DisplayServer.window_get_size().x == 800 and DisplayServer.window_get_size().y == 600:
+		$"Options Menu In-Game/Resolution Drop Down Menu".selected = 5
+	
+	# Make the drop down color yellow for now
+	$"Options Menu In-Game/Resolution Drop Down Color".color = Color(1.0, 1.0, 0.0, 1.0)
+	
+	# Make the resolution text node say Resolution
+	$"Options Menu In-Game/Resolution Text".text = "Resolution"
+	
+	$"Options Menu In-Game/Resolution Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	$"Options Menu In-Game/Resolution Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	
+	# Use the resolution text to add theme font override to use the font we set in the inspector
+	$"Options Menu In-Game/Resolution Text".add_theme_font_override("font", pauseMenuFont)
+	
+	# Use the resolution text to add theme font size override to set the font size to 20
+	$"Options Menu In-Game/Resolution Text".add_theme_font_size_override("font_size", 20)
+	
+	# Initialize the fullscreen text size here
+	$"Options Menu In-Game/Resolution Text".size = Vector2(100, 50)
+	
+	# Set the music volume text to say Music Volume
+	$"Options Menu In-Game/Music Volume Text".text = "Music Volume"
+	
+	# Align the music volume text center vertically and right horizontally
+	$"Options Menu In-Game/Music Volume Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	$"Options Menu In-Game/Music Volume Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	
+	# Use the music volume text to add theme font override to use the font we set in the inspector
+	$"Options Menu In-Game/Music Volume Text".add_theme_font_override("font", pauseMenuFont)
+	
+	# Use the music volume text to add theme font size override to set the font size to 20
+	$"Options Menu In-Game/Music Volume Text".add_theme_font_size_override("font_size", 20)
+	
+	# Initialize the music volume size here
+	$"Options Menu In-Game/Music Volume Text".size = Vector2(100, 50)
+	
+	# Set the min and max values of the music volume slider to be 0 and 100, respectively
+	$"Options Menu In-Game/Music Volume Slider".min_value = 0
+	$"Options Menu In-Game/Music Volume Slider".max_value = 100
+	
+	# Initialize the music volume slider here
+	$"Options Menu In-Game/Music Volume Slider".size = Vector2(100, 50)
+	
+	# Set the music volume slider to its maximum volume at start
+	$"Options Menu In-Game/Music Volume Slider".value = MusicVolume.musicVolume
+	
+	# Use the music volume percentage text to add theme font override to use the font we set in the inspector
+	$"Options Menu In-Game/Music Volume Slider/Music Volume Percentage".add_theme_font_override("font", pauseMenuFont)
+	
+	# Use the music volume percentage text to add theme font size override to set the font size to 20
+	$"Options Menu In-Game/Music Volume Slider/Music Volume Percentage".add_theme_font_size_override("font_size", 25)
+	
+	# Initialize the music volume percentage to say whatever the music volume slider value currently is
+	$"Options Menu In-Game/Music Volume Slider/Music Volume Percentage".text = "%s" % $"Options Menu In-Game/Music Volume Slider".value
+	
+	# Set the SFX volume text to say SFX Volume
+	$"Options Menu In-Game/SFX Volume Text".text = "SFX Volume"
+	
+	# Align the SFX volume text center vertically and right horizontally
+	$"Options Menu In-Game/SFX Volume Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	$"Options Menu In-Game/SFX Volume Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	
+	# Use the SFX volume text to add theme font override to use the font we set in the inspector
+	$"Options Menu In-Game/SFX Volume Text".add_theme_font_override("font", pauseMenuFont)
+	
+	# Use the SFX volume text to add theme font size override to set the font size to 20
+	$"Options Menu In-Game/SFX Volume Text".add_theme_font_size_override("font_size", 20)
+	
+	# Initialize the SFX volume size here
+	$"Options Menu In-Game/SFX Volume Text".size = Vector2(100, 50)
+	
+	# Set the min and max values of the SFX volume slider to be 0 and 100, respectively
+	$"Options Menu In-Game/SFX Volume Slider".min_value = 0
+	$"Options Menu In-Game/SFX Volume Slider".max_value = 100
+	
+	# Initialize the SFX volume slider here
+	$"Options Menu In-Game/SFX Volume Slider".size = Vector2(100, 50)
+	
+	# Set the SFX volume value equal to the sfx volume variable
+	$"Options Menu In-Game/SFX Volume Slider".value = SfxVolume.sfxVolume
+	
+	# Use the SFX volume percentage text to add theme font override to use the font we set in the inspector
+	$"Options Menu In-Game/SFX Volume Slider/SFX Volume Percentage".add_theme_font_override("font", pauseMenuFont)
+	
+	# Use the SFX volume percentage text to add theme font size override to set the font size to 20
+	$"Options Menu In-Game/SFX Volume Slider/SFX Volume Percentage".add_theme_font_size_override("font_size", 25)
+	
+	# Initialize the SFX volume percentage to say whatever the SFX volume slider value currently is
+	$"Options Menu In-Game/SFX Volume Slider/SFX Volume Percentage".text = "%s" % $"Options Menu In-Game/SFX Volume Slider".value
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	#pass
+	
+	# Initialize the music volume percentage to say whatever the music volume slider value currently is on process
+	$"Options Menu In-Game/Music Volume Slider/Music Volume Percentage".text = "%s" % $"Options Menu In-Game/Music Volume Slider".value
+	
+	# Save the music volume to equal whatever the value of the music volume slider the player set it to
+	MusicVolume.musicVolume = $"Options Menu In-Game/Music Volume Slider".value
+	
+	# Initialize the SFX volume percentage to say whatever the SFX volume slider value currently is
+	$"Options Menu In-Game/SFX Volume Slider/SFX Volume Percentage".text = "%s" % $"Options Menu In-Game/SFX Volume Slider".value
+	
+	# Save the SFX volume to equal whatever the value of the SFX volume slider the player set it to
+	SfxVolume.sfxVolume = $"Options Menu In-Game/SFX Volume Slider".value
 
 
 func IfResumeButtonIsPressed():
@@ -119,3 +315,62 @@ func IfRestartDayButtonIsPressed():
 	# Only way to move the player around again is to pause and resume each time
 	# This way, the player can move around after reloading the current scene without having to pause and resume
 	characterBase.pauseMenu()
+
+
+func IfOptionsButtonIsPressed():
+	#pass # Replace with function body.
+	
+	# Show the options menu in game node
+	$"Options Menu In-Game".show()
+	
+	# Hide all the pause menu child nodes
+	$"Pause Menu Title".hide()
+	$"Resume Button".hide()
+	$"Restart Day Button".hide()
+	$"Options Button".hide()
+	$"Quit Button".hide()
+
+
+func IfBackButtonIsPressed():
+	#pass # Replace with function body.
+	
+	# Hide the options menu in game node
+	$"Options Menu In-Game".hide()
+	
+	# Show all the pause menu child nodes
+	$"Pause Menu Title".show()
+	$"Resume Button".show()
+	$"Restart Day Button".show()
+	$"Options Button".show()
+	$"Quit Button".show()
+
+
+func IfResolutionDropDownMenuIsModified(index):
+	#pass # Replace with function body.
+	
+	# Store the current resolution index as a variable to check which dropdown option the player selected
+	var currentResolution = index
+	
+	# If the first current resolution is selected, use the window size of 1920x1080
+	if currentResolution == 0:
+		DisplayServer.window_set_size(Vector2i(1920, 1080))
+	
+	# If the second current resolution is selected, use the window size of 1600x900
+	if currentResolution == 1:
+		DisplayServer.window_set_size(Vector2i(1600, 900))
+	
+	# If the third current resolution is selected, use the window size of 1360x768
+	if currentResolution == 2:
+		DisplayServer.window_set_size(Vector2i(1360, 768))
+	
+	# If the fourth current resolution is selected, use the window size of 1280x960
+	if currentResolution == 3:
+		DisplayServer.window_set_size(Vector2i(1280, 960))
+	
+	# If the fifth current resolution is selected, use the window size of 1024x768
+	if currentResolution == 4:
+		DisplayServer.window_set_size(Vector2i(1024, 768))
+	
+	# If the sixth current resolution is selected, use the window size of 800x600
+	if currentResolution == 5:
+		DisplayServer.window_set_size(Vector2i(800, 600))

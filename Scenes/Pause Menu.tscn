@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://50jtafvlwpyg"]
+[gd_scene load_steps=8 format=3 uid="uid://50jtafvlwpyg"]
 
 [ext_resource type="Script" path="res://Scenes/Pause Menu.gd" id="1_647en"]
 [ext_resource type="FontFile" uid="uid://pwg2u1lrabc3" path="res://Fonts/Fairy Font.ttf" id="1_cmfw4"]
 [ext_resource type="Texture2D" uid="uid://rtdoilkakqy8" path="res://Art/Button.png" id="1_x5gkp"]
 [ext_resource type="Texture2D" uid="uid://c7vjhi35m78nu" path="res://Art/Button5.png" id="2_8uyo0"]
+[ext_resource type="Texture2D" uid="uid://cke31uf07no68" path="res://Art/Button3.png" id="4_cayht"]
+[ext_resource type="Script" path="res://Music Volume.gd" id="6_0d4sg"]
+[ext_resource type="Script" path="res://SFX Volume.gd" id="7_o8xl8"]
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -32,9 +35,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -110.0
-offset_top = 400.0
+offset_top = 300.0
 offset_right = -2.0
-offset_bottom = 458.0
+offset_bottom = 358.0
 grow_horizontal = 2
 icon = ExtResource("1_x5gkp")
 
@@ -45,20 +48,34 @@ offset_bottom = 23.0
 
 [node name="Restart Day Button" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
 offset_left = -110.0
-offset_top = 10.0
+offset_top = 450.0
 offset_right = -2.0
-offset_bottom = 68.0
+offset_bottom = 508.0
 grow_horizontal = 2
-grow_vertical = 2
 icon = ExtResource("1_x5gkp")
 
 [node name="Restart Day Button Text" type="Label" parent="Restart Day Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Options Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -110.0
+offset_top = 600.0
+offset_right = -2.0
+offset_bottom = 658.0
+grow_horizontal = 2
+icon = ExtResource("4_cayht")
+
+[node name="Options Button Text" type="Label" parent="Options Button"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
@@ -69,9 +86,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -110.0
-offset_top = 700.0
+offset_top = 750.0
 offset_right = -2.0
-offset_bottom = 758.0
+offset_bottom = 808.0
 grow_horizontal = 2
 icon = ExtResource("2_8uyo0")
 
@@ -80,6 +97,138 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
+[node name="Options Menu In-Game" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Options Menu In-Game Title" type="Label" parent="Options Menu In-Game"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 940.0
+offset_top = 30.0
+offset_right = 980.0
+offset_bottom = 53.0
+grow_horizontal = 2
+
+[node name="Back Button" type="Button" parent="Options Menu In-Game"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 840.0
+offset_top = 810.0
+offset_right = 948.0
+offset_bottom = 868.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+icon = ExtResource("2_8uyo0")
+
+[node name="Back Text" type="Label" parent="Options Menu In-Game/Back Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="Resolution Text" type="Label" parent="Options Menu In-Game"]
+layout_mode = 1
+offset_left = 800.0
+offset_top = 200.0
+offset_right = 840.0
+offset_bottom = 223.0
+
+[node name="Resolution Drop Down Color" type="ColorRect" parent="Options Menu In-Game"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 919.0
+offset_top = 180.0
+offset_right = 919.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resolution Drop Down Menu" type="OptionButton" parent="Options Menu In-Game"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 940.0
+offset_top = 180.0
+offset_right = 985.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Music Volume Text" type="Label" parent="Options Menu In-Game"]
+offset_left = 790.0
+offset_top = 300.0
+offset_right = 830.0
+offset_bottom = 323.0
+
+[node name="Music Volume Slider" type="HSlider" parent="Options Menu In-Game"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 930.0
+offset_top = 280.0
+offset_right = 938.0
+offset_bottom = 296.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_0d4sg")
+
+[node name="Music Volume Percentage" type="Label" parent="Options Menu In-Game/Music Volume Slider"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 12.0
+offset_right = 150.0
+offset_bottom = 35.0
+
+[node name="SFX Volume Text" type="Label" parent="Options Menu In-Game"]
+offset_left = 790.0
+offset_top = 400.0
+offset_right = 830.0
+offset_bottom = 423.0
+
+[node name="SFX Volume Slider" type="HSlider" parent="Options Menu In-Game"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 930.0
+offset_top = 380.0
+offset_right = 938.0
+offset_bottom = 396.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_o8xl8")
+
+[node name="SFX Volume Percentage" type="Label" parent="Options Menu In-Game/SFX Volume Slider"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 12.0
+offset_right = 150.0
+offset_bottom = 35.0
+
 [connection signal="pressed" from="Resume Button" to="." method="IfResumeButtonIsPressed"]
 [connection signal="pressed" from="Restart Day Button" to="." method="IfRestartDayButtonIsPressed"]
+[connection signal="pressed" from="Options Button" to="." method="IfOptionsButtonIsPressed"]
 [connection signal="pressed" from="Quit Button" to="." method="IfQuitButtonIsPressed"]
+[connection signal="pressed" from="Options Menu In-Game/Back Button" to="." method="IfBackButtonIsPressed"]
+[connection signal="item_selected" from="Options Menu In-Game/Resolution Drop Down Menu" to="." method="IfResolutionDropDownMenuIsModified"]
