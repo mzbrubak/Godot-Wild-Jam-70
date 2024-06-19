@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcue3mkeww8qw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_150wk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a5q2o"]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="HitboxShape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_150wk")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="InteractionAreaShape" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CapsuleShape2D_a5q2o")
