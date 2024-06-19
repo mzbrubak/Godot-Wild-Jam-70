@@ -32,14 +32,34 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -110.0
-offset_top = 500.0
+offset_top = 400.0
 offset_right = -2.0
-offset_bottom = 558.0
+offset_bottom = 458.0
 grow_horizontal = 2
 icon = ExtResource("1_x5gkp")
 
 [node name="Resume Button Text" type="Label" parent="Resume Button"]
 layout_mode = 1
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Restart Day Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = 10.0
+offset_right = -2.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("1_x5gkp")
+
+[node name="Restart Day Button Text" type="Label" parent="Restart Day Button"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
@@ -61,4 +81,5 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [connection signal="pressed" from="Resume Button" to="." method="IfResumeButtonIsPressed"]
+[connection signal="pressed" from="Restart Day Button" to="." method="IfRestartDayButtonIsPressed"]
 [connection signal="pressed" from="Quit Button" to="." method="IfQuitButtonIsPressed"]

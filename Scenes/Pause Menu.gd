@@ -44,6 +44,28 @@ func _ready():
 	# Use the resume button text to add theme font size override to set the font size to 20
 	$"Resume Button/Resume Button Text".add_theme_font_size_override("font_size", 20)
 	
+	# Initialize the restart day button text to say Restart Day
+	$"Restart Day Button/Restart Day Button Text".text = "Restart Day"
+	
+	# Initialize the restart day button size here
+	$"Restart Day Button/Restart Day Button Text".size = Vector2(107, 60)
+	
+	# Set the restart day button to scale twice as large than normal
+	$"Restart Day Button".scale = Vector2(2, 2)
+	
+	# ALign both the vertical and horizontal alignments of the restart day button text at the center of the text box
+	$"Restart Day Button/Restart Day Button Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	$"Restart Day Button/Restart Day Button Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	
+	# Use the restart day button text to add theme font override to use the font we set in the inspector
+	$"Restart Day Button/Restart Day Button Text".add_theme_font_override("font", pauseMenuFont)
+	
+	# Use the restart day button text to add theme color override to set the font color to black
+	$"Restart Day Button/Restart Day Button Text".add_theme_color_override("font_color", Color(0, 0, 0, 1))
+	
+	# Use the restart day button text to add theme font size override to set the font size to 14
+	$"Restart Day Button/Restart Day Button Text".add_theme_font_size_override("font_size", 14)
+	
 	# Initialize the quit button text to say Quit
 	$"Quit Button/Quit Button Text".text = "Quit"
 	
@@ -85,3 +107,15 @@ func IfQuitButtonIsPressed():
 	# Go back to the main menu
 	get_tree().change_scene_to_file("res://Scenes/Main Menu.tscn")
 
+
+
+func IfRestartDayButtonIsPressed():
+	#pass # Replace with function body.
+	
+	# Restart at the current scene
+	get_tree().reload_current_scene()
+	
+	# This line of code fixes the bug of the player not being able to move after the game restarts
+	# Only way to move the player around again is to pause and resume each time
+	# This way, the player can move around after reloading the current scene without having to pause and resume
+	characterBase.pauseMenu()
