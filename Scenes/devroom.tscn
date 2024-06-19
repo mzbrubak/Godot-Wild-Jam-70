@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dni5wl2k4e2un"]
+[gd_scene load_steps=9 format=3 uid="uid://dni5wl2k4e2un"]
 
 [ext_resource type="PackedScene" uid="uid://g3vmjlneoiua" path="res://Scenes/Character_Base.tscn" id="1_j2b0h"]
+[ext_resource type="Script" path="res://Scenes/Fairy.gd" id="2_orbrw"]
+[ext_resource type="Script" path="res://Scenes/Possessable_NPC.gd" id="3_45gam"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2jvre"]
 normal = Vector2(-1, 0)
@@ -44,9 +46,14 @@ shape = SubResource("WorldBoundaryShape2D_ptkku")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_j2b0h")]
 position = Vector2(323, 252)
+script = ExtResource("2_orbrw")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(612, 589)
 shape = SubResource("CircleShape2D_vjum6")
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("1_j2b0h")]
+position = Vector2(444, 201)
+script = ExtResource("3_45gam")
