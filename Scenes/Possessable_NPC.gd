@@ -41,3 +41,6 @@ func IfBodyExited(Body):
 
 func IfInteractedWith(Character):
 	print("Why hello, ", Character,"!")
+
+func becomePossessed():
+	pass
