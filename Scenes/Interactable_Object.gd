@@ -12,6 +12,11 @@ func _process(delta):
 
 func IfBodyEntered(Body):
 	print(Body," entered interaction area of ",self)
+	Body.addInteraction(self)
 
 func IfBodyExited(Body):
 	print(Body," exited interaction area of ",self)
+	Body.removeInteraction(self)
+
+func IfInteractedWith(Character):
+	print("The wall does not talk back to ", Character)

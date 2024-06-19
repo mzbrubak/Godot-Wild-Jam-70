@@ -10,7 +10,7 @@ var NAME:String = "Name"
 var speed:int = 50
 var nameentryfield
 var hitbox
-
+var interactionCandidates=[]#tracks what interactable things are in rango of the character
 # Set the is game paused to false because the player hasn't paused the game yet
 var isGamePaused = false
 
@@ -33,7 +33,10 @@ func _process(delta):
 	if Input.is_action_just_pressed("Pause Game"):
 		pauseMenu()
 	if Input.is_action_just_pressed("Interact"):
-		pass
+		if interactionCandidates.is_empty():
+			pass
+		else:
+			interact(interactionCandidates[0])
 
 	
 func _physics_process(delta):
@@ -58,4 +61,18 @@ func pauseMenu():
 	# Set the is game paused equal to not paused so that the player can resume the game again
 	isGamePaused = !isGamePaused
 
+func addInteraction(interactable):
+	if interactionCandidates.is_empty():
+		interactionCandidates.insert(0,interactable)
+	else:
+		var insert_index=interactionCandidates.bsearch_custom(interactable, Callable(self, "sort_interact"))
 
+func removeInteraction(interactable):
+	interactionCandidates.erase(interactable)
+
+func interact(interactable):
+	print(self, " interacting with ", interactable)
+	interactable.IfInteractedWith(self)
+
+func sort_interact(interactable1,interactable2):
+	return interactable1.InteractionArea.priority>=interactable2.InteractionArea.priority
