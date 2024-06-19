@@ -30,6 +30,9 @@ func _ready():
 	
 	# Hide the pause menu scene at start of the character base scene
 	pause_menu.hide()
+	
+	# Prevents the pause menu from moving with the parent node (in this case, the CharacterBody2D)
+	pause_menu.top_level = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

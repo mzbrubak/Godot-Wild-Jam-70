@@ -28,5 +28,3 @@ drag_and_drop_selection_enabled = false
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [node name="PauseMenu" parent="." instance=ExtResource("3_yoa5p")]
-offset_left = 950.0
-offset_right = 950.0
