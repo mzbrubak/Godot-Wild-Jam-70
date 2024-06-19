@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var pause_menu = $PauseMenu
+@onready var pause_menu = $"Pause Menu Canvas Layer/PauseMenu"
 
 @export var characterBaseFont : Font
 
@@ -33,6 +33,10 @@ func _ready():
 	
 	# Prevents the pause menu from moving with the parent node (in this case, the CharacterBody2D)
 	pause_menu.top_level = true
+	
+	# Set the player camera zoom to 5 by 5
+	get_node("Player Camera").zoom = Vector2(5, 5)
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

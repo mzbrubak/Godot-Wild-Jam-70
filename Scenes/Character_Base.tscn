@@ -27,4 +27,8 @@ drag_and_drop_selection_enabled = false
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
-[node name="PauseMenu" parent="." instance=ExtResource("3_yoa5p")]
+[node name="Player Camera" type="Camera2D" parent="."]
+
+[node name="Pause Menu Canvas Layer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="Pause Menu Canvas Layer" instance=ExtResource("3_yoa5p")]

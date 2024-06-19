@@ -1,7 +1,7 @@
 extends Control
 
 # Get the character base script to call pause menu inside this script
-@onready var characterBase = $"../"
+@onready var characterBase = $"../../"
 
 # Set the font inside the inspector
 @export var pauseMenuFont : Font

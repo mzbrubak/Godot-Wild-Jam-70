@@ -171,6 +171,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Music Volume Text" type="Label" parent="Options Menu In-Game"]
+layout_mode = 0
 offset_left = 790.0
 offset_top = 300.0
 offset_right = 830.0
@@ -199,6 +200,7 @@ offset_right = 150.0
 offset_bottom = 35.0
 
 [node name="SFX Volume Text" type="Label" parent="Options Menu In-Game"]
+layout_mode = 0
 offset_left = 790.0
 offset_top = 400.0
 offset_right = 830.0
