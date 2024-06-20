@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6k3kcffdrbk"]
+
+[ext_resource type="Script" path="res://DayTimer.gd" id="1_nbl7v"]
+
+[node name="Timer" type="Timer"]
+autostart = true
+script = ExtResource("1_nbl7v")
+
+[node name="Time" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="." to="." method="onTimeout"]

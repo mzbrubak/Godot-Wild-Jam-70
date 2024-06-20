@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://dni5wl2k4e2un"]
+[gd_scene load_steps=10 format=3 uid="uid://dni5wl2k4e2un"]
 
 [ext_resource type="PackedScene" uid="uid://c0hyana6hkmis" path="res://Scenes/Fairy.tscn" id="2_ylh5w"]
 [ext_resource type="PackedScene" uid="uid://bb8odyrqprt6v" path="res://Scenes/Possessable_NPC.tscn" id="3_xp4y2"]
+[ext_resource type="PackedScene" uid="uid://c6k3kcffdrbk" path="res://Scenes/DayTimer.tscn" id="4_job3o"]
 [ext_resource type="PackedScene" uid="uid://dcue3mkeww8qw" path="res://Scenes/Interactable_Object.tscn" id="4_lhwlw"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2jvre"]
 normal = Vector2(-1, 0)
-distance = -604.0
+distance = -758.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5wv2g"]
 distance = -978.0
@@ -59,3 +60,8 @@ position = Vector2(383, 256)
 [node name="NPC" parent="." instance=ExtResource("3_xp4y2")]
 position = Vector2(560, 174)
 NAME = "Jonathan"
+
+[node name="Interactable_Object" parent="." instance=ExtResource("4_lhwlw")]
+position = Vector2(971, 578)
+
+[node name="Timer" parent="." instance=ExtResource("4_job3o")]
