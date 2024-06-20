@@ -6,6 +6,9 @@ extends Control
 # Set the font inside the inspector
 @export var pauseMenuFont : Font
 
+# Get the player camera node inside the character base scene and use it to set the player camera zoom
+@onready var playerCameraNode = $"../../Player Camera"
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#pass # Replace with function body.
@@ -110,6 +113,7 @@ func _ready():
 	# Use the quit button text to add theme font size override to set the font size to 20
 	$"Quit Button/Quit Button Text".add_theme_font_size_override("font_size", 20)
 	
+	# Hide the options menu right away
 	$"Options Menu In-Game".hide()
 	
 	# Make the options menu title say Options Menu
@@ -199,8 +203,56 @@ func _ready():
 	# Use the resolution text to add theme font size override to set the font size to 20
 	$"Options Menu In-Game/Resolution Text".add_theme_font_size_override("font_size", 20)
 	
-	# Initialize the fullscreen text size here
+	# Initialize the resolution text size here
 	$"Options Menu In-Game/Resolution Text".size = Vector2(100, 50)
+	
+	# Initialize the player camera zoom drop down color here
+	$"Options Menu In-Game/Player Camera Zoom Drop Down Color".size = Vector2(100, 50)
+	
+	# Set the player camera zoom drop down color to red
+	$"Options Menu In-Game/Player Camera Zoom Drop Down Color".color = Color(1.0, 0.0, 0.0, 1.0)
+	
+	# Set the player camera zoom drop down menu here
+	$"Options Menu In-Game/Player Camera Zoom Drop Down Menu".size = Vector2(100, 50)
+	
+	# Use the player camera zoom drop down menu text to add theme font override to use the font we set in the inspector
+	$"Options Menu In-Game/Player Camera Zoom Drop Down Menu".add_theme_font_override("font", pauseMenuFont)
+	
+	# Use the player camera zoom drop down menu text to add theme font size override to set the font size to 20
+	$"Options Menu In-Game/Player Camera Zoom Drop Down Menu".add_theme_font_size_override("font_size", 20)
+	
+	# Add the close, medium and far items on the player camera zoom drop down for the player to choose from
+	$"Options Menu In-Game/Player Camera Zoom Drop Down Menu".add_item("Close")
+	$"Options Menu In-Game/Player Camera Zoom Drop Down Menu".add_item("Medium")
+	$"Options Menu In-Game/Player Camera Zoom Drop Down Menu".add_item("Far")
+	
+	# If the player camera's zoom is equal to 5 by 5, set the drop down menu to select the first one
+	if playerCameraNode.zoom == Vector2(5, 5):
+		$"Options Menu In-Game/Player Camera Zoom Drop Down Menu".selected = 0
+	
+	# If the player camera's zoom is equal to 3 by 3, set the drop down menu to select the second one
+	if playerCameraNode.zoom == Vector2(3, 3):
+		$"Options Menu In-Game/Player Camera Zoom Drop Down Menu".selected = 1
+	
+	# If the player camera's zoom is equal to 1 by 1, set the drop down menu to select the third one
+	if playerCameraNode.zoom == Vector2(1, 1):
+		$"Options Menu In-Game/Player Camera Zoom Drop Down Menu".selected = 2
+	
+	# Make the player camera zoom text node say camera zoom
+	$"Options Menu In-Game/Player Camera Zoom Text".text = "Camera Zoom"
+	
+	# Set the player camera zoom text to align at center right of the text box
+	$"Options Menu In-Game/Player Camera Zoom Text".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	$"Options Menu In-Game/Player Camera Zoom Text".horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	
+	# Use the player camera zoom text to add theme font override to use the font we set in the inspector
+	$"Options Menu In-Game/Player Camera Zoom Text".add_theme_font_override("font", pauseMenuFont)
+	
+	# Use the player camera zoom text to add theme font size override to set the font size to 20
+	$"Options Menu In-Game/Player Camera Zoom Text".add_theme_font_size_override("font_size", 20)
+	
+	# Initialize the player camera zoom text size here
+	$"Options Menu In-Game/Player Camera Zoom Text".size = Vector2(100, 50)
 	
 	# Set the music volume text to say Music Volume
 	$"Options Menu In-Game/Music Volume Text".text = "Music Volume"
@@ -374,3 +426,22 @@ func IfResolutionDropDownMenuIsModified(index):
 	# If the sixth current resolution is selected, use the window size of 800x600
 	if currentResolution == 5:
 		DisplayServer.window_set_size(Vector2i(800, 600))
+
+
+func IfPlayerCameraZoomIsModified(index):
+	#pass # Replace with function body.
+	
+	# Store the currently selected index of the player camera zoom
+	var playerCameraZoomIndex = index
+	
+	# If the first option is selected, set the player camera zoom to 5 by 5
+	if playerCameraZoomIndex == 0:
+		playerCameraNode.zoom = Vector2(5, 5)
+	
+	# If the second option is selected, set the player camera zoom to 3 by 3
+	if playerCameraZoomIndex == 1:
+		playerCameraNode.zoom = Vector2(3, 3)
+	
+	# If the third option is selected, set the player camera zoom to 1 by 1
+	if playerCameraZoomIndex == 2:
+		playerCameraNode.zoom = Vector2(1, 1)
