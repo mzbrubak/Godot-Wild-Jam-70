@@ -1,4 +1,5 @@
 extends Node2D
+signal mapReady
 var navigation_mesh: NavigationPolygon
 var source_geometry: NavigationMeshSourceGeometryData2D
 var callback_parsing: Callable
@@ -42,5 +43,6 @@ func on_parsing_done():
 
 func on_baking_done():
 	NavigationServer2D.region_set_navigation_polygon(region_rid,navigation_mesh)
-	print("Baking finished!")
+	print("no!")
+	
 

@@ -11,9 +11,9 @@ func _ready():
 	super._ready()
 	interactionArea=find_child("InteractionArea")
 	pathfinder=find_child("NavigationAgent2D")
-	schedule.currenttask=Task.new(20, Vector2(360,300), 0,[])
-	pathfinder.set_target_position(schedule.currenttask.location)
-	#call_deferred("NavigationSetup")
+	schedule.currenttask=Task.new(20, Vector2(1000,800), 0,[])
+	NavigationServer2D.map_changed.connect(startNavigation)
+	
 
 func _process(delta):
 	if isPlayer:
@@ -37,8 +37,8 @@ func _physics_process(delta):
 		move_and_slide()
 	elif navigationReady and !pathfinder.is_navigation_finished():
 		var next_path_position=pathfinder.get_next_path_position()
+		#print(next_path_position)
 		velocity=global_position.direction_to(next_path_position)*speed
-		#print(global_position.direction_to(next_path_position))
 		move_and_slide()
 
 
@@ -72,11 +72,17 @@ func endPossession():
 	set_collision_layer_value(3,false)
 	possessionEnding.emit(self)
 
-func startNavigation(time:int):
+func startNavigation(mapRID):
 #the pathfinding algorithm only works if there is enough lead time to make a navigation map
 #in an attempt to allow for this in an easier way, I'm just going to wait for a certain time to start
-	var triggertime=5
-	if time>=triggertime:
-		navigationReady=true
-		pathfinder.set_max_speed(speed)
+	await get_tree().physics_frame
+	pathfinder.set_navigation_map(mapRID)
+	pathfinder.set_navigation_layer_value(1,true)
+	pathfinder.set_target_position(schedule.currenttask.location)
+	pathfinder.set_max_speed(speed)
+	await get_tree().physics_frame
+	navigationReady=true
+	await get_tree().create_timer(5).timeout
+	print(pathfinder.distance_to_target())
+	print(pathfinder.get_current_navigation_path())
 		

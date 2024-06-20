@@ -6,9 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://c6k3kcffdrbk" path="res://Scenes/DayTimer.tscn" id="4_job3o"]
 [ext_resource type="PackedScene" uid="uid://dcue3mkeww8qw" path="res://Scenes/Interactable_Object.tscn" id="4_lhwlw"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vjum6"]
-radius = 273.649
-
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2jvre"]
 normal = Vector2(-1, 0)
 distance = -758.0
@@ -24,18 +21,20 @@ distance = 111.0
 normal = Vector2(1, 0)
 distance = 452.0
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_owf8t"]
+vertices = PackedVector2Array(428, 196, 494, 196, 493, 238, 119, 239, 119, 76, 432, 93, 1050, 76, 694, 94, 711, 126, 566, 334, 1065, 1018, 119, 1016, 119, 353)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5), PackedInt32Array(5, 4, 6, 7), PackedInt32Array(8, 7, 6), PackedInt32Array(9, 8, 6, 10, 11), PackedInt32Array(9, 11, 12)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(90, 47, 1080, 46, 1096, 1049, 89, 1046)])
+parsed_collision_mask = 1
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 30.0
+
 [node name="GameMaster" type="Node2D"]
 script = ExtResource("1_7ookf")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(0.388276, 0.312752, 0.215595, 1)
 polygon = PackedVector2Array(0, 3, 1918, 3, 1921, 1083, -3, 1081)
-
-[node name="TestObstacle" type="StaticBody2D" parent="Polygon2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Polygon2D/TestObstacle"]
-position = Vector2(612, 589)
-shape = SubResource("CircleShape2D_vjum6")
 
 [node name="Walls" type="StaticBody2D" parent="."]
 
@@ -60,14 +59,20 @@ position = Vector2(378, 173)
 
 [node name="Timer" parent="." instance=ExtResource("4_job3o")]
 
+[node name="Fairy" parent="." instance=ExtResource("2_ylh5w")]
+position = Vector2(383, 256)
+
 [node name="NPC" parent="." instance=ExtResource("3_xp4y2")]
 position = Vector2(461, 216)
 NAME = "Jonathan"
 
-[node name="Fairy" parent="." instance=ExtResource("2_ylh5w")]
-position = Vector2(383, 256)
-
 [node name="Interactable_Object" parent="." instance=ExtResource("4_lhwlw")]
 position = Vector2(971, 578)
 
-[connection signal="AnnounceTime" from="Timer" to="NPC" method="startNavigation"]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_owf8t")
+
+[node name="TestObstacle" type="StaticBody2D" parent="NavigationRegion2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NavigationRegion2D/TestObstacle"]
+polygon = PackedVector2Array(461, 123, 459, 166, 525, 166, 523, 268, 102, 270, 104, 325, 550, 305, 676, 124)
