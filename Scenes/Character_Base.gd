@@ -66,7 +66,7 @@ func addInteraction(interactable):
 		interactionCandidates.insert(0,interactable)
 	else:
 		var insert_index=interactionCandidates.bsearch_custom(interactable, Callable(self, "sort_interact"))
-
+		interactionCandidates.insert(insert_index, interactable)
 func removeInteraction(interactable):
 	interactionCandidates.erase(interactable)
 
@@ -75,4 +75,4 @@ func interact(interactable):
 	interactable.IfInteractedWith(self)
 
 func sort_interact(interactable1,interactable2):
-	return interactable1.InteractionArea.priority>=interactable2.InteractionArea.priority
+	return interactable1.interactionArea.priority>=interactable2.interactionArea.priority

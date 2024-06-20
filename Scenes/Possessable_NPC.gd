@@ -7,7 +7,7 @@ var isPlayer:bool=false #indicates possession status
 var interactionArea
 func _ready():
 	super._ready()
-	interactionArea=find_child("InteractionArea").get_child(0)
+	interactionArea=find_child("InteractionArea")
 
 func _process(delta):
 	if isPlayer:
@@ -48,10 +48,10 @@ func IfInteractedWith(Character):
 
 func becomePossessed():
 	isPlayer=true
-	interactionArea.disabled=true
+	interactionArea.get_child(0).disabled=true
 	set_collision_layer_value(3, true)
 func endPossession():
 	isPlayer=false
-	interactionArea.disabled=false
+	interactionArea.get_child(0).disabled=false
 	set_collision_layer_value(3,false)
 	possessionEnding.emit(self)

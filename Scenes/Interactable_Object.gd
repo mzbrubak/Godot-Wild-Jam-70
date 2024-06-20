@@ -1,9 +1,9 @@
 extends StaticBody2D
-
+var interactionArea
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	interactionArea=find_child("InteractionArea")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
