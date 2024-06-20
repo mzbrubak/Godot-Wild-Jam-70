@@ -2,11 +2,11 @@ extends CharacterBody2D
 class_name Character_Base
 
 @onready var pause_menu = $"Pause Menu Canvas Layer/PauseMenu"
-
 @export var characterBaseFont : Font
+@export var NAME:String = "Name"
 
 var health:int = 10
-var NAME:String = "Name"
+
 var speed:int = 50
 var nameentryfield
 var hitbox

@@ -56,5 +56,6 @@ position = Vector2(378, 173)
 [node name="Fairy" parent="." instance=ExtResource("2_ylh5w")]
 position = Vector2(383, 256)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("3_xp4y2")]
+[node name="NPC" parent="." instance=ExtResource("3_xp4y2")]
 position = Vector2(560, 174)
+NAME = "Jonathan"

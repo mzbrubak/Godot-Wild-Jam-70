@@ -15,14 +15,12 @@ script = ExtResource("1_d0muo")
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_xxusr")
 
-[node name="NameEntry" type="TextEdit" parent="."]
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
-context_menu_enabled = false
-shortcut_keys_enabled = false
-drag_and_drop_selection_enabled = false
+[node name="NameEntry" type="LineEdit" parent="."]
+offset_left = -45.0
+offset_top = -46.0
+offset_right = 45.0
+offset_bottom = -15.0
+alignment = 1
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 

@@ -19,11 +19,14 @@ func attemptPossession():
 		if possessionCandidate==null:
 			print("No possessable characters in range.")
 		else:
-			print("Possessing ",possessionCandidate)
-			possessionCandidate.becomePossessed()
-			find_child("Hitbox").disabled=true
-			possessionCandidate.possessionEnding.connect(endPossession)
-			possessionOffset=position-possessionCandidate.position
+			if possessionCandidate.find_child("NameEntry").text==possessionCandidate.NAME:
+				print("Possessing ",possessionCandidate)
+				possessionCandidate.becomePossessed()
+				find_child("Hitbox").disabled=true
+				possessionCandidate.possessionEnding.connect(endPossession)
+				possessionOffset=position-possessionCandidate.position
+			else:
+				print("Can't possess character without knowing their name")
 
 func endPossession(Character):
 	position=Character.position+possessionOffset
