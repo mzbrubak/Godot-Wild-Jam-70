@@ -1,4 +1,5 @@
 extends Character_Base
+var possessionOffset:Vector2
 
 func _process(delta):
 	super._process(delta)
@@ -20,3 +21,11 @@ func attemptPossession():
 		else:
 			print("Possessing ",possessionCandidate)
 			possessionCandidate.becomePossessed()
+			find_child("Hitbox").disabled=true
+			possessionCandidate.possessionEnding.connect(endPossession)
+			possessionOffset=position-possessionCandidate.position
+
+func endPossession(Character):
+	position=Character.position+possessionOffset
+	find_child("Hitbox").disabled=false
+	Character.possessionEnding.disconnect(endPossession)

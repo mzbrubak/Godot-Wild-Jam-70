@@ -17,7 +17,7 @@ var isGamePaused = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	nameentryfield=find_child("NameEntry")
-	hitbox=find_child("CollisionShape2D")
+	hitbox=find_child("Hitbox")
 	
 	# Hide the pause menu scene at start of the character base scene
 	pause_menu.hide()

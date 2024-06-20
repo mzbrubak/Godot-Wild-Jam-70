@@ -1,4 +1,5 @@
 extends Character_Base
+signal possessionEnding
 var schedule=Schedule.new()
 var patience:int = 3 #how long character will try to do tasks that are late
 var pathfinder
@@ -6,16 +7,19 @@ var isPlayer:bool=false #indicates possession status
 var interactionArea
 func _ready():
 	super._ready()
-	interactionArea=find_child("InteractionArea")
+	interactionArea=find_child("InteractionArea").get_child(0)
 
 func _process(delta):
 	if isPlayer:
 		if Input.is_action_just_pressed("Pause Game"):
 			pauseMenu()
 		if Input.is_action_just_pressed("Interact"):
-			pass
+			if interactionCandidates.is_empty():
+				pass
+			else:
+				interact(interactionCandidates[0])
 		if Input.is_action_just_pressed("Unpossess"):
-			pass
+			endPossession()
 	else:
 		pass
 func _physics_process(delta):
@@ -43,4 +47,11 @@ func IfInteractedWith(Character):
 	print("Why hello, ", Character,"!")
 
 func becomePossessed():
-	pass
+	isPlayer=true
+	interactionArea.disabled=true
+	set_collision_layer_value(3, true)
+func endPossession():
+	isPlayer=false
+	interactionArea.disabled=false
+	set_collision_layer_value(3,false)
+	possessionEnding.emit(self)

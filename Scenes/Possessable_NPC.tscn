@@ -12,7 +12,7 @@ radius = 24.0208
 motion_mode = 1
 script = ExtResource("1_d0muo")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_xxusr")
 
 [node name="NameEntry" type="TextEdit" parent="."]

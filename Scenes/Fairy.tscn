@@ -10,7 +10,7 @@ collision_layer = 5
 motion_mode = 1
 script = ExtResource("1_6wi4k")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_xxusr")
 
 [node name="NameEntry" type="TextEdit" parent="."]
@@ -21,8 +21,6 @@ offset_bottom = 10.0
 context_menu_enabled = false
 shortcut_keys_enabled = false
 drag_and_drop_selection_enabled = false
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [node name="Player Camera" type="Camera2D" parent="."]
 
