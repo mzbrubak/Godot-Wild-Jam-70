@@ -13,7 +13,7 @@ func _ready():
 	pathfinder=find_child("NavigationAgent2D")
 	schedule.currenttask=Task.new(20, Vector2(360,300), 0,[])
 	pathfinder.set_target_position(schedule.currenttask.location)
-	call_deferred("NavigationSetup")
+	#call_deferred("NavigationSetup")
 
 func _process(delta):
 	if isPlayer:
@@ -38,7 +38,7 @@ func _physics_process(delta):
 	elif navigationReady and !pathfinder.is_navigation_finished():
 		var next_path_position=pathfinder.get_next_path_position()
 		velocity=global_position.direction_to(next_path_position)*speed
-		print(global_position.direction_to(next_path_position))
+		#print(global_position.direction_to(next_path_position))
 		move_and_slide()
 
 
@@ -59,7 +59,7 @@ func IfBodyExited(Body):
 	Body.removeInteraction(self)
 
 func IfInteractedWith(Character):
-	print("Why hello, ", Character,"!")
+	print("Why hello, ", Character,". I'm ",NAME)
 
 func becomePossessed():
 	isPlayer=true
