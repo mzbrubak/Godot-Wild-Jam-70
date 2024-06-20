@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://c6k3kcffdrbk"]
 
-[ext_resource type="Script" path="res://DayTimer.gd" id="1_nbl7v"]
+[ext_resource type="Script" path="res://Scenes/DayTimer.gd" id="1_qatbm"]
 
 [node name="Timer" type="Timer"]
 autostart = true
-script = ExtResource("1_nbl7v")
+script = ExtResource("1_qatbm")
 
 [node name="Time" type="Label" parent="."]
 offset_right = 40.0

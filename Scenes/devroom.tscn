@@ -58,10 +58,12 @@ position = Vector2(378, 173)
 position = Vector2(383, 256)
 
 [node name="NPC" parent="." instance=ExtResource("3_xp4y2")]
-position = Vector2(560, 174)
+position = Vector2(461, 216)
 NAME = "Jonathan"
 
 [node name="Interactable_Object" parent="." instance=ExtResource("4_lhwlw")]
 position = Vector2(971, 578)
 
 [node name="Timer" parent="." instance=ExtResource("4_job3o")]
+
+[connection signal="AnnounceTime" from="Timer" to="NPC" method="startNavigation"]
