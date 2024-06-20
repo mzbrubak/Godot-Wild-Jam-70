@@ -5,10 +5,12 @@ const originalschedule = [] #what NPC does without interaction; read this from a
 var remainingschedule = [] #lists events for the day that have not yet been done
 var currenttask:Task
 
+
 func popTask():
-	currenttask=remainingschedule.pop_back
+	currenttask=remainingschedule.pop_back()
 	
 func addTask(time, location, action, condition): #add event without overriding default events
+	#useful for building the list of actions the fairy makes someone take
 	var newtask=Task.new(time,location,action,condition)
 	var insertIndex=fullschedule.bsearch_custom(newtask, Callable(self,"compareTaskTime"))
 	fullschedule.insert(insertIndex,newtask)

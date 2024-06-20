@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Possessable_NPC.gd" id="1_d0muo"]
 [ext_resource type="PackedScene" uid="uid://50jtafvlwpyg" path="res://Scenes/Pause Menu.tscn" id="2_d84pd"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxusr"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_3bcws"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_txrfd"]
 radius = 24.0208
@@ -13,7 +13,7 @@ motion_mode = 1
 script = ExtResource("1_d0muo")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_xxusr")
+shape = SubResource("CircleShape2D_3bcws")
 
 [node name="NameEntry" type="LineEdit" parent="."]
 offset_left = -45.0

@@ -7,15 +7,21 @@ var isPlayer:bool=false #indicates possession status
 var interactionArea
 var testTask: Task
 var navigationReady=false
+var possessionstartTime:int
+enum {IDLE, INTERACT, FIGHT}
+
 func _ready():
 	super._ready()
 	interactionArea=find_child("InteractionArea")
 	pathfinder=find_child("NavigationAgent2D")
-	schedule.currenttask=Task.new(20, Vector2(1000,800), 0,[])
+	schedule.addTask(20,Vector2(1000,800), 0,[])
+	schedule.addTask(40,Vector2(100,100),0,[])
+	schedule.remainingschedule=schedule.fullschedule
+	schedule.popTask()
 	NavigationServer2D.map_changed.connect(startNavigation)
 	
 
-func _process(delta):
+func _process(_delta):
 	if isPlayer:
 		if Input.is_action_just_pressed("Pause Game"):
 			pauseMenu()
@@ -27,28 +33,38 @@ func _process(delta):
 		if Input.is_action_just_pressed("Unpossess"):
 			endPossession()
 	else:
-		pass
-func _physics_process(delta):
+		if pathfinder.is_navigation_finished():
+			pass
+	
+func _physics_process(_delta):
 	if isPlayer:
 		velocity=Input.get_vector("Move Left","Move Right","Move Up","Move Down")
 		# If the player is currently moving, normalize the playe movement vector to prevent fast diagonal movement
 		if velocity.length() > 0:
 			velocity = velocity.normalized() * speed
 		move_and_slide()
-	elif navigationReady and !pathfinder.is_navigation_finished():
+	#elif navigationReady and !pathfinder.is_navigation_finished():
+	elif pathfinder.is_navigation_finished():
+		pass
+	else:
 		var next_path_position=pathfinder.get_next_path_position()
-		#print(next_path_position)
 		velocity=global_position.direction_to(next_path_position)*speed
 		move_and_slide()
 
 
 func do_currenttask():
-	pass#actually do a thing
+	match schedule.currenttask.action:
+		INTERACT:
+			if !interactionCandidates.is_empty():
+				interact(interactionCandidates[0])
+		IDLE:
+			pass
+	
 	getnexttask()
 
 func getnexttask():
 	schedule.popTask()
-	pathfinder.set_target_position(schedule.currenttask)
+	pathfinder.set_target_position(schedule.currenttask.location)
 
 func IfBodyEntered(Body):
 	print(Body," entered interaction area of ",self)
@@ -75,14 +91,8 @@ func endPossession():
 func startNavigation(mapRID):
 #the pathfinding algorithm only works if there is enough lead time to make a navigation map
 #in an attempt to allow for this in an easier way, I'm just going to wait for a certain time to start
-	await get_tree().physics_frame
 	pathfinder.set_navigation_map(mapRID)
 	pathfinder.set_navigation_layer_value(1,true)
 	pathfinder.set_target_position(schedule.currenttask.location)
 	pathfinder.set_max_speed(speed)
-	await get_tree().physics_frame
 	navigationReady=true
-	await get_tree().create_timer(5).timeout
-	print(pathfinder.distance_to_target())
-	print(pathfinder.get_current_navigation_path())
-		
