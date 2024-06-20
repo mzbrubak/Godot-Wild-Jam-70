@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://c6k3kcffdrbk" path="res://Scenes/DayTimer.tscn" id="4_job3o"]
 [ext_resource type="PackedScene" uid="uid://dcue3mkeww8qw" path="res://Scenes/Interactable_Object.tscn" id="4_lhwlw"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vjum6"]
+radius = 273.649
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2jvre"]
 normal = Vector2(-1, 0)
 distance = -758.0
@@ -21,13 +24,18 @@ distance = 111.0
 normal = Vector2(1, 0)
 distance = 452.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vjum6"]
-radius = 273.649
+[node name="GameMaster" type="Node2D"]
+script = ExtResource("1_7ookf")
 
-[node name="Polygon2D" type="Polygon2D"]
+[node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(0.388276, 0.312752, 0.215595, 1)
 polygon = PackedVector2Array(0, 3, 1918, 3, 1921, 1083, -3, 1081)
-script = ExtResource("1_7ookf")
+
+[node name="TestObstacle" type="StaticBody2D" parent="Polygon2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Polygon2D/TestObstacle"]
+position = Vector2(612, 589)
+shape = SubResource("CircleShape2D_vjum6")
 
 [node name="Walls" type="StaticBody2D" parent="."]
 
@@ -47,25 +55,19 @@ shape = SubResource("WorldBoundaryShape2D_cexcf")
 position = Vector2(-362, 462)
 shape = SubResource("WorldBoundaryShape2D_ptkku")
 
-[node name="TestObstacle" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestObstacle"]
-position = Vector2(612, 589)
-shape = SubResource("CircleShape2D_vjum6")
-
 [node name="InteractableObject" parent="." instance=ExtResource("4_lhwlw")]
 position = Vector2(378, 173)
 
-[node name="Fairy" parent="." instance=ExtResource("2_ylh5w")]
-position = Vector2(383, 256)
+[node name="Timer" parent="." instance=ExtResource("4_job3o")]
 
 [node name="NPC" parent="." instance=ExtResource("3_xp4y2")]
 position = Vector2(461, 216)
 NAME = "Jonathan"
 
+[node name="Fairy" parent="." instance=ExtResource("2_ylh5w")]
+position = Vector2(383, 256)
+
 [node name="Interactable_Object" parent="." instance=ExtResource("4_lhwlw")]
 position = Vector2(971, 578)
-
-[node name="Timer" parent="." instance=ExtResource("4_job3o")]
 
 [connection signal="AnnounceTime" from="Timer" to="NPC" method="startNavigation"]
