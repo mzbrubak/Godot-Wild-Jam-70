@@ -21,6 +21,7 @@ MusicVolume="*res://Music Volume.gd"
 SfxVolume="*res://SFX Volume.gd"
 MainMenuMusic="*res://Scenes/Main Menu Music.tscn"
 ButtonPressSoundEffect="*res://Scenes/Button Press Sound Effect.tscn"
+ButtonHoverSounds="*res://Scenes/Button Hover Sounds.tscn"
 
 [display]
 

@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://cl54ofl8dme3o"]
+
+[ext_resource type="AudioStream" uid="uid://clnbl3ls502vd" path="res://Sound effects/Button Hover Sound 1.mp3" id="1_6vqfb"]
+[ext_resource type="AudioStream" uid="uid://bt54o2rqgs4db" path="res://Sound effects/Button Hover Sound 2.mp3" id="2_wkux4"]
+[ext_resource type="AudioStream" uid="uid://c2fhy1s0j3k3e" path="res://Sound effects/Button Hover Sound 3.mp3" id="3_aeejd"]
+[ext_resource type="AudioStream" uid="uid://cnjci7csrkktr" path="res://Sound effects/Button Hover Sound 4.mp3" id="4_vq88y"]
+[ext_resource type="AudioStream" uid="uid://ds7t3emdahxes" path="res://Sound effects/Button Hover Sound 5.mp3" id="5_1xgro"]
+
+[node name="Button Hover Sound 1" type="AudioStreamPlayer"]
+stream = ExtResource("1_6vqfb")
+
+[node name="Button Hover Sound 2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_wkux4")
+
+[node name="Button Hover Sound 3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_aeejd")
+
+[node name="Button Hover Sound 4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_vq88y")
+
+[node name="Button Hover Sound 5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_1xgro")

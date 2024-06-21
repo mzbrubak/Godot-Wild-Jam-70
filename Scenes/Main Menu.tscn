@@ -105,7 +105,15 @@ offset_right = 40.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 
+[connection signal="mouse_entered" from="Play Button" to="." method="IfPlayButtonIsHoveredByMouse"]
+[connection signal="mouse_exited" from="Play Button" to="." method="IfPlayButtonIsExitedByMouse"]
 [connection signal="pressed" from="Play Button" to="." method="IfPlayButtonIsPressed"]
+[connection signal="mouse_entered" from="How to Play Button" to="." method="IfHowToPlayButtonIsHoveredByMouse"]
+[connection signal="mouse_exited" from="How to Play Button" to="." method="IfHowToPlayButtonIsExitedByMouse"]
 [connection signal="pressed" from="How to Play Button" to="." method="IfHowToPlayButtonIsPressed"]
+[connection signal="mouse_entered" from="Options Button" to="." method="IfOptionsButtonIsHoveredByMouse"]
+[connection signal="mouse_exited" from="Options Button" to="." method="IfOptionsButtonIsExitedByMouse"]
 [connection signal="pressed" from="Options Button" to="." method="IfOptionsButtonIsPressed"]
+[connection signal="mouse_entered" from="Credits Button" to="." method="IfCreditsButtonIsHoveredByMouse"]
+[connection signal="mouse_exited" from="Credits Button" to="." method="IfCreditsButtonIsExitedByMouse"]
 [connection signal="pressed" from="Credits Button" to="." method="IfCreditsButtonIsPressed"]

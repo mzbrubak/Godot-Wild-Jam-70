@@ -38,4 +38,6 @@ offset_right = 40.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 
+[connection signal="mouse_entered" from="Back Button" to="." method="IfBackButtonIsHoveredByMouse"]
+[connection signal="mouse_exited" from="Back Button" to="." method="IfBackButtonIsExitedByMouse"]
 [connection signal="pressed" from="Back Button" to="." method="IfBackButtonIsPressed"]

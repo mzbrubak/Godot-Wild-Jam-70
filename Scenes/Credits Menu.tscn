@@ -141,4 +141,6 @@ offset_bottom = 83.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[connection signal="mouse_entered" from="Back Button" to="." method="IfBackButtonIsHoveredByMouse"]
+[connection signal="mouse_exited" from="Back Button" to="." method="IfBackButtonIsExitedByMouse"]
 [connection signal="pressed" from="Back Button" to="." method="IfBackButtonIsPressed"]

@@ -125,5 +125,7 @@ offset_top = 12.0
 offset_right = 150.0
 offset_bottom = 35.0
 
+[connection signal="mouse_entered" from="Back Button" to="." method="IfBackButtonIsHoveredByMouse"]
+[connection signal="mouse_exited" from="Back Button" to="." method="IfBackButtonIsExitedByMouse"]
 [connection signal="pressed" from="Back Button" to="." method="IfBackButtonIsPressed"]
 [connection signal="item_selected" from="Resolution Drop Down Menu" to="." method="IfResolutionDropDownMenuIsModified"]

@@ -7,6 +7,8 @@ extends Node
 var musicSliderPercentage
 var sfxSliderPercentage
 
+var buttonHoverSoundIndex
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#pass # Replace with function body.
@@ -245,3 +247,39 @@ func IfResolutionDropDownMenuIsModified(index):
 	if currentResolution == 5:
 		DisplayServer.window_set_size(Vector2i(800, 600))
 
+
+
+func IfBackButtonIsHoveredByMouse():
+	#pass # Replace with function body.
+	
+	buttonHoverSoundIndex = randi_range(0, 4)
+	
+	if buttonHoverSoundIndex == 0:
+		await(get_tree().create_timer(5)).timeout
+		ButtonHoverSounds.play()
+	
+	if buttonHoverSoundIndex == 1:
+		await(get_tree().create_timer(5)).timeout
+		ButtonHoverSounds.get_node("Button Hover Sound 2").play()
+	
+	if buttonHoverSoundIndex == 2:
+		await(get_tree().create_timer(5)).timeout
+		ButtonHoverSounds.get_node("Button Hover Sound 3").play()
+	
+	if buttonHoverSoundIndex == 3:
+		await(get_tree().create_timer(5)).timeout
+		ButtonHoverSounds.get_node("Button Hover Sound 4").play()
+	
+	if buttonHoverSoundIndex == 4:
+		await(get_tree().create_timer(5)).timeout
+		ButtonHoverSounds.get_node("Button Hover Sound 5").play()
+
+
+func IfBackButtonIsExitedByMouse():
+	#pass # Replace with function body.
+	
+	ButtonHoverSounds.stop()
+	ButtonHoverSounds.get_node("Button Hover Sound 2").stop()
+	ButtonHoverSounds.get_node("Button Hover Sound 3").stop()
+	ButtonHoverSounds.get_node("Button Hover Sound 4").stop()
+	ButtonHoverSounds.get_node("Button Hover Sound 5").stop()

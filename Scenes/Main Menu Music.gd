@@ -22,8 +22,8 @@ func _process(delta):
 	# Increment the loop main menu music time by using delta
 	loopMainMenuMusic += delta
 	
-	# If the music has ended at 32 seconds, play the music again and set the loop timer back to 0
-	if loopMainMenuMusic >= 32:
+	# If the music has ended at 31 seconds, play the music again and set the loop timer back to 0
+	if loopMainMenuMusic >= 31:
 		$".".play()
 		$".".volume_db = MusicVolume.musicVolume - 80;
 		

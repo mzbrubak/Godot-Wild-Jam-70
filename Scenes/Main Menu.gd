@@ -1,5 +1,7 @@
 extends Node
 
+var buttonHoverSoundIndex
+
 # Set the font to whatever we want inside the inspector
 @export var mainMenuFont : Font
 
@@ -121,6 +123,7 @@ func _process(delta):
 	# If the player presses the ESCAPE key, then quit the game
 	if Input.is_action_pressed("Quit"):
 		get_tree().quit()
+	
 
 func IfPlayButtonIsPressed():
 	#go to dev room for testing when hitting play in the main menu
@@ -153,3 +156,149 @@ func IfCreditsButtonIsPressed():
 	get_tree().change_scene_to_file("res://Scenes/Credits Menu.tscn")
 	
 	ButtonPressSoundEffect.play()
+	
+
+
+func IfPlayButtonIsHoveredByMouse():
+	#pass # Replace with function body.
+	
+	buttonHoverSoundIndex = randi_range(0, 4)
+	
+	if buttonHoverSoundIndex == 0:
+		await(get_tree().create_timer(5)).timeout
+		ButtonHoverSounds.play()
+	
+	if buttonHoverSoundIndex == 1:
+		await(get_tree().create_timer(5)).timeout
+		ButtonHoverSounds.get_node("Button Hover Sound 2").play()
+	
+	if buttonHoverSoundIndex == 2:
+		await(get_tree().create_timer(5)).timeout
+		ButtonHoverSounds.get_node("Button Hover Sound 3").play()
+	
+	if buttonHoverSoundIndex == 3:
+		await(get_tree().create_timer(5)).timeout
+		ButtonHoverSounds.get_node("Button Hover Sound 4").play()
+	
+	if buttonHoverSoundIndex == 4:
+		await(get_tree().create_timer(5)).timeout
+		ButtonHoverSounds.get_node("Button Hover Sound 5").play()
+	
+
+
+func IfPlayButtonIsExitedByMouse():
+	#pass # Replace with function body.
+	
+	ButtonHoverSounds.stop()
+	ButtonHoverSounds.get_node("Button Hover Sound 2").stop()
+	ButtonHoverSounds.get_node("Button Hover Sound 3").stop()
+	ButtonHoverSounds.get_node("Button Hover Sound 4").stop()
+	ButtonHoverSounds.get_node("Button Hover Sound 5").stop()
+
+
+func IfHowToPlayButtonIsHoveredByMouse():
+	#pass # Replace with function body.
+	
+	buttonHoverSoundIndex = randi_range(0, 4)
+	
+	if buttonHoverSoundIndex == 0:
+		await(get_tree().create_timer(5)).timeout
+		ButtonHoverSounds.play()
+	
+	if buttonHoverSoundIndex == 1:
+		await(get_tree().create_timer(5)).timeout
+		ButtonHoverSounds.get_node("Button Hover Sound 2").play()
+	
+	if buttonHoverSoundIndex == 2:
+		await(get_tree().create_timer(5)).timeout
+		ButtonHoverSounds.get_node("Button Hover Sound 3").play()
+	
+	if buttonHoverSoundIndex == 3:
+		await(get_tree().create_timer(5)).timeout
+		ButtonHoverSounds.get_node("Button Hover Sound 4").play()
+	
+	if buttonHoverSoundIndex == 4:
+		await(get_tree().create_timer(5)).timeout
+		ButtonHoverSounds.get_node("Button Hover Sound 5").play()
+
+
+func IfHowToPlayButtonIsExitedByMouse():
+	#pass # Replace with function body.
+	
+	ButtonHoverSounds.stop()
+	ButtonHoverSounds.get_node("Button Hover Sound 2").stop()
+	ButtonHoverSounds.get_node("Button Hover Sound 3").stop()
+	ButtonHoverSounds.get_node("Button Hover Sound 4").stop()
+	ButtonHoverSounds.get_node("Button Hover Sound 5").stop()
+
+
+func IfOptionsButtonIsHoveredByMouse():
+	#pass # Replace with function body.
+	
+	buttonHoverSoundIndex = randi_range(0, 4)
+	
+	if buttonHoverSoundIndex == 0:
+		await(get_tree().create_timer(5)).timeout
+		ButtonHoverSounds.play()
+	
+	if buttonHoverSoundIndex == 1:
+		await(get_tree().create_timer(5)).timeout
+		ButtonHoverSounds.get_node("Button Hover Sound 2").play()
+	
+	if buttonHoverSoundIndex == 2:
+		await(get_tree().create_timer(5)).timeout
+		ButtonHoverSounds.get_node("Button Hover Sound 3").play()
+	
+	if buttonHoverSoundIndex == 3:
+		await(get_tree().create_timer(5)).timeout
+		ButtonHoverSounds.get_node("Button Hover Sound 4").play()
+	
+	if buttonHoverSoundIndex == 4:
+		await(get_tree().create_timer(5)).timeout
+		ButtonHoverSounds.get_node("Button Hover Sound 5").play()
+
+
+func IfOptionsButtonIsExitedByMouse():
+	#pass # Replace with function body.
+	
+	ButtonHoverSounds.stop()
+	ButtonHoverSounds.get_node("Button Hover Sound 2").stop()
+	ButtonHoverSounds.get_node("Button Hover Sound 3").stop()
+	ButtonHoverSounds.get_node("Button Hover Sound 4").stop()
+	ButtonHoverSounds.get_node("Button Hover Sound 5").stop()
+
+
+func IfCreditsButtonIsHoveredByMouse():
+	#pass # Replace with function body.
+	
+	buttonHoverSoundIndex = randi_range(0, 4)
+	
+	if buttonHoverSoundIndex == 0:
+		await(get_tree().create_timer(5)).timeout
+		ButtonHoverSounds.play()
+	
+	if buttonHoverSoundIndex == 1:
+		await(get_tree().create_timer(5)).timeout
+		ButtonHoverSounds.get_node("Button Hover Sound 2").play()
+	
+	if buttonHoverSoundIndex == 2:
+		await(get_tree().create_timer(5)).timeout
+		ButtonHoverSounds.get_node("Button Hover Sound 3").play()
+	
+	if buttonHoverSoundIndex == 3:
+		await(get_tree().create_timer(5)).timeout
+		ButtonHoverSounds.get_node("Button Hover Sound 4").play()
+	
+	if buttonHoverSoundIndex == 4:
+		await(get_tree().create_timer(5)).timeout
+		ButtonHoverSounds.get_node("Button Hover Sound 5").play()
+
+
+func IfCreditsButtonIsExitedByMouse():
+	#pass # Replace with function body.
+	
+	ButtonHoverSounds.stop()
+	ButtonHoverSounds.get_node("Button Hover Sound 2").stop()
+	ButtonHoverSounds.get_node("Button Hover Sound 3").stop()
+	ButtonHoverSounds.get_node("Button Hover Sound 4").stop()
+	ButtonHoverSounds.get_node("Button Hover Sound 5").stop()

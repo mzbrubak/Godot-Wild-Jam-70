@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c2fhy1s0j3k3e"
+path="res://.godot/imported/Button Hover Sound 3.mp3-2d59cdd6564c5febcbb1295af78d86ae.mp3str"
+
+[deps]
+
+source_file="res://Sound effects/Button Hover Sound 3.mp3"
+dest_files=["res://.godot/imported/Button Hover Sound 3.mp3-2d59cdd6564c5febcbb1295af78d86ae.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
