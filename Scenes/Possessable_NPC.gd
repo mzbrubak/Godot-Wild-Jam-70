@@ -70,6 +70,7 @@ func becomePossessed():
 	interactionArea.get_child(0).disabled=true
 	set_collision_layer_value(3, true)
 	set_collision_layer_value(4,false)
+	Camera.make_current()
 	
 func endPossession():
 	isPlayer=false

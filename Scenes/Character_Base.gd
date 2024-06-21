@@ -13,6 +13,7 @@ var hitbox
 var interactionCandidates=[]#tracks what interactable things are in rango of the character
 # Set the is game paused to false because the player hasn't paused the game yet
 var isGamePaused = false
+var Camera
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,7 +30,8 @@ func _ready():
 	pause_menu.top_level = true
 	
 	# Set the player camera zoom to 5 by 5
-	get_node("Player Camera").zoom = Vector2(5, 5)
+	Camera=get_node("Player Camera")
+	Camera.zoom = Vector2(5, 5)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -2,6 +2,7 @@ extends Character_Base
 var possessionOffset:Vector2
 var isPossessing:bool = false
 
+
 func _ready():
 	super._ready()
 	speed=200
@@ -48,3 +49,5 @@ func endPossession(Character):
 	find_child("Hitbox").disabled=false
 	isPossessing=false
 	Character.possessionEnding.disconnect(endPossession)
+	Camera.make_current()
+	
