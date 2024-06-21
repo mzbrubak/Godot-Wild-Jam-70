@@ -9,6 +9,9 @@ signal dayResetManuallyTriggered
 # Get the player camera node inside the character base scene and use it to set the player camera zoom
 @onready var playerCameraNode = $"../../Player Camera"
 
+var musicSliderPercentage
+var sfxSliderPercentage
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#pass # Replace with function body.
@@ -270,9 +273,9 @@ func _ready():
 	# Initialize the music volume size here
 	$"Options Menu In-Game/Music Volume Text".size = Vector2(100, 50)
 	
-	# Set the min and max values of the music volume slider to be 0 and 100, respectively
+	# Set the min and max values of the music volume slider to be 0 and 80, respectively
 	$"Options Menu In-Game/Music Volume Slider".min_value = 0
-	$"Options Menu In-Game/Music Volume Slider".max_value = 100
+	$"Options Menu In-Game/Music Volume Slider".max_value = 80
 	
 	# Initialize the music volume slider here
 	$"Options Menu In-Game/Music Volume Slider".size = Vector2(100, 50)
@@ -287,7 +290,7 @@ func _ready():
 	$"Options Menu In-Game/Music Volume Slider/Music Volume Percentage".add_theme_font_size_override("font_size", 25)
 	
 	# Initialize the music volume percentage to say whatever the music volume slider value currently is
-	$"Options Menu In-Game/Music Volume Slider/Music Volume Percentage".text = "%s" % $"Options Menu In-Game/Music Volume Slider".value
+	$"Options Menu In-Game/Music Volume Slider/Music Volume Percentage".text = "%s" % musicSliderPercentage
 	
 	# Set the SFX volume text to say SFX Volume
 	$"Options Menu In-Game/SFX Volume Text".text = "SFX Volume"
@@ -307,7 +310,7 @@ func _ready():
 	
 	# Set the min and max values of the SFX volume slider to be 0 and 100, respectively
 	$"Options Menu In-Game/SFX Volume Slider".min_value = 0
-	$"Options Menu In-Game/SFX Volume Slider".max_value = 100
+	$"Options Menu In-Game/SFX Volume Slider".max_value = 80
 	
 	# Initialize the SFX volume slider here
 	$"Options Menu In-Game/SFX Volume Slider".size = Vector2(100, 50)
@@ -322,24 +325,30 @@ func _ready():
 	$"Options Menu In-Game/SFX Volume Slider/SFX Volume Percentage".add_theme_font_size_override("font_size", 25)
 	
 	# Initialize the SFX volume percentage to say whatever the SFX volume slider value currently is
-	$"Options Menu In-Game/SFX Volume Slider/SFX Volume Percentage".text = "%s" % $"Options Menu In-Game/SFX Volume Slider".value
+	$"Options Menu In-Game/SFX Volume Slider/SFX Volume Percentage".text = "%s" % sfxSliderPercentage
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#pass
 	
+	musicSliderPercentage = ($"Options Menu In-Game/Music Volume Slider".value / $"Options Menu In-Game/Music Volume Slider".max_value) * 100
+	
 	# Initialize the music volume percentage to say whatever the music volume slider value currently is on process
-	$"Options Menu In-Game/Music Volume Slider/Music Volume Percentage".text = "%s" % $"Options Menu In-Game/Music Volume Slider".value
+	$"Options Menu In-Game/Music Volume Slider/Music Volume Percentage".text = "%s" % roundf(musicSliderPercentage)
 	
 	# Save the music volume to equal whatever the value of the music volume slider the player set it to
 	MusicVolume.musicVolume = $"Options Menu In-Game/Music Volume Slider".value
 	
+	sfxSliderPercentage = ($"Options Menu In-Game/SFX Volume Slider".value / $"Options Menu In-Game/SFX Volume Slider".max_value) * 100
+	
 	# Initialize the SFX volume percentage to say whatever the SFX volume slider value currently is
-	$"Options Menu In-Game/SFX Volume Slider/SFX Volume Percentage".text = "%s" % $"Options Menu In-Game/SFX Volume Slider".value
+	$"Options Menu In-Game/SFX Volume Slider/SFX Volume Percentage".text = "%s" % roundf(sfxSliderPercentage)
 	
 	# Save the SFX volume to equal whatever the value of the SFX volume slider the player set it to
 	SfxVolume.sfxVolume = $"Options Menu In-Game/SFX Volume Slider".value
+	
+	ButtonPressSoundEffect.volume_db = SfxVolume.sfxVolume - $"Options Menu In-Game/SFX Volume Slider".max_value
 
 
 func IfResumeButtonIsPressed():
@@ -347,6 +356,8 @@ func IfResumeButtonIsPressed():
 	
 	# Resume the game
 	characterBase.pauseMenu()
+	
+	ButtonPressSoundEffect.play()
 
 
 func IfQuitButtonIsPressed():
@@ -354,6 +365,8 @@ func IfQuitButtonIsPressed():
 	
 	# Go back to the main menu
 	get_tree().change_scene_to_file("res://Scenes/Main Menu.tscn")
+	
+	ButtonPressSoundEffect.play()
 
 
 
@@ -367,6 +380,8 @@ func IfRestartDayButtonIsPressed():
 	# Only way to move the player around again is to pause and resume each time
 	# This way, the player can move around after reloading the current scene without having to pause and resume
 	#characterBase.pauseMenu()
+	
+	ButtonPressSoundEffect.play()
 	
 
 
@@ -382,6 +397,8 @@ func IfOptionsButtonIsPressed():
 	$"Restart Day Button".hide()
 	$"Options Button".hide()
 	$"Quit Button".hide()
+	
+	ButtonPressSoundEffect.play()
 
 
 func IfBackButtonIsPressed():
@@ -396,6 +413,8 @@ func IfBackButtonIsPressed():
 	$"Restart Day Button".show()
 	$"Options Button".show()
 	$"Quit Button".show()
+	
+	ButtonPressSoundEffect.play()
 
 
 func IfResolutionDropDownMenuIsModified(index):

@@ -5,6 +5,7 @@ extends Node
 @export var optionsMenuFont : Font
 
 var musicSliderPercentage
+var sfxSliderPercentage
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -116,7 +117,7 @@ func _ready():
 	# Initialize the music volume size here
 	$"Music Volume Text".size = Vector2(100, 50)
 	
-	# Set the min and max values of the music volume slider to be 0 and 100, respectively
+	# Set the min and max values of the music volume slider to be 0 and 80, respectively
 	$"Music Volume Slider".min_value = 0
 	$"Music Volume Slider".max_value = 80
 	
@@ -154,9 +155,9 @@ func _ready():
 	# Initialize the SFX volume size here
 	$"SFX Volume Text".size = Vector2(100, 50)
 	
-	# Set the min and max values of the SFX volume slider to be 0 and 100, respectively
+	# Set the min and max values of the SFX volume slider to be 0 and 80, respectively
 	$"SFX Volume Slider".min_value = 0
-	$"SFX Volume Slider".max_value = 100
+	$"SFX Volume Slider".max_value = 80
 	
 	# Initialize the SFX volume slider here
 	$"SFX Volume Slider".size = Vector2(100, 50)
@@ -171,12 +172,16 @@ func _ready():
 	$"SFX Volume Slider/SFX Volume Percentage".add_theme_font_size_override("font_size", 25)
 	
 	# Initialize the SFX volume percentage to say whatever the SFX volume slider value currently is
-	$"SFX Volume Slider/SFX Volume Percentage".text = "%s" % $"SFX Volume Slider".value
+	$"SFX Volume Slider/SFX Volume Percentage".text = "%s" % sfxSliderPercentage
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#pass
+	
+	if MainMenuMusic.playing == false:
+		MainMenuMusic.play()
+		MainMenuMusic.volume_db = MusicVolume.musicVolume - 80
 	
 	musicSliderPercentage = ($"Music Volume Slider".value / $"Music Volume Slider".max_value) * 100
 	
@@ -189,11 +194,16 @@ func _process(delta):
 	# Set the main menu music volume equal to the music volume minus the max value of the music slider
 	MainMenuMusic.volume_db = MusicVolume.musicVolume - $"Music Volume Slider".max_value
 	
+	ButtonPressSoundEffect.volume_db = SfxVolume.sfxVolume - $"SFX Volume Slider".max_value
+	
+	sfxSliderPercentage = ($"SFX Volume Slider".value / $"SFX Volume Slider".max_value) * 100
+	
 	# Initialize the SFX volume percentage to say whatever the SFX volume slider value currently is
-	$"SFX Volume Slider/SFX Volume Percentage".text = "%s" % $"SFX Volume Slider".value
+	$"SFX Volume Slider/SFX Volume Percentage".text = "%s" % roundf(sfxSliderPercentage)
 	
 	# Save the SFX volume to equal whatever the value of the SFX volume slider the player set it to
 	SfxVolume.sfxVolume = $"SFX Volume Slider".value
+	
 
 
 func IfBackButtonIsPressed():
@@ -201,6 +211,8 @@ func IfBackButtonIsPressed():
 	
 	# Go back to the main menu when the player presses the back button
 	get_tree().change_scene_to_file("res://Scenes/Main Menu.tscn")
+	
+	ButtonPressSoundEffect.play()
 
 
 func IfResolutionDropDownMenuIsModified(index):

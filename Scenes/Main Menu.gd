@@ -7,6 +7,12 @@ extends Node
 func _ready():
 	#pass # Replace with function body.
 	
+	if MainMenuMusic.playing == false:
+		MainMenuMusic.play()
+	
+	if MainMenuMusic.playing == true:
+		MainMenuMusic.volume_db = MusicVolume.musicVolume - 80
+	
 	# Set the window mode to windowed at start
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	
@@ -108,6 +114,10 @@ func _ready():
 func _process(delta):
 	#pass
 	
+	if MainMenuMusic.playing == false:
+		MainMenuMusic.play()
+		MainMenuMusic.volume_db = MusicVolume.musicVolume - 80
+	
 	# If the player presses the ESCAPE key, then quit the game
 	if Input.is_action_pressed("Quit"):
 		get_tree().quit()
@@ -116,14 +126,15 @@ func IfPlayButtonIsPressed():
 	#go to dev room for testing when hitting play in the main menu
 	get_tree().change_scene_to_file("res://Scenes/devroom.tscn")
 	
-	# Stop playing the main menu
-	MainMenuMusic.stop()
+	ButtonPressSoundEffect.play()
 
 func IfOptionsButtonIsPressed():
 	#pass # Replace with function body.
 	
 	# Go to the options menu if the player presses the options button inside the main menu
 	get_tree().change_scene_to_file("res://Scenes/Options Menu.tscn")
+	
+	ButtonPressSoundEffect.play()
 
 
 func IfHowToPlayButtonIsPressed():
@@ -131,6 +142,8 @@ func IfHowToPlayButtonIsPressed():
 	
 	# Go to the how to play menu if the player presses the how to play button inside the main menu
 	get_tree().change_scene_to_file("res://Scenes/How to Play Menu.tscn")
+	
+	ButtonPressSoundEffect.play()
 
 
 func IfCreditsButtonIsPressed():
@@ -138,3 +151,5 @@ func IfCreditsButtonIsPressed():
 	
 	# Go to the credits menu if the player presses the credits button inside the main menu
 	get_tree().change_scene_to_file("res://Scenes/Credits Menu.tscn")
+	
+	ButtonPressSoundEffect.play()

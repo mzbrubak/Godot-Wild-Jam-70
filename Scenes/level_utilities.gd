@@ -8,6 +8,8 @@ var ObjectList: Dictionary
 enum{IDLE, INTERACT, FIGHT}
 
 func _ready():
+	MainMenuMusic.stop()
+	
 	var objects=find_children("*","StaticBody2D")
 	for object in objects:
 		if object.has_method("IfInteractedWith"):

@@ -173,7 +173,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	#pass
+	
+	if MainMenuMusic.playing == false:
+		MainMenuMusic.play()
+		MainMenuMusic.volume_db = MusicVolume.musicVolume - 80
 
 
 func IfBackButtonIsPressed():
@@ -181,3 +185,5 @@ func IfBackButtonIsPressed():
 	
 	# Go back to the main menu
 	get_tree().change_scene_to_file("res://Scenes/Main Menu.tscn")
+	
+	ButtonPressSoundEffect.play()
