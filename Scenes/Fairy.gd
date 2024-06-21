@@ -1,15 +1,25 @@
 extends Character_Base
 var possessionOffset:Vector2
+var isPossessing:bool = false
 
 func _ready():
 	super._ready()
 	speed=200
 
 func _process(delta):
+	if isPossessing:
+		return
 	super._process(delta)
 	if Input.is_action_just_pressed("Possess"):
 		attemptPossession()
-		
+#don't need fairy to act during possession
+
+func _physics_process(delta):
+	if isPossessing:
+		return
+	super._physics_process(delta)
+#don't need fairy to move during possession
+	
 func attemptPossession():
 	if interactionCandidates.is_empty():
 		print("No possessable characters in range.")
@@ -29,10 +39,12 @@ func attemptPossession():
 				find_child("Hitbox").disabled=true
 				possessionCandidate.possessionEnding.connect(endPossession)
 				possessionOffset=position-possessionCandidate.position
+				isPossessing=true
 			else:
 				print("Can't possess character without knowing their name")
 
 func endPossession(Character):
 	position=Character.position+possessionOffset
 	find_child("Hitbox").disabled=false
+	isPossessing=false
 	Character.possessionEnding.disconnect(endPossession)
