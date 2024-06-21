@@ -115,6 +115,9 @@ func _process(delta):
 func IfPlayButtonIsPressed():
 	#go to dev room for testing when hitting play in the main menu
 	get_tree().change_scene_to_file("res://Scenes/devroom.tscn")
+	
+	# Stop playing the main menu
+	MainMenuMusic.stop()
 
 func IfOptionsButtonIsPressed():
 	#pass # Replace with function body.

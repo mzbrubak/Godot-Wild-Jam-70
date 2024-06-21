@@ -1,4 +1,4 @@
 extends HSlider
 
 # Set this to the maximum music volume
-var musicVolume = 100
+var musicVolume = 80

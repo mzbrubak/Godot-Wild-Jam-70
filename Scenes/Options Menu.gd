@@ -4,6 +4,7 @@ extends Node
 # Set the font to whatever we want inside the inspector
 @export var optionsMenuFont : Font
 
+var musicSliderPercentage
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -117,13 +118,16 @@ func _ready():
 	
 	# Set the min and max values of the music volume slider to be 0 and 100, respectively
 	$"Music Volume Slider".min_value = 0
-	$"Music Volume Slider".max_value = 100
+	$"Music Volume Slider".max_value = 80
 	
 	# Initialize the music volume slider here
 	$"Music Volume Slider".size = Vector2(100, 50)
 	
 	# Set the music volume slider to its maximum volume at start
 	$"Music Volume Slider".value = MusicVolume.musicVolume
+	
+	# Set the main menu music volume equal to the music volume minus the max value of the music slider
+	MainMenuMusic.volume_db = MusicVolume.musicVolume - $"Music Volume Slider".max_value
 	
 	# Use the music volume percentage text to add theme font override to use the font we set in the inspector
 	$"Music Volume Slider/Music Volume Percentage".add_theme_font_override("font", optionsMenuFont)
@@ -132,7 +136,7 @@ func _ready():
 	$"Music Volume Slider/Music Volume Percentage".add_theme_font_size_override("font_size", 25)
 	
 	# Initialize the music volume percentage to say whatever the music volume slider value currently is
-	$"Music Volume Slider/Music Volume Percentage".text = "%s" % $"Music Volume Slider".value
+	$"Music Volume Slider/Music Volume Percentage".text = "%s" % musicSliderPercentage
 	
 	# Set the SFX volume text to say SFX Volume
 	$"SFX Volume Text".text = "SFX Volume"
@@ -174,11 +178,16 @@ func _ready():
 func _process(delta):
 	#pass
 	
+	musicSliderPercentage = ($"Music Volume Slider".value / $"Music Volume Slider".max_value) * 100
+	
 	# Initialize the music volume percentage to say whatever the music volume slider value currently is on process
-	$"Music Volume Slider/Music Volume Percentage".text = "%s" % $"Music Volume Slider".value
+	$"Music Volume Slider/Music Volume Percentage".text = "%s" % roundf(musicSliderPercentage)
 	
 	# Save the music volume to equal whatever the value of the music volume slider the player set it to
 	MusicVolume.musicVolume = $"Music Volume Slider".value
+	
+	# Set the main menu music volume equal to the music volume minus the max value of the music slider
+	MainMenuMusic.volume_db = MusicVolume.musicVolume - $"Music Volume Slider".max_value
 	
 	# Initialize the SFX volume percentage to say whatever the SFX volume slider value currently is
 	$"SFX Volume Slider/SFX Volume Percentage".text = "%s" % $"SFX Volume Slider".value

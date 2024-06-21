@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 MusicVolume="*res://Music Volume.gd"
 SfxVolume="*res://SFX Volume.gd"
+MainMenuMusic="*res://Scenes/Main Menu Music.tscn"
 
 [display]
 

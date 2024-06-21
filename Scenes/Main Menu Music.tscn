@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsevvnoug7bg1"]
+
+[ext_resource type="AudioStream" uid="uid://dospyyy58tr40" path="res://Music/MUS_GameplayBackground.mp3" id="1_l0v3u"]
+[ext_resource type="Script" path="res://Scenes/Main Menu Music.gd" id="1_ujw0l"]
+
+[node name="MainMenuMusic" type="AudioStreamPlayer"]
+stream = ExtResource("1_l0v3u")
+script = ExtResource("1_ujw0l")
