@@ -1,6 +1,10 @@
 extends Character_Base
 var possessionOffset:Vector2
 
+func _ready():
+	super._ready()
+	speed=200
+
 func _process(delta):
 	super._process(delta)
 	if Input.is_action_just_pressed("Possess"):

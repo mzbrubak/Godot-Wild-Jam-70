@@ -1,5 +1,6 @@
 extends StaticBody2D
 var interactionArea
+@export var objectID:String
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,12 +12,12 @@ func _process(delta):
 	pass
 
 func IfBodyEntered(Body):
-	print(Body," entered interaction area of ",self)
+	print(Body," entered interaction area of ",objectID)
 	Body.addInteraction(self)
 
 func IfBodyExited(Body):
-	print(Body," exited interaction area of ",self)
+	print(Body," exited interaction area of ",objectID)
 	Body.removeInteraction(self)
 
 func IfInteractedWith(Character):
-	print("The wall does not talk back to ", Character)
+	print(objectID, " was pressed by ", Character)

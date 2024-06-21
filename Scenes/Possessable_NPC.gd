@@ -1,5 +1,7 @@
 extends Character_Base
 signal possessionEnding
+signal announceIntent
+signal actionReady
 var schedule=Schedule.new()
 var patience:int = 3 #how long character will try to do tasks that are late
 var pathfinder
@@ -15,9 +17,8 @@ func _ready():
 	interactionArea=find_child("InteractionArea")
 	pathfinder=find_child("NavigationAgent2D")
 	schedule.addTask(20,Vector2(1000,800), 0,[])
-	schedule.addTask(40,Vector2(100,100),0,[])
+	schedule.addTask(50,Vector2(300,200),0,[])
 	schedule.remainingschedule=schedule.fullschedule
-	schedule.popTask()
 	NavigationServer2D.map_changed.connect(startNavigation)
 	
 
@@ -52,19 +53,10 @@ func _physics_process(_delta):
 		move_and_slide()
 
 
-func do_currenttask():
-	match schedule.currenttask.action:
-		INTERACT:
-			if !interactionCandidates.is_empty():
-				interact(interactionCandidates[0])
-		IDLE:
-			pass
-	
-	getnexttask()
-
 func getnexttask():
 	schedule.popTask()
 	pathfinder.set_target_position(schedule.currenttask.location)
+	announceIntent.emit(self,schedule.currenttask)
 
 func IfBodyEntered(Body):
 	print(Body," entered interaction area of ",self)
@@ -93,6 +85,10 @@ func startNavigation(mapRID):
 #in an attempt to allow for this in an easier way, I'm just going to wait for a certain time to start
 	pathfinder.set_navigation_map(mapRID)
 	pathfinder.set_navigation_layer_value(1,true)
-	pathfinder.set_target_position(schedule.currenttask.location)
 	pathfinder.set_max_speed(speed)
+	getnexttask()
 	navigationReady=true
+
+func _on_target_reached():
+	print("Made it")
+	actionReady.emit(self)

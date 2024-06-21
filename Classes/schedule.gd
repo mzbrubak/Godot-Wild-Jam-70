@@ -7,7 +7,10 @@ var currenttask:Task
 
 
 func popTask():
-	currenttask=remainingschedule.pop_back()
+	if remainingschedule.is_empty():
+		currenttask=Task.new(999999,currenttask.location,0,[])
+	else:
+		currenttask=remainingschedule.pop_back()
 	
 func addTask(time, location, action, condition): #add event without overriding default events
 	#useful for building the list of actions the fairy makes someone take

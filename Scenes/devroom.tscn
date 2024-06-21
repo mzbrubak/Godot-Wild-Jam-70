@@ -86,14 +86,20 @@ polygon = PackedVector2Array(436, 52, 509, 56, 513, 206, 583, 266, 542, 335, 453
 
 [node name="Interactable_Object" parent="NavigationRegion2D" instance=ExtResource("4_lhwlw")]
 position = Vector2(927, 190)
+objectID = "Button1"
 
 [node name="InteractableObject" parent="NavigationRegion2D" instance=ExtResource("4_lhwlw")]
 position = Vector2(324, 298)
+objectID = "Button2"
 
 [node name="InteractableObject2" parent="NavigationRegion2D" instance=ExtResource("4_lhwlw")]
 position = Vector2(343, 790)
+objectID = "Button3"
 
 [node name="InteractableObject3" parent="NavigationRegion2D" instance=ExtResource("4_lhwlw")]
 position = Vector2(802, 801)
+objectID = "Button4"
 
 [connection signal="AnnounceTime" from="Timer" to="." method="trackTime"]
+[connection signal="actionReady" from="NPC" to="." method="_on_npc_action_ready"]
+[connection signal="announceIntent" from="NPC" to="." method="_on_npc_announce_intent"]
