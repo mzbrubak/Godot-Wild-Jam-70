@@ -9,6 +9,9 @@ var buttonHoverSoundIndex
 func _ready():
 	#pass # Replace with function body.
 	
+	if $"Credits Menu Video".is_playing() == false:
+		get_node("Credits Menu Video").play()
+	
 	# Make the credits menu title text say Credits
 	$"Credits Menu Title".text = "Credits"
 	

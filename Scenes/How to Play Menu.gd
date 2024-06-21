@@ -9,6 +9,9 @@ var buttonHoverSoundIndex
 func _ready():
 	#pass # Replace with function body.
 	
+	if $"How to Play Video".is_playing() == false:
+		get_node("How to Play Video").play()
+	
 	# Make the how to play title text say How to Play
 	$"How to Play Title".text = "How to Play"
 	

@@ -1,12 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxiw7n0s2pgje"]
+[gd_scene load_steps=5 format=3 uid="uid://bxiw7n0s2pgje"]
 
 [ext_resource type="Script" path="res://Scenes/Credits Menu.gd" id="1_iy17k"]
 [ext_resource type="Texture2D" uid="uid://c7vjhi35m78nu" path="res://Art/Button5.png" id="1_kncpg"]
 [ext_resource type="FontFile" uid="uid://pwg2u1lrabc3" path="res://Fonts/Fairy Font.ttf" id="2_y4xg3"]
+[ext_resource type="VideoStream" path="res://Videos/Credits Menu Video.ogv" id="3_ch5ej"]
 
 [node name="Credits Menu Node" type="Node"]
 script = ExtResource("1_iy17k")
 creditsMenuFont = ExtResource("2_y4xg3")
+
+[node name="Credits Menu Video" type="VideoStreamPlayer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("3_ch5ej")
 
 [node name="Credits Menu Title" type="Label" parent="."]
 anchors_preset = 5

@@ -15,6 +15,9 @@ func _ready():
 	if MainMenuMusic.playing == true:
 		MainMenuMusic.volume_db = MusicVolume.musicVolume - 80
 	
+	if $"Main Menu Video".is_playing() == false:
+		get_node("Main Menu Video").play()
+	
 	# Set the window mode to windowed at start
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	

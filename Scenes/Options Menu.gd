@@ -13,6 +13,9 @@ var buttonHoverSoundIndex
 func _ready():
 	#pass # Replace with function body.
 	
+	if $"Options Menu Video".is_playing() == false:
+		get_node("Options Menu Video").play()
+	
 	# Make the options menu title say Options Menu
 	$"Options Menu Title".text = "Options Menu"
 	

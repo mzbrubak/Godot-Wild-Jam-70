@@ -1,14 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0ri8eb2c04dq"]
+[gd_scene load_steps=7 format=3 uid="uid://c0ri8eb2c04dq"]
 
 [ext_resource type="Script" path="res://Music Volume.gd" id="1_ltspv"]
 [ext_resource type="Script" path="res://Scenes/Options Menu.gd" id="1_vynna"]
 [ext_resource type="FontFile" uid="uid://pwg2u1lrabc3" path="res://Fonts/Fairy Font.ttf" id="2_6lbwl"]
 [ext_resource type="Texture2D" uid="uid://c7vjhi35m78nu" path="res://Art/Button5.png" id="2_i53x6"]
+[ext_resource type="VideoStream" path="res://Videos/Options Menu Video.ogv" id="3_yj3jq"]
 [ext_resource type="Script" path="res://SFX Volume.gd" id="5_d3qnu"]
 
 [node name="Options Menu Node" type="Node"]
 script = ExtResource("1_vynna")
 optionsMenuFont = ExtResource("2_6lbwl")
+
+[node name="Options Menu Video" type="VideoStreamPlayer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("3_yj3jq")
 
 [node name="Options Menu Title" type="Label" parent="."]
 anchors_preset = 5

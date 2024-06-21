@@ -1,11 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://50jtafvlwpyg"]
+[gd_scene load_steps=11 format=3 uid="uid://50jtafvlwpyg"]
 
 [ext_resource type="Script" path="res://Scenes/Pause Menu.gd" id="1_647en"]
 [ext_resource type="FontFile" uid="uid://pwg2u1lrabc3" path="res://Fonts/Fairy Font.ttf" id="1_cmfw4"]
 [ext_resource type="Texture2D" uid="uid://rtdoilkakqy8" path="res://Art/Button.png" id="1_x5gkp"]
 [ext_resource type="Texture2D" uid="uid://c7vjhi35m78nu" path="res://Art/Button5.png" id="2_8uyo0"]
+[ext_resource type="VideoStream" path="res://Videos/Pause Game Video.ogv" id="3_f5dbe"]
 [ext_resource type="Texture2D" uid="uid://cke31uf07no68" path="res://Art/Button3.png" id="4_cayht"]
+[ext_resource type="VideoStream" path="res://Videos/Back to the Pause Menu Video.ogv" id="4_eetmi"]
 [ext_resource type="Script" path="res://Music Volume.gd" id="6_0d4sg"]
+[ext_resource type="VideoStream" path="res://Videos/Options Menu In Game Video.ogv" id="7_bdg8c"]
 [ext_resource type="Script" path="res://SFX Volume.gd" id="7_o8xl8"]
 
 [node name="PauseMenu" type="Control"]
@@ -17,6 +20,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_647en")
 pauseMenuFont = ExtResource("1_cmfw4")
+
+[node name="Pause Menu Video" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("3_f5dbe")
+
+[node name="Back to the Pause Menu Video" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("4_eetmi")
 
 [node name="Pause Menu Title" type="Label" parent="."]
 layout_mode = 1
@@ -101,6 +116,12 @@ offset_bottom = 23.0
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Options Menu In-Game Video" type="VideoStreamPlayer" parent="Options Menu In-Game"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("7_bdg8c")
 
 [node name="Options Menu In-Game Title" type="Label" parent="Options Menu In-Game"]
 layout_mode = 1

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://r6s1y7uc8dcf"]
+[gd_scene load_steps=8 format=3 uid="uid://r6s1y7uc8dcf"]
 
 [ext_resource type="Script" path="res://Scenes/Main Menu.gd" id="1_dhl8a"]
 [ext_resource type="Texture2D" uid="uid://rtdoilkakqy8" path="res://Art/Button.png" id="2_8ai8w"]
 [ext_resource type="FontFile" uid="uid://pwg2u1lrabc3" path="res://Fonts/Fairy Font.ttf" id="2_umtut"]
+[ext_resource type="VideoStream" path="res://Videos/Main Menu Video.ogv" id="3_5rf40"]
 [ext_resource type="Texture2D" uid="uid://cj2d5v5jte81h" path="res://Art/Button2.png" id="3_ld4wt"]
 [ext_resource type="Texture2D" uid="uid://cke31uf07no68" path="res://Art/Button3.png" id="4_efmbh"]
 [ext_resource type="Texture2D" uid="uid://76fafx1qryfn" path="res://Art/Button4.png" id="5_lwb86"]
@@ -10,6 +11,15 @@
 [node name="Main Menu Node" type="Node"]
 script = ExtResource("1_dhl8a")
 mainMenuFont = ExtResource("2_umtut")
+
+[node name="Main Menu Video" type="VideoStreamPlayer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("3_5rf40")
 
 [node name="Main Menu Title" type="Label" parent="."]
 anchors_preset = 5

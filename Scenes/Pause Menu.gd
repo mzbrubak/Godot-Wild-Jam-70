@@ -118,6 +118,7 @@ func _ready():
 	
 	# Hide the options menu right away
 	$"Options Menu In-Game".hide()
+	$"Options Menu In-Game/Options Menu In-Game Video".hide()
 	
 	# Make the options menu title say Options Menu
 	$"Options Menu In-Game/Options Menu In-Game Title".text = "Options Menu"
@@ -326,6 +327,8 @@ func _ready():
 	
 	# Initialize the SFX volume percentage to say whatever the SFX volume slider value currently is
 	$"Options Menu In-Game/SFX Volume Slider/SFX Volume Percentage".text = "%s" % sfxSliderPercentage
+	
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -390,6 +393,21 @@ func IfOptionsButtonIsPressed():
 	
 	# Show the options menu in game node
 	$"Options Menu In-Game".show()
+	$"Options Menu In-Game/Back Button".show()
+	$"Options Menu In-Game/Back Button/Back Text".show()
+	$"Options Menu In-Game/Music Volume Slider".show()
+	$"Options Menu In-Game/Music Volume Slider/Music Volume Percentage".show()
+	$"Options Menu In-Game/Music Volume Text".show()
+	$"Options Menu In-Game/Options Menu In-Game Title".show()
+	$"Options Menu In-Game/Player Camera Zoom Drop Down Color".show()
+	$"Options Menu In-Game/Player Camera Zoom Drop Down Menu".show()
+	$"Options Menu In-Game/Player Camera Zoom Text".show()
+	$"Options Menu In-Game/Resolution Drop Down Color".show()
+	$"Options Menu In-Game/Resolution Drop Down Menu".show()
+	$"Options Menu In-Game/Resolution Text".show()
+	$"Options Menu In-Game/SFX Volume Slider".show()
+	$"Options Menu In-Game/SFX Volume Slider/SFX Volume Percentage".show()
+	$"Options Menu In-Game/SFX Volume Text".show()
 	
 	# Hide all the pause menu child nodes
 	$"Pause Menu Title".hide()
@@ -397,6 +415,21 @@ func IfOptionsButtonIsPressed():
 	$"Restart Day Button".hide()
 	$"Options Button".hide()
 	$"Quit Button".hide()
+	
+	$"Pause Menu Video".hide()
+	
+	if $"Pause Menu Video".visible == false:
+		get_node("Pause Menu Video").stop()
+	
+	$"Options Menu In-Game/Options Menu In-Game Video".show()
+	
+	if $"Options Menu In-Game/Options Menu In-Game Video".visible == true:
+		get_node("Options Menu In-Game/Options Menu In-Game Video").play()
+	
+	$"Back to the Pause Menu Video".hide()
+	
+	if $"Back to the Pause Menu Video".visible == false:
+		get_node("Back to the Pause Menu Video").stop()
 	
 	ButtonPressSoundEffect.play()
 
@@ -406,6 +439,16 @@ func IfBackButtonIsPressed():
 	
 	# Hide the options menu in game node
 	$"Options Menu In-Game".hide()
+	
+	$"Options Menu In-Game/Options Menu In-Game Video".hide()
+	
+	if $"Options Menu In-Game/Options Menu In-Game Video".visible == false:
+		get_node("Options Menu In-Game/Options Menu In-Game Video").stop()
+	
+	$"Back to the Pause Menu Video".show()
+	
+	if $"Back to the Pause Menu Video".visible == true:
+		get_node("Back to the Pause Menu Video").play()
 	
 	# Show all the pause menu child nodes
 	$"Pause Menu Title".show()
