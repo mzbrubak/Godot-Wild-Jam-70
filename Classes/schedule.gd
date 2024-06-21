@@ -1,8 +1,9 @@
+extends Resource
 class_name Schedule
 #note: events are listed in reverse order because pop_back is more memory-efficient than pop_front
-var fullschedule = [] #lists all events for the day, including those already done
-const originalschedule = [] #what NPC does without interaction; read this from a file later
-var remainingschedule = [] #lists events for the day that have not yet been done
+@export var fullschedule: Array[Task] = [] #lists all events for the day, including those already done
+@export var originalschedule: Array[Task] = [] #what NPC does without interaction; read this from a file later
+@export var remainingschedule: Array[Task]= [] #lists events for the day that have not yet been done
 var currenttask:Task
 
 
@@ -42,9 +43,9 @@ func revertschedule(time):#undoes all player influence on NPC
 	fullschedule=originalschedule.duplicate(true)
 	remainingschedule=originalschedule.duplicate(true)
 	if currenttask in originalschedule:
-		var firsttask=remainingschedule.pop_back
+		var firsttask=remainingschedule.pop_back()
 		while (firsttask==currenttask)==false:
-			firsttask=remainingschedule.pop_back
+			firsttask=remainingschedule.pop_back()
 	else:
 		popTask()
 		while currenttask.time<time:

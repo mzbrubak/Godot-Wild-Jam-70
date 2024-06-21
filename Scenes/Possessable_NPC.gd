@@ -2,12 +2,11 @@ extends Character_Base
 signal possessionEnding
 signal announceIntent
 signal actionReady
-var schedule=Schedule.new()
+@export var schedule=Schedule.new()
 var patience:int = 3 #how long character will try to do tasks that are late
 var pathfinder
 var isPlayer:bool=false #indicates possession status
 var interactionArea
-var testTask: Task
 var navigationReady=false
 var possessionstartTime:int
 enum {IDLE, INTERACT, FIGHT}
@@ -16,9 +15,6 @@ func _ready():
 	super._ready()
 	interactionArea=find_child("InteractionArea")
 	pathfinder=find_child("NavigationAgent2D")
-	schedule.addTask(5,Vector2(324,298), 1,"Button2")
-	schedule.addTask(30,Vector2(343,790), 1,"Button3")
-	schedule.remainingschedule=schedule.fullschedule
 	NavigationServer2D.map_changed.connect(startNavigation)
 	
 

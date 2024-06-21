@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bb8odyrqprt6v"]
+[gd_scene load_steps=6 format=3 uid="uid://bb8odyrqprt6v"]
 
 [ext_resource type="Script" path="res://Scenes/Possessable_NPC.gd" id="1_d0muo"]
 [ext_resource type="PackedScene" uid="uid://50jtafvlwpyg" path="res://Scenes/Pause Menu.tscn" id="2_d84pd"]
+[ext_resource type="Resource" uid="uid://beagstyb04cly" path="res://Schedules/devroomschedule.tres" id="2_fmg2e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3bcws"]
 
@@ -12,6 +13,7 @@ radius = 24.0208
 collision_layer = 9
 motion_mode = 1
 script = ExtResource("1_d0muo")
+schedule = ExtResource("2_fmg2e")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_3bcws")

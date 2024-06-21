@@ -1,5 +1,5 @@
 extends Control
-
+signal dayResetManuallyTriggered
 # Get the character base script to call pause menu inside this script
 @onready var characterBase = $"../../"
 
@@ -359,14 +359,15 @@ func IfQuitButtonIsPressed():
 
 func IfRestartDayButtonIsPressed():
 	#pass # Replace with function body.
-	
+	dayResetManuallyTriggered.emit()
 	# Restart at the current scene
-	get_tree().reload_current_scene()
+	#get_tree().reload_current_scene()
 	
 	# This line of code fixes the bug of the player not being able to move after the game restarts
 	# Only way to move the player around again is to pause and resume each time
 	# This way, the player can move around after reloading the current scene without having to pause and resume
-	characterBase.pauseMenu()
+	#characterBase.pauseMenu()
+	
 
 
 func IfOptionsButtonIsPressed():
