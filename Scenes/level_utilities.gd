@@ -4,10 +4,14 @@ var daylength:int=300
 var NPCList=[]
 var NPCIntendedTasks=[]
 var NPCActionReady=[]
+var ObjectList: Dictionary
 enum{IDLE, INTERACT, FIGHT}
 
 func _ready():
-	pass
+	var objects=find_children("*","StaticBody2D")
+	for object in objects:
+		if object.has_method("IfInteractedWith"):
+			ObjectList[object.objectID]=object
 
 func trackTime(t):
 	time=t
@@ -45,7 +49,8 @@ func _on_npc_action_ready(NPC):
 func do_NPC_action(NPCindex):
 	match NPCIntendedTasks[NPCindex].action:
 		INTERACT:
-			NPCList[NPCindex].interact(NPCIntendedTasks[NPCindex].target)
+			var object=NPCIntendedTasks[NPCindex].target
+			NPCList[NPCindex].interact(ObjectList[object])
 		FIGHT:
 			print("Haven't implemented fighting yet :/")
 		IDLE:

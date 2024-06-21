@@ -23,7 +23,7 @@ offset_bottom = -15.0
 alignment = 1
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-target_desired_distance = 20.0
+target_desired_distance = 30.0
 
 [node name="Player Camera" type="Camera2D" parent="."]
 

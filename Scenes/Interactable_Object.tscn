@@ -3,9 +3,10 @@
 [ext_resource type="Script" path="res://Scenes/Interactable_Object.gd" id="1_uvber"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_150wk"]
+radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_alyih"]
-radius = 20.025
+radius = 31.0161
 
 [node name="Interactable_Object" type="StaticBody2D"]
 script = ExtResource("1_uvber")

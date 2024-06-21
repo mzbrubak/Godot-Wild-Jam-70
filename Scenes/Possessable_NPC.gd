@@ -16,8 +16,8 @@ func _ready():
 	super._ready()
 	interactionArea=find_child("InteractionArea")
 	pathfinder=find_child("NavigationAgent2D")
-	schedule.addTask(20,Vector2(1000,800), 0,[])
-	schedule.addTask(50,Vector2(300,200),0,[])
+	schedule.addTask(5,Vector2(324,298), 0,"Button2")
+	schedule.addTask(50,Vector2(343,790), 1,"Button3")
 	schedule.remainingschedule=schedule.fullschedule
 	NavigationServer2D.map_changed.connect(startNavigation)
 	
