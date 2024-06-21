@@ -95,3 +95,4 @@ Unpossess={
 2d_physics/layer_1="Collision"
 2d_physics/layer_2="InteractionAreas"
 2d_physics/layer_3="Player"
+2d_physics/layer_4="NPC"

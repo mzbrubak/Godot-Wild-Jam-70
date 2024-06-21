@@ -50,7 +50,8 @@ func do_NPC_action(NPCindex):
 	match NPCIntendedTasks[NPCindex].action:
 		INTERACT:
 			var object=NPCIntendedTasks[NPCindex].target
-			NPCList[NPCindex].interact(ObjectList[object])
+			if NPCList[NPCindex].interactionCandidates.has(ObjectList[object]):
+				NPCList[NPCindex].interact(ObjectList[object])
 		FIGHT:
 			print("Haven't implemented fighting yet :/")
 		IDLE:

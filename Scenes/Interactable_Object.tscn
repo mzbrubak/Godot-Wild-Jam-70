@@ -16,7 +16,7 @@ shape = SubResource("CircleShape2D_150wk")
 
 [node name="InteractionArea" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 4
+collision_mask = 12
 
 [node name="InteractionAreaShape" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource("CircleShape2D_alyih")

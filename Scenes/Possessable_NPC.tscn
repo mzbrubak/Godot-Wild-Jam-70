@@ -9,6 +9,7 @@
 radius = 24.0208
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 9
 motion_mode = 1
 script = ExtResource("1_d0muo")
 
@@ -24,6 +25,7 @@ alignment = 1
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 target_desired_distance = 30.0
+navigation_layers = 9
 
 [node name="Player Camera" type="Camera2D" parent="."]
 
@@ -33,7 +35,7 @@ target_desired_distance = 30.0
 
 [node name="InteractionArea" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 4
+collision_mask = 12
 
 [node name="InteractionAreaShap" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource("CircleShape2D_txrfd")

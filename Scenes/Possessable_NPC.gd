@@ -16,8 +16,8 @@ func _ready():
 	super._ready()
 	interactionArea=find_child("InteractionArea")
 	pathfinder=find_child("NavigationAgent2D")
-	schedule.addTask(5,Vector2(324,298), 0,"Button2")
-	schedule.addTask(50,Vector2(343,790), 1,"Button3")
+	schedule.addTask(5,Vector2(324,298), 1,"Button2")
+	schedule.addTask(30,Vector2(343,790), 1,"Button3")
 	schedule.remainingschedule=schedule.fullschedule
 	NavigationServer2D.map_changed.connect(startNavigation)
 	
@@ -73,11 +73,13 @@ func becomePossessed():
 	isPlayer=true
 	interactionArea.get_child(0).disabled=true
 	set_collision_layer_value(3, true)
+	set_collision_layer_value(4,false)
 	
 func endPossession():
 	isPlayer=false
 	interactionArea.get_child(0).disabled=false
 	set_collision_layer_value(3,false)
+	set_collision_layer_value(4,true)
 	possessionEnding.emit(self)
 
 func startNavigation(mapRID):
@@ -90,5 +92,5 @@ func startNavigation(mapRID):
 	navigationReady=true
 
 func _on_target_reached():
-	print("Made it")
+	#print("Made it")
 	actionReady.emit(self)
