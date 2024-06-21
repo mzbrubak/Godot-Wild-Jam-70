@@ -1,6 +1,6 @@
 extends Node2D
 var time:int=0
-var daylength:int=300
+var daylength:int=60
 var NPCList=[]
 var NPCIntendedTasks=[]
 var NPCActionReady=[]
@@ -14,6 +14,9 @@ func _ready():
 	for object in objects:
 		if object.has_method("IfInteractedWith"):
 			ObjectList[object.objectID]=object
+	var characters=find_children("*","Character_Base")
+	for character in characters:
+		character.get_node("Pause Menu Canvas Layer/PauseMenu").dayResetManuallyTriggered.connect(restart_day)
 
 func trackTime(t):
 	time=t
@@ -27,7 +30,8 @@ func trackTime(t):
 			NPCList[i].getnexttask()
 			
 func restart_day():
-	pass
+	get_tree().reload_current_scene()
+	Engine.time_scale=1
 
 func _on_npc_announce_intent(NPC,task):
 	print(NPC," intends to do action ", task.action, " to ", task.target)
