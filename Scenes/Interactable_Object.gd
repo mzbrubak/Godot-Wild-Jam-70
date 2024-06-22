@@ -1,4 +1,5 @@
 extends StaticBody2D
+class_name Interactable_Object
 var interactionArea
 @export var objectID:String
 

@@ -1,4 +1,5 @@
 extends Character_Base
+class_name Possessable_NPC
 signal possessionBeginning
 signal possessionEnding
 signal announceIntent
