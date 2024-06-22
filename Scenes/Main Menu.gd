@@ -21,8 +21,8 @@ func _ready():
 	# Set the window mode to windowed at start
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	
-	# Initialize the main menu title text to say Main Menu for now
-	$"Main Menu Title".text = "Main Menu"
+	# Initialize the main menu title text to say Mysteries of Mischief, the title of our game
+	$"Main Menu Title".text = "Mysteries of Mischief"
 	
 	# Align both the vertical and horizontal alignments of the main menu text at the center of the text box
 	$"Main Menu Title".vertical_alignment = VERTICAL_ALIGNMENT_CENTER
