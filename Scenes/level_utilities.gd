@@ -17,6 +17,9 @@ func _ready():
 	var characters=find_children("*","Character_Base")
 	for character in characters:
 		character.get_node("Pause Menu Canvas Layer/PauseMenu").dayResetManuallyTriggered.connect(restart_day)
+	
+	# Set the timer canvas layer to be bigger than normal so that the timer is visible
+	get_node("Timer Canvas Layer").scale = Vector2(5, 5)
 
 func trackTime(t):
 	time=t
