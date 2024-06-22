@@ -11,7 +11,7 @@ class_name Character_Base
 
 var health:int = 10
 
-var speed:int = 50
+var speed:int = 100
 var nameentryfield
 var hitbox
 var interactionCandidates=[]#tracks what interactable things are in rango of the character

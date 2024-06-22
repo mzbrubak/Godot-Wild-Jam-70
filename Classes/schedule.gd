@@ -12,12 +12,20 @@ func popTask():
 		currenttask=Task.new(999999,currenttask.location,0,[])
 	else:
 		currenttask=remainingschedule.pop_back()
-	
-func addTask(time, location, action, condition): #add event without overriding default events
-	#useful for building the list of actions the fairy makes someone take
-	var newtask=Task.new(time,location,action,condition)
-	var insertIndex=fullschedule.bsearch_custom(newtask, Callable(self,"compareTaskTime"))
-	fullschedule.insert(insertIndex,newtask)
+
+func addTask(task:Task):
+	var insertIndex=fullschedule.bsearch_custom(task, Callable(self,"compareTaskTime"))
+	fullschedule.insert(insertIndex,task)
+
+func eraseTasks(start_time, end_time): #does just the overwrite point
+	var starttask=Task.new(start_time)
+	var endtask=Task.new(end_time)
+	var startindex=fullschedule.bsearch_custom(starttask, Callable(self,"compareTaskTime"))
+	var endindex=fullschedule.bsearch_custom(endtask, Callable(self,"compareTaskTime"))
+	var counttoerase=startindex-endindex#no OBO error; if indices are the same, no events occurred between these times
+	while counttoerase>0:
+		fullschedule.pop_at(endindex)
+		counttoerase-=1
 
 func overwriteTasks(tasklist):#called after possession ends.  For technical reasons starting and ending possession should be first and last task
 	var starttask=tasklist.pop_back()
@@ -26,7 +34,7 @@ func overwriteTasks(tasklist):#called after possession ends.  For technical reas
 	var endindex=fullschedule.bsearch_custom(endtask, Callable(self,"compareTaskTime"))
 	var counttoerase=startindex-endindex#no OBO error; if indices are the same, no events occurred
 	# 3 situations: erasedcount==tasklist.length, or > or <
-	for i in range(tasklist.length()):
+	for i in range(tasklist.size()):
 		if counttoerase>0:
 			fullschedule[startindex-i] = tasklist.pop_back()
 			counttoerase-=1

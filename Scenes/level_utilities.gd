@@ -5,6 +5,7 @@ var NPCList=[]
 var NPCIntendedTasks=[]
 var NPCActionReady=[]
 var ObjectList: Dictionary
+var possessedNPCindex=-1
 enum{IDLE, INTERACT, FIGHT}
 
 func _ready():
@@ -29,7 +30,9 @@ func trackTime(t):
 	if time>=daylength:
 		restart_day()
 	for i in NPCActionReady.size():
-		if NPCActionReady[i]==true and time>=NPCIntendedTasks[i].time:
+		if i==possessedNPCindex:
+			return
+		elif NPCActionReady[i]==true and time>=NPCIntendedTasks[i].time:
 			do_NPC_action(i)
 		elif time>=NPCIntendedTasks[i].time+NPCList[i].patience:
 			print("Abandoning task")
@@ -66,6 +69,7 @@ func do_NPC_action(NPCindex):
 			var object=NPCIntendedTasks[NPCindex].target
 			if NPCList[NPCindex].interactionCandidates.has(ObjectList[object]):
 				NPCList[NPCindex].interact(ObjectList[object])
+			#add NPC case later (object list just has objects)
 		FIGHT:
 			print("Haven't implemented fighting yet :/")
 		IDLE:
@@ -73,3 +77,9 @@ func do_NPC_action(NPCindex):
 		_:
 			print("How the hell did you get here?")
 	NPCList[NPCindex].getnexttask()
+
+func _on_NPC_possession_beginning(NPC):
+	possessedNPCindex=NPCList.find(NPC)
+	
+func _on_NPC_possession_ending(NPC):
+	possessedNPCindex=-1

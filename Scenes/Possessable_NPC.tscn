@@ -69,6 +69,7 @@ collision_layer = 9
 motion_mode = 1
 script = ExtResource("1_d0muo")
 schedule = SubResource("Resource_rmdtl")
+NAME = null
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_3bcws")

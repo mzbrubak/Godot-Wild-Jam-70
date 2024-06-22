@@ -1,4 +1,5 @@
 extends Character_Base
+signal possessionBeginning
 signal possessionEnding
 signal announceIntent
 signal actionReady
@@ -9,7 +10,10 @@ var isPlayer:bool=false #indicates possession status
 var interactionArea
 var navigationReady=false
 var possessionstartTime:int
+var possessionActions: Array[Task]=[]
 enum {IDLE, INTERACT, FIGHT}
+var time:int
+var timer
 
 func _ready():
 	MainMenuMusic.stop()
@@ -19,6 +23,7 @@ func _ready():
 	pathfinder=find_child("NavigationAgent2D")
 	loadNPCData()
 	NavigationServer2D.map_changed.connect(startNavigation)
+	timer = get_parent().get_node("Timer Canvas Layer/Timer")
 	
 
 func _process(_delta):
@@ -31,6 +36,7 @@ func _process(_delta):
 			if interactionCandidates.is_empty():
 				pass
 			else:
+				var newTask=registerPossessionInteract(interactionCandidates[0])
 				interact(interactionCandidates[0])
 		if Input.is_action_just_pressed("Unpossess"):
 			endPossession()
@@ -76,12 +82,20 @@ func becomePossessed():
 	set_collision_layer_value(3, true)
 	set_collision_layer_value(4,false)
 	Camera.make_current()
+	timer.AnnounceTime.connect(track_time_while_possessed)
+	time=timer.timeint#in case things happen between ticks
+	possessionstartTime=time
+	possessionBeginning.emit(self)
 	
 func endPossession():
 	isPlayer=false
 	interactionArea.get_child(0).disabled=false
 	set_collision_layer_value(3,false)
 	set_collision_layer_value(4,true)
+	schedule.eraseTasks(possessionstartTime, time)
+	for i in range(possessionActions.size()):
+		schedule.addTask(possessionActions[i])
+	timer.AnnounceTime.disconnect(track_time_while_possessed)
 	possessionEnding.emit(self)
 
 func startNavigation(mapRID):
@@ -96,6 +110,19 @@ func startNavigation(mapRID):
 func _on_target_reached():
 	#print("Made it")
 	actionReady.emit(self)
+
+func track_time_while_possessed(t):#at start of possession, connect this to GM node
+	time=t
+	
+func registerPossessionInteract(interactee):
+	var newTask=Task.new()
+	newTask.time=time
+	newTask.location=global_position
+	newTask.action=1
+	if "objectID" in interactee:
+		newTask.target=interactee.objectID
+	possessionActions.insert(0,newTask)
+	#add case for NPC interact later
 
 func saveNPCData():
 	var data = NPCData.new()

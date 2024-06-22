@@ -104,4 +104,6 @@ objectID = "Button4"
 
 [connection signal="actionReady" from="NPC" to="." method="_on_npc_action_ready"]
 [connection signal="announceIntent" from="NPC" to="." method="_on_npc_announce_intent"]
+[connection signal="possessionBeginning" from="NPC" to="." method="_on_NPC_possession_beginning"]
+[connection signal="possessionEnding" from="NPC" to="." method="_on_NPC_possession_ending"]
 [connection signal="AnnounceTime" from="Timer Canvas Layer/Timer" to="." method="trackTime"]
