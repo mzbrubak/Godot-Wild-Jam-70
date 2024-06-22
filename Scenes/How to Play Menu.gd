@@ -46,11 +46,59 @@ func _ready():
 	
 	# Set the back button text size to x = 107 and y = 60
 	$"Back Button/Back Text".size = Vector2(107, 60)
+	
+	$"Arrow keys instruction".text = "Move the character around"
+	$"Arrow keys instruction".add_theme_font_override("font", howToPlayMenuFont)
+	$"Arrow keys instruction".add_theme_color_override("font_color", Color(0, 0.7, 0.7, 1))
+	$"Arrow keys instruction".add_theme_font_size_override("font_size", 50)
+	
+	$"E key instruction".text = "Interact"
+	$"E key instruction".add_theme_font_override("font", howToPlayMenuFont)
+	$"E key instruction".add_theme_color_override("font_color", Color(0, 0.7, 0.7, 1))
+	$"E key instruction".add_theme_font_size_override("font_size", 50)
+	
+	$"Q key instruction".text = "Possess"
+	$"Q key instruction".add_theme_font_override("font", howToPlayMenuFont)
+	$"Q key instruction".add_theme_color_override("font_color", Color(0, 0.7, 0.7, 1))
+	$"Q key instruction".add_theme_font_size_override("font_size", 50)
+	
+	$"SPACE key instruction".text = "Pause"
+	$"SPACE key instruction".add_theme_font_override("font", howToPlayMenuFont)
+	$"SPACE key instruction".add_theme_color_override("font_color", Color(0, 0.7, 0.7, 1))
+	$"SPACE key instruction".add_theme_font_size_override("font_size", 50)
+	
+	$"Z key instruction".text = "Unpossess"
+	$"Z key instruction".add_theme_font_override("font", howToPlayMenuFont)
+	$"Z key instruction".add_theme_color_override("font_color", Color(0, 0.7, 0.7, 1))
+	$"Z key instruction".add_theme_font_size_override("font_size", 50)
+	
+	$"CanvasLayer".hide()
+	$"Arrow keys instruction".hide()
+	$"E key instruction".hide()
+	$"Q key instruction".hide()
+	$"SPACE key instruction".hide()
+	$"Z key instruction".hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#pass
+	
+	if $"How to Play Video".is_playing() == true:
+		$"CanvasLayer".hide()
+		$"Arrow keys instruction".hide()
+		$"E key instruction".hide()
+		$"Q key instruction".hide()
+		$"SPACE key instruction".hide()
+		$"Z key instruction".hide()
+	
+	elif $"How to Play Video".is_playing() == false:
+		$"CanvasLayer".show()
+		$"Arrow keys instruction".show()
+		$"E key instruction".show()
+		$"Q key instruction".show()
+		$"SPACE key instruction".show()
+		$"Z key instruction".show()
 	
 	if MainMenuMusic.playing == false:
 		MainMenuMusic.play()

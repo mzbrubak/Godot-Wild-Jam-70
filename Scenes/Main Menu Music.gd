@@ -1,7 +1,5 @@
 extends AudioStreamPlayer
 
-var loopMainMenuMusic = 0
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#pass # Replace with function body.
@@ -19,12 +17,9 @@ func _ready():
 func _process(delta):
 	#pass
 	
-	# Increment the loop main menu music time by using delta
-	loopMainMenuMusic += delta
-	
 	# If the music has ended at 31 seconds, play the music again and set the loop timer back to 0
-	if loopMainMenuMusic >= 31:
+	if $".".playing == false:
 		$".".play()
-		$".".volume_db = MusicVolume.musicVolume - 80;
-		
-		loopMainMenuMusic = 0
+	
+	if $".".playing == true:
+		$".".volume_db = MusicVolume.musicVolume - 80

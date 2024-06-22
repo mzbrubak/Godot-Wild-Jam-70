@@ -4,10 +4,14 @@ var isPossessing:bool = false
 
 
 func _ready():
+	MainMenuMusic.stop()
+	
 	super._ready()
 	speed=200
 
 func _process(delta):
+	MainMenuMusic.stop()
+	
 	if isPossessing:
 		return
 	super._process(delta)

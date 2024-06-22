@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://r6s1y7uc8dcf"]
+[gd_scene load_steps=10 format=3 uid="uid://r6s1y7uc8dcf"]
 
 [ext_resource type="Script" path="res://Scenes/Main Menu.gd" id="1_dhl8a"]
 [ext_resource type="Texture2D" uid="uid://rtdoilkakqy8" path="res://Art/Button.png" id="2_8ai8w"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cj2d5v5jte81h" path="res://Art/Button2.png" id="3_ld4wt"]
 [ext_resource type="Texture2D" uid="uid://cke31uf07no68" path="res://Art/Button3.png" id="4_efmbh"]
 [ext_resource type="Texture2D" uid="uid://76fafx1qryfn" path="res://Art/Button4.png" id="5_lwb86"]
+[ext_resource type="Texture2D" uid="uid://dxlxed5m614kn" path="res://Wildcards/Actions Have Consequences.png" id="8_xbmn5"]
+[ext_resource type="Texture2D" uid="uid://boiaymj06ubji" path="res://Wildcards/Transfer Takeover.png" id="9_s5ftd"]
 
 [node name="Main Menu Node" type="Node"]
 script = ExtResource("1_dhl8a")
@@ -114,6 +116,18 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ActionsHaveConsequences" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(1750, 850)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_xbmn5")
+
+[node name="TransferTakeover" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(1450, 850)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_s5ftd")
 
 [connection signal="mouse_entered" from="Play Button" to="." method="IfPlayButtonIsHoveredByMouse"]
 [connection signal="mouse_exited" from="Play Button" to="." method="IfPlayButtonIsExitedByMouse"]

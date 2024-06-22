@@ -12,6 +12,8 @@ var possessionstartTime:int
 enum {IDLE, INTERACT, FIGHT}
 
 func _ready():
+	MainMenuMusic.stop()
+	
 	super._ready()
 	interactionArea=find_child("InteractionArea")
 	pathfinder=find_child("NavigationAgent2D")
@@ -19,6 +21,8 @@ func _ready():
 	
 
 func _process(_delta):
+	MainMenuMusic.stop()
+	
 	if isPlayer:
 		if Input.is_action_just_pressed("Pause Game"):
 			pauseMenu()

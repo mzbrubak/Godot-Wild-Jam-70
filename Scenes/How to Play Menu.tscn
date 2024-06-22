@@ -1,9 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqb2n6sadssyu"]
+[gd_scene load_steps=21 format=3 uid="uid://dqb2n6sadssyu"]
 
 [ext_resource type="Script" path="res://Scenes/How to Play Menu.gd" id="1_bvo52"]
 [ext_resource type="Texture2D" uid="uid://c7vjhi35m78nu" path="res://Art/Button5.png" id="1_fpce2"]
 [ext_resource type="FontFile" uid="uid://pwg2u1lrabc3" path="res://Fonts/Fairy Font.ttf" id="2_a7ern"]
 [ext_resource type="VideoStream" path="res://Videos/How to Play Video.ogv" id="3_deul4"]
+[ext_resource type="Texture2D" uid="uid://cyig83jpdvjm8" path="res://Art/Arrow keys.png" id="5_wsm2d"]
+[ext_resource type="Texture2D" uid="uid://cqehevf0vuti4" path="res://Art/E key.png" id="6_ftn3r"]
+[ext_resource type="Texture2D" uid="uid://br807q8hqeqmd" path="res://Art/Q key.png" id="7_ektel"]
+[ext_resource type="Texture2D" uid="uid://upnsdep074cq" path="res://Art/SPACE key.png" id="8_fpis3"]
+[ext_resource type="Texture2D" uid="uid://ng6usa7p1ajy" path="res://Art/Z key.png" id="9_c8hhi"]
+[ext_resource type="Texture2D" uid="uid://cobjtprmpr78f" path="res://Art/Left Analog Stick.png" id="10_rvbaf"]
+[ext_resource type="Texture2D" uid="uid://bwscbtsbsv8kw" path="res://Art/D-Pad.png" id="11_h22el"]
+[ext_resource type="Texture2D" uid="uid://bkrd0fj0ixq6t" path="res://Art/Sony cross button.png" id="12_xomjb"]
+[ext_resource type="Texture2D" uid="uid://bcb4gurv3dmbq" path="res://Art/Xbox a button.png" id="13_8ioek"]
+[ext_resource type="Texture2D" uid="uid://ugcelyd8ro3u" path="res://Art/Nintendo b button.png" id="14_a7ydy"]
+[ext_resource type="Texture2D" uid="uid://d3jphjpf6jk3k" path="res://Art/Sony triangle button.png" id="15_2s4r6"]
+[ext_resource type="Texture2D" uid="uid://y44whvucx225" path="res://Art/Xbox y button.png" id="16_dsxsk"]
+[ext_resource type="Texture2D" uid="uid://qpmi3sloe7k6" path="res://Art/Start button.png" id="17_iis78"]
+[ext_resource type="Texture2D" uid="uid://cip65y3wxsml5" path="res://Art/Xbox menu button.png" id="18_5dfhx"]
+[ext_resource type="Texture2D" uid="uid://deskoeilv8oi2" path="res://Art/Sony L2 button.png" id="19_n0pgx"]
+[ext_resource type="Texture2D" uid="uid://b1ampmc7kem0v" path="res://Art/Xbox LT button.png" id="20_rqgx5"]
 
 [node name="How to Play Node" type="Node"]
 script = ExtResource("1_bvo52")
@@ -46,6 +62,128 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Arrow keys texture" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(200, 200)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("5_wsm2d")
+
+[node name="EKey" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(200, 325)
+scale = Vector2(5, 5)
+texture = ExtResource("6_ftn3r")
+
+[node name="QKey" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(200, 450)
+scale = Vector2(5, 5)
+texture = ExtResource("7_ektel")
+
+[node name="SpaceKey" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(200, 575)
+scale = Vector2(5, 5)
+texture = ExtResource("8_fpis3")
+
+[node name="ZKey" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(200, 700)
+scale = Vector2(5, 5)
+texture = ExtResource("9_c8hhi")
+
+[node name="LeftAnalogStick" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(295, 205)
+scale = Vector2(5, 5)
+texture = ExtResource("10_rvbaf")
+
+[node name="D-pad" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(380, 200)
+scale = Vector2(5, 5)
+texture = ExtResource("11_h22el")
+
+[node name="SonyCrossButton" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(280, 325)
+scale = Vector2(5, 5)
+texture = ExtResource("12_xomjb")
+
+[node name="XboxAButton" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(360, 325)
+scale = Vector2(5, 5)
+texture = ExtResource("13_8ioek")
+
+[node name="NintendoBButton" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(440, 325)
+scale = Vector2(5, 5)
+texture = ExtResource("14_a7ydy")
+
+[node name="SonyTriangleButton" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(280, 450)
+scale = Vector2(5, 5)
+texture = ExtResource("15_2s4r6")
+
+[node name="XboxYButton" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(360, 450)
+scale = Vector2(5, 5)
+texture = ExtResource("16_dsxsk")
+
+[node name="NintendoXButton" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(440, 450)
+scale = Vector2(5, 5)
+texture = ExtResource("12_xomjb")
+
+[node name="StartButton" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(335, 580)
+scale = Vector2(3, 3)
+texture = ExtResource("17_iis78")
+
+[node name="XboxMenuButton" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(420, 580)
+scale = Vector2(5, 5)
+texture = ExtResource("18_5dfhx")
+
+[node name="Nintendo+Button" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(510, 580)
+scale = Vector2(5, 5)
+texture = ExtResource("11_h22el")
+
+[node name="SonyL2Button" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(300, 700)
+scale = Vector2(5, 5)
+texture = ExtResource("19_n0pgx")
+
+[node name="XboxLtButton" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(400, 700)
+scale = Vector2(5, 5)
+texture = ExtResource("20_rqgx5")
+
+[node name="Arrow keys instruction" type="Label" parent="."]
+offset_left = 600.0
+offset_top = 175.0
+offset_right = 640.0
+offset_bottom = 198.0
+
+[node name="E key instruction" type="Label" parent="."]
+offset_left = 600.0
+offset_top = 300.0
+offset_right = 640.0
+offset_bottom = 323.0
+
+[node name="Q key instruction" type="Label" parent="."]
+offset_left = 600.0
+offset_top = 425.0
+offset_right = 640.0
+offset_bottom = 448.0
+
+[node name="SPACE key instruction" type="Label" parent="."]
+offset_left = 600.0
+offset_top = 550.0
+offset_right = 640.0
+offset_bottom = 573.0
+
+[node name="Z key instruction" type="Label" parent="."]
+offset_left = 600.0
+offset_top = 675.0
+offset_right = 640.0
+offset_bottom = 698.0
 
 [connection signal="mouse_entered" from="Back Button" to="." method="IfBackButtonIsHoveredByMouse"]
 [connection signal="mouse_exited" from="Back Button" to="." method="IfBackButtonIsExitedByMouse"]

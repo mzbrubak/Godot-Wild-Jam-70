@@ -21,6 +21,9 @@ func _ready():
 	# Set the timer canvas layer to be bigger than normal so that the timer is visible
 	get_node("Timer Canvas Layer").scale = Vector2(5, 5)
 
+func _process(delta):
+	MainMenuMusic.stop()
+
 func trackTime(t):
 	time=t
 	if time>=daylength:
