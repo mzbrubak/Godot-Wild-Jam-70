@@ -17,6 +17,7 @@ func _ready():
 	super._ready()
 	interactionArea=find_child("InteractionArea")
 	pathfinder=find_child("NavigationAgent2D")
+	loadNPCData()
 	NavigationServer2D.map_changed.connect(startNavigation)
 	
 
@@ -95,3 +96,18 @@ func startNavigation(mapRID):
 func _on_target_reached():
 	#print("Made it")
 	actionReady.emit(self)
+
+func saveNPCData():
+	var data = NPCData.new()
+	data.name_guessed=get_node("NameEntry").text
+	data.originalschedule=schedule.originalschedule
+	data.fullschedule=schedule.fullschedule
+	ResourceSaver.save(data,str("res://Schedules/",NAME,".tres"))
+
+func loadNPCData():
+	var data = ResourceLoader.load(str("res://Schedules/",NAME,".tres"))
+	get_node("NameEntry").text=data.name_guessed
+	schedule.originalschedule=data.originalschedule.duplicate(true)
+	schedule.fullschedule=data.fullschedule.duplicate(true)
+	schedule.remainingschedule=schedule.fullschedule.duplicate(true)
+	

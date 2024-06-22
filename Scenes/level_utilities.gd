@@ -37,6 +37,8 @@ func trackTime(t):
 			
 func restart_day():
 	get_tree().reload_current_scene()
+	for NPC in NPCList:
+		NPC.saveNPCData()
 	Engine.time_scale=1
 
 func _on_npc_announce_intent(NPC,task):

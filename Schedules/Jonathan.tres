@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="NPCData" load_steps=7 format=3 uid="uid://dgro4qr27weyq"]
+
+[ext_resource type="Script" path="res://Classes/task.gd" id="1_fsiqq"]
+[ext_resource type="Script" path="res://NPCData.gd" id="2_eeoen"]
+
+[sub_resource type="Resource" id="Resource_nmfhi"]
+script = ExtResource("1_fsiqq")
+time = 30.0
+location = Vector2(343, 790)
+action = 1
+target = "Button3"
+
+[sub_resource type="Resource" id="Resource_xqe0p"]
+script = ExtResource("1_fsiqq")
+time = 5.0
+location = Vector2(324, 298)
+action = 0
+target = "Button2"
+
+[sub_resource type="Resource" id="Resource_w178i"]
+script = ExtResource("1_fsiqq")
+time = 30.0
+location = Vector2(343, 790)
+action = 1
+target = "Button3"
+
+[sub_resource type="Resource" id="Resource_lyt1g"]
+script = ExtResource("1_fsiqq")
+time = 5.0
+location = Vector2(324, 298)
+action = 0
+target = "Button2"
+
+[resource]
+script = ExtResource("2_eeoen")
+name_real = ""
+name_guessed = "Osama Hussein"
+fullschedule = Array[ExtResource("1_fsiqq")]([SubResource("Resource_nmfhi"), SubResource("Resource_xqe0p")])
+originalschedule = Array[ExtResource("1_fsiqq")]([SubResource("Resource_w178i"), SubResource("Resource_lyt1g")])
