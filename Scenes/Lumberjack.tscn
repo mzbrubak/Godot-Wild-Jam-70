@@ -27,8 +27,8 @@ alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 8.0
-target_desired_distance = 30.0
+path_desired_distance = 1.0
+target_desired_distance = 2.0
 navigation_layers = 9
 
 [node name="Player Camera" type="Camera2D" parent="."]

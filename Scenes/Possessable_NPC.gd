@@ -108,6 +108,7 @@ func startNavigation(mapRID):
 	pathfinder.set_max_speed(speed)
 	getnexttask()
 	navigationReady=true
+	NavigationServer2D.map_changed.disconnect(startNavigation)#I only want this to happen the first time
 
 func _on_target_reached():
 	#print("Made it")
@@ -119,7 +120,7 @@ func track_time_while_possessed(t):#at start of possession, connect this to GM n
 func registerPossessionInteract(interactee):
 	var newTask=Task.new()
 	newTask.time=time
-	newTask.location=interactee.global_position
+	newTask.location=global_position
 	newTask.action=1
 	if "objectID" in interactee:
 		newTask.target=interactee.objectID
