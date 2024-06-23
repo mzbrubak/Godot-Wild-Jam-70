@@ -96,7 +96,7 @@ func _ready():
 	$"Art Design Text".add_theme_font_size_override("font_size", 25)
 	
 	# Give credit to the artist in our team
-	$"Art Design Name Text".text = "Ken"
+	$"Art Design Name Text".text = "Ken\nFelix DuBois"
 	
 	# Set the art design name text size to be 100 by 50
 	$"Art Design Name Text".size = Vector2(100, 50)
