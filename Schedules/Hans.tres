@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="NPCData" load_steps=17 format=3 uid="uid://dufkvhd1ka8wl"]
+[gd_resource type="Resource" script_class="NPCData" load_steps=14 format=3 uid="uid://dufkvhd1ka8wl"]
 
 [ext_resource type="Script" path="res://NPCData.gd" id="1_87j7k"]
 [ext_resource type="Script" path="res://Classes/task.gd" id="1_gyo28"]
@@ -45,52 +45,31 @@ location = Vector2(24.9845, 76.2946)
 action = 1
 target = "Axe"
 
-[sub_resource type="Resource" id="Resource_wlr6d"]
+[sub_resource type="Resource" id="Resource_0415p"]
 script = ExtResource("1_gyo28")
-time = 12.0
-location = Vector2(-11.8753, 40.6144)
-action = 1
-target = "Tree3"
-
-[sub_resource type="Resource" id="Resource_0pbg1"]
-script = ExtResource("1_gyo28")
-time = 10.0
-location = Vector2(116.124, 74.8295)
-action = 1
-target = "Tree4"
-
-[sub_resource type="Resource" id="Resource_2826k"]
-script = ExtResource("1_gyo28")
-time = 8.0
-location = Vector2(5.12163, -72.7424)
+time = 9.0
+location = Vector2(-25.6609, -97.6492)
 action = 1
 target = "Tree2"
 
-[sub_resource type="Resource" id="Resource_hitgq"]
+[sub_resource type="Resource" id="Resource_d856k"]
 script = ExtResource("1_gyo28")
 time = 7.0
-location = Vector2(-12.0396, 42.0625)
+location = Vector2(-37.9396, 59.2381)
 action = 1
 target = "Tree3"
 
-[sub_resource type="Resource" id="Resource_xuyoo"]
+[sub_resource type="Resource" id="Resource_8o4nu"]
 script = ExtResource("1_gyo28")
-time = 5.0
-location = Vector2(115.924, 71.8662)
+time = 4.0
+location = Vector2(116.956, 78.7086)
 action = 1
 target = "Tree4"
 
-[sub_resource type="Resource" id="Resource_ksg3x"]
-script = ExtResource("1_gyo28")
-time = 4.0
-location = Vector2(34.7422, 70.3598)
-action = 1
-target = "Axe"
-
-[sub_resource type="Resource" id="Resource_ywcrr"]
+[sub_resource type="Resource" id="Resource_eqodt"]
 script = ExtResource("1_gyo28")
 time = 2.0
-location = Vector2(41.1075, 69.924)
+location = Vector2(28.3012, 77.5574)
 action = 1
 target = "Axe"
 
@@ -105,5 +84,5 @@ target = "Axe"
 script = ExtResource("1_87j7k")
 name_real = ""
 name_guessed = "Hans"
-fullschedule = Array[ExtResource("1_gyo28")]([SubResource("Resource_gwget"), SubResource("Resource_ke6u7"), SubResource("Resource_ijgr5"), SubResource("Resource_bmspa"), SubResource("Resource_os31c"), SubResource("Resource_vbod7"), SubResource("Resource_wlr6d"), SubResource("Resource_0pbg1"), SubResource("Resource_2826k"), SubResource("Resource_hitgq"), SubResource("Resource_xuyoo"), SubResource("Resource_ksg3x"), SubResource("Resource_ywcrr")])
+fullschedule = Array[ExtResource("1_gyo28")]([SubResource("Resource_gwget"), SubResource("Resource_ke6u7"), SubResource("Resource_ijgr5"), SubResource("Resource_bmspa"), SubResource("Resource_os31c"), SubResource("Resource_vbod7"), SubResource("Resource_0415p"), SubResource("Resource_d856k"), SubResource("Resource_8o4nu"), SubResource("Resource_eqodt")])
 originalschedule = Array[ExtResource("1_gyo28")]([SubResource("Resource_51sq7")])

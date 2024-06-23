@@ -18,8 +18,6 @@ func _ready():
 	var characters=find_children("*","Character_Base")
 	for character in characters:
 		character.get_node("Pause Menu Canvas Layer/PauseMenu").dayResetManuallyTriggered.connect(restart_day)
-		print(character.has_method("getnexttask"))
-		print(character.get_method_list())
 		if character.has_method("getnexttask"):
 			character.announceIntent.connect(_on_npc_announce_intent)
 			character.actionReady.connect(_on_npc_action_ready)

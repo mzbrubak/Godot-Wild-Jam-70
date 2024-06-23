@@ -38,7 +38,7 @@ func _process(_delta):
 			if interactionCandidates.is_empty():
 				pass
 			else:
-				var newTask=registerPossessionInteract(interactionCandidates[0])
+				registerPossessionInteract(interactionCandidates[0])
 				interact(interactionCandidates[0])
 		if Input.is_action_just_pressed("Unpossess"):
 			endPossession()
@@ -119,7 +119,7 @@ func track_time_while_possessed(t):#at start of possession, connect this to GM n
 func registerPossessionInteract(interactee):
 	var newTask=Task.new()
 	newTask.time=time
-	newTask.location=global_position
+	newTask.location=interactee.global_position
 	newTask.action=1
 	if "objectID" in interactee:
 		newTask.target=interactee.objectID
