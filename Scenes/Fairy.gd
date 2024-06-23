@@ -1,6 +1,7 @@
 extends Character_Base
 var possessionOffset:Vector2
 var isPossessing:bool = false
+signal NameEntryModeToggle
 
 
 func _ready():
@@ -17,6 +18,9 @@ func _process(delta):
 	super._process(delta)
 	if Input.is_action_just_pressed("Possess"):
 		attemptPossession()
+	if Input.is_action_just_pressed("Attack  or Character Action") and pause_menu.visible==false:
+		NameEntryModeToggle.emit()
+
 #don't need fairy to act during possession
 
 func _physics_process(delta):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b2du0skv18jf3"]
+[gd_scene load_steps=14 format=3 uid="uid://b2du0skv18jf3"]
 
 [ext_resource type="Script" path="res://Scenes/level_utilities.gd" id="1_277j5"]
 [ext_resource type="PackedScene" uid="uid://c6k3kcffdrbk" path="res://Scenes/DayTimer.tscn" id="2_dlvyh"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b7puflxitp4gc" path="res://Scenes/Lumberjack.tscn" id="5_o2e43"]
 [ext_resource type="FontFile" uid="uid://pwg2u1lrabc3" path="res://Fonts/Fairy Font.ttf" id="6_idhpc"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7mcl5"]
+[sub_resource type="CanvasTexture" id="CanvasTexture_0wxea"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_o30c1"]
 vertices = PackedVector2Array(12, -88, 136, 52, 126, 54, -12, 40, 10, -78, 68, 100, 126, 90, 136, 92, -1590, 1590, 156, 72, 1590, -1590, 1590, 1590, 154, 82, 118, 62, 154, 62, 162, -238, 146, 54, -14, 30, 2, -70, -22, 22, -8, -68, 118, 82, 68, 70, 172, -256, 170, -266, 116, 72, -32, 20, -18, -70, 28, 70, -14, 50, 146, 90, 28, 100, 162, -274, -1590, -1590, 152, -276, 142, -274, 134, -266, -22, 58, -32, 60, -42, 58, -50, 50, -52, 40, -50, 30, -42, 22, -26, -78, -28, -88, -26, -98, -18, -106, 132, -256, -8, -108, 134, -246, 2, -106, 142, -238, 10, -98, 152, -236, 170, -246)
@@ -17,16 +17,26 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-1600, 1600, -1600, -16
 parsed_collision_mask = 1
 source_geometry_group_name = &"navigation_polygon_source_group"
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qb7yj"]
+distance = -1599.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fsodu"]
+distance = -1601.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e8xig"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_acuqe"]
+
 [node name="GameMaster" type="Node2D"]
 script = ExtResource("1_277j5")
 daylength = 300
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(3, 3.5)
-scale = Vector2(2.5, 2.75)
-color = Color(0.129412, 1, 1, 1)
-texture = SubResource("PlaceholderTexture2D_7mcl5")
-polygon = PackedVector2Array(0, 2, -2, 0, 0, -2, 2, 0)
+position = Vector2(91.0751, -83.3491)
+scale = Vector2(6.93754, 4.37228)
+color = Color(0, 0.329412, 0.227451, 1)
+texture = SubResource("CanvasTexture_0wxea")
+polygon = PackedVector2Array(-660, 615.091, -664.8, -604.182, 648.8, -601.636, 654.4, 599.818)
 
 [node name="Timer Canvas Layer" type="CanvasLayer" parent="."]
 
@@ -64,4 +74,48 @@ objectID = "Tree4"
 position = Vector2(48, 85)
 objectID = "Axe"
 
+[node name="SouthWall" type="StaticBody2D" parent="NavigationRegion2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/SouthWall"]
+shape = SubResource("WorldBoundaryShape2D_qb7yj")
+
+[node name="NorthWall" type="StaticBody2D" parent="NavigationRegion2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/NorthWall"]
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_fsodu")
+
+[node name="WestWall" type="StaticBody2D" parent="NavigationRegion2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/WestWall"]
+position = Vector2(-1600, 0)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_e8xig")
+
+[node name="EastWall" type="StaticBody2D" parent="NavigationRegion2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/EastWall"]
+position = Vector2(1600, 0)
+rotation = 4.71239
+shape = SubResource("WorldBoundaryShape2D_acuqe")
+
+[node name="Dialogue Canvas Layer" type="CanvasLayer" parent="."]
+
+[node name="Dialogue Box" type="PanelContainer" parent="Dialogue Canvas Layer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -126.0
+offset_top = -40.0
+offset_right = 126.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Dialogue" type="Label" parent="Dialogue Canvas Layer/Dialogue Box"]
+layout_mode = 2
+text = "Why am I trying to talk to a tree?"
+
 [connection signal="AnnounceTime" from="Timer Canvas Layer/Timer" to="." method="trackTime"]
+[connection signal="NameEntryModeToggle" from="Fairy" to="." method="_on_fairy_name_entry_mode_toggle"]

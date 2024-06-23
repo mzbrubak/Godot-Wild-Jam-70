@@ -6,6 +6,7 @@ var NPCIntendedTasks=[]
 var NPCActionReady=[]
 var ObjectList: Dictionary
 var possessedNPCindex=-1
+var fairy
 enum{IDLE, INTERACT, FIGHT}
 
 func _ready():
@@ -23,6 +24,9 @@ func _ready():
 			character.actionReady.connect(_on_npc_action_ready)
 			character.possessionBeginning.connect(_on_NPC_possession_beginning)
 			character.possessionEnding.connect(_on_NPC_possession_ending)
+		else:#just the fairy
+			fairy=character
+	
 	
 	# Set the timer canvas layer to be bigger than normal so that the timer is visible
 	get_node("Timer Canvas Layer").scale = Vector2(5, 5)
@@ -90,3 +94,16 @@ func _on_NPC_possession_beginning(NPC):
 	
 func _on_NPC_possession_ending(NPC):
 	possessedNPCindex=-1
+
+
+func _on_fairy_name_entry_mode_toggle():
+	if Engine.time_scale==1:
+		Engine.time_scale=0
+		fairy.nameentryfield.visible=true
+		for NPC in NPCList:
+			NPC.nameentryfield.visible=true
+	elif Engine.time_scale==0:
+		Engine.time_scale=1
+		fairy.nameentryfield.visible=false
+		for NPC in NPCList:
+			NPC.nameentryfield.visible=false

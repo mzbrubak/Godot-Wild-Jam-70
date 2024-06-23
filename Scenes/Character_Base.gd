@@ -25,6 +25,7 @@ func _ready():
 	MainMenuMusic.stop()
 	
 	nameentryfield=find_child("NameEntry")
+	nameentryfield.visible=false
 	hitbox=find_child("Hitbox")
 	
 	# Hide the pause menu scene at start of the character base scene
@@ -71,8 +72,8 @@ func pauseMenu():
 		back_to_the_pause_menu_video.stop()
 		options_menu_video.hide()
 		options_menu_video.stop()
-			
-		Engine.time_scale = 1
+		if nameentryfield.visible==false:	#stay in stopped time in name mode
+			Engine.time_scale = 1
 	
 	# Else if is game paused is true, then show the pause menu and set the engine time scale to 0 to pause the scene
 	else:

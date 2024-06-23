@@ -1,13 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2p6xfr2uysf2"]
+[gd_scene load_steps=6 format=3 uid="uid://d2p6xfr2uysf2"]
 
-[ext_resource type="Script" path="res://Tree.gd" id="1_fi2m0"]
+[ext_resource type="Script" path="res://Scenes/Tree.gd" id="1_fi2m0"]
+[ext_resource type="Texture2D" uid="uid://dmhi67hrar52h" path="res://Art/tree.svg" id="2_s2ncp"]
+[ext_resource type="Texture2D" uid="uid://dfrwnhhfw5qm1" path="res://Art/treestump.svg" id="3_eacip"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_150wk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_alyih"]
 radius = 23.0217
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_q03l5"]
 
 [node name="Tree" type="StaticBody2D"]
 script = ExtResource("1_fi2m0")
@@ -22,10 +22,16 @@ collision_mask = 12
 [node name="InteractionAreaShape" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource("CircleShape2D_alyih")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -26.5)
-scale = Vector2(20, 75)
-texture = SubResource("PlaceholderTexture2D_q03l5")
+[node name="FullTreeSprite" type="Sprite2D" parent="."]
+position = Vector2(9, -42)
+scale = Vector2(0.16664, 0.293689)
+texture = ExtResource("2_s2ncp")
+
+[node name="StumpSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(9, -32)
+scale = Vector2(0.161209, 0.241881)
+texture = ExtResource("3_eacip")
 
 [connection signal="body_entered" from="InteractionArea" to="." method="IfBodyEntered"]
 [connection signal="body_exited" from="InteractionArea" to="." method="IfBodyExited"]
