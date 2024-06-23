@@ -1,0 +1,109 @@
+[gd_resource type="Resource" script_class="NPCData" load_steps=17 format=3 uid="uid://dufkvhd1ka8wl"]
+
+[ext_resource type="Script" path="res://NPCData.gd" id="1_87j7k"]
+[ext_resource type="Script" path="res://Classes/task.gd" id="1_gyo28"]
+
+[sub_resource type="Resource" id="Resource_gwget"]
+script = ExtResource("1_gyo28")
+time = 22.0
+location = Vector2(-12.2031, -68.3689)
+action = 1
+target = "Tree2"
+
+[sub_resource type="Resource" id="Resource_ke6u7"]
+script = ExtResource("1_gyo28")
+time = 20.0
+location = Vector2(-14.4167, 30.2217)
+action = 1
+target = "Tree3"
+
+[sub_resource type="Resource" id="Resource_ijgr5"]
+script = ExtResource("1_gyo28")
+time = 18.0
+location = Vector2(40.658, 69.924)
+action = 1
+target = "Axe"
+
+[sub_resource type="Resource" id="Resource_bmspa"]
+script = ExtResource("1_gyo28")
+time = 16.0
+location = Vector2(119.586, 60.4423)
+action = 1
+target = "Tree4"
+
+[sub_resource type="Resource" id="Resource_os31c"]
+script = ExtResource("1_gyo28")
+time = 14.0
+location = Vector2(-11.8808, 40.6157)
+action = 1
+target = "Tree3"
+
+[sub_resource type="Resource" id="Resource_vbod7"]
+script = ExtResource("1_gyo28")
+time = 13.0
+location = Vector2(24.9845, 76.2946)
+action = 1
+target = "Axe"
+
+[sub_resource type="Resource" id="Resource_wlr6d"]
+script = ExtResource("1_gyo28")
+time = 12.0
+location = Vector2(-11.8753, 40.6144)
+action = 1
+target = "Tree3"
+
+[sub_resource type="Resource" id="Resource_0pbg1"]
+script = ExtResource("1_gyo28")
+time = 10.0
+location = Vector2(116.124, 74.8295)
+action = 1
+target = "Tree4"
+
+[sub_resource type="Resource" id="Resource_2826k"]
+script = ExtResource("1_gyo28")
+time = 8.0
+location = Vector2(5.12163, -72.7424)
+action = 1
+target = "Tree2"
+
+[sub_resource type="Resource" id="Resource_hitgq"]
+script = ExtResource("1_gyo28")
+time = 7.0
+location = Vector2(-12.0396, 42.0625)
+action = 1
+target = "Tree3"
+
+[sub_resource type="Resource" id="Resource_xuyoo"]
+script = ExtResource("1_gyo28")
+time = 5.0
+location = Vector2(115.924, 71.8662)
+action = 1
+target = "Tree4"
+
+[sub_resource type="Resource" id="Resource_ksg3x"]
+script = ExtResource("1_gyo28")
+time = 4.0
+location = Vector2(34.7422, 70.3598)
+action = 1
+target = "Axe"
+
+[sub_resource type="Resource" id="Resource_ywcrr"]
+script = ExtResource("1_gyo28")
+time = 2.0
+location = Vector2(41.1075, 69.924)
+action = 1
+target = "Axe"
+
+[sub_resource type="Resource" id="Resource_51sq7"]
+script = ExtResource("1_gyo28")
+time = 10.0
+location = Vector2(0, 0)
+action = 1
+target = "Axe"
+
+[resource]
+script = ExtResource("1_87j7k")
+name_real = ""
+name_guessed = "Hans"
+fullschedule = Array[ExtResource("1_gyo28")]([SubResource("Resource_gwget"), SubResource("Resource_ke6u7"), SubResource("Resource_ijgr5"), SubResource("Resource_bmspa"), SubResource("Resource_os31c"), SubResource("Resource_vbod7"), SubResource("Resource_wlr6d"), SubResource("Resource_0pbg1"), SubResource("Resource_2826k"), SubResource("Resource_hitgq"), SubResource("Resource_xuyoo"), SubResource("Resource_ksg3x"), SubResource("Resource_ywcrr")])
+originalschedule = Array[ExtResource("1_gyo28")]([SubResource("Resource_51sq7")])

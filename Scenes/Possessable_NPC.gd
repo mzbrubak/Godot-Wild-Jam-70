@@ -12,6 +12,7 @@ var interactionArea
 var navigationReady=false
 var possessionstartTime:int
 var possessionActions: Array[Task]=[]
+@export var canUseAxe: bool = false
 enum {IDLE, INTERACT, FIGHT}
 var time:int
 var timer
@@ -138,4 +139,3 @@ func loadNPCData():
 	schedule.originalschedule=data.originalschedule.duplicate(true)
 	schedule.fullschedule=data.fullschedule.duplicate(true)
 	schedule.remainingschedule=schedule.fullschedule.duplicate(true)
-	

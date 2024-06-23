@@ -1,13 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2du0skv18jf3"]
+[gd_scene load_steps=10 format=3 uid="uid://b2du0skv18jf3"]
 
 [ext_resource type="Script" path="res://Scenes/level_utilities.gd" id="1_277j5"]
 [ext_resource type="PackedScene" uid="uid://c6k3kcffdrbk" path="res://Scenes/DayTimer.tscn" id="2_dlvyh"]
-[ext_resource type="PackedScene" uid="uid://dcue3mkeww8qw" path="res://Scenes/Interactable_Object.tscn" id="3_rbgvs"]
+[ext_resource type="PackedScene" uid="uid://c4julnfmd7lsi" path="res://Scenes/axe.tscn" id="4_sd6jc"]
 [ext_resource type="PackedScene" uid="uid://c0hyana6hkmis" path="res://Scenes/Fairy.tscn" id="4_taule"]
+[ext_resource type="PackedScene" uid="uid://d2p6xfr2uysf2" path="res://Scenes/tree.tscn" id="4_vym8j"]
+[ext_resource type="PackedScene" uid="uid://b7puflxitp4gc" path="res://Scenes/Lumberjack.tscn" id="5_o2e43"]
+[ext_resource type="FontFile" uid="uid://pwg2u1lrabc3" path="res://Fonts/Fairy Font.ttf" id="6_idhpc"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7mcl5"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_o30c1"]
-vertices = PackedVector2Array(937, 190, 1595, -1595, 1595, 1595, 812, 801, 935, 196, 332, 304, 334, 298, 802, 791, 797, 793, 353, 790, 351, 786, 350, 782, 933, 198, 810, 797, 809, 793, 919, 197, 923, 198, 927, 200, 794, 796, 935, 186, 934, 182, 810, 807, 792, 801, 351, 796, 330, 306, 343, 780, -1595, -1595, 927, 180, 922, 182, 324, 308, 338, 782, 919, 185, 917, 190, 332, 294, 331, 290, 808, 809, 324, 288, 319, 290, -1595, 1595, 316, 293, 314, 298, 316, 305, 335, 785, 794, 808, 349, 798, 802, 811, 798, 809, 343, 800, 320, 306, 333, 790, 335, 797, 339, 798)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9, 10, 11), PackedInt32Array(12, 4, 3, 13, 14), PackedInt32Array(6, 15, 16, 17, 14, 7), PackedInt32Array(9, 8, 18), PackedInt32Array(1, 0, 19, 20), PackedInt32Array(17, 12, 14), PackedInt32Array(21, 3, 2), PackedInt32Array(9, 18, 22, 23), PackedInt32Array(24, 5, 11, 25), PackedInt32Array(26, 1, 20, 27), PackedInt32Array(26, 27, 28), PackedInt32Array(29, 24, 25, 30), PackedInt32Array(26, 28, 31), PackedInt32Array(32, 15, 6, 33, 34), PackedInt32Array(35, 21, 2), PackedInt32Array(26, 31, 32, 34, 36), PackedInt32Array(26, 36, 37), PackedInt32Array(38, 26, 37, 39), PackedInt32Array(38, 39, 40), PackedInt32Array(38, 40, 41, 30, 42), PackedInt32Array(23, 22, 43, 44), PackedInt32Array(45, 35, 2), PackedInt32Array(44, 43, 46, 45, 2, 38, 47), PackedInt32Array(48, 29, 30, 41), PackedInt32Array(38, 42, 49), PackedInt32Array(38, 49, 50), PackedInt32Array(47, 38, 50, 51)])
+vertices = PackedVector2Array(63, 95, 129, 86, 136, 87, -1595, 1595, 6, -81, 136, 57, 129, 58, -17, 40, -18, 33, -1, -74, 151, 72, 1595, -1595, 1595, 1595, 150, 79, 150, 65, 143, 58, 7, -88, 6, -95, 159, -242, 122, 65, -18, 47, 122, 79, 63, 75, -25, 26, -8, -73, 167, -256, 166, -263, 121, 72, -15, -74, -32, 25, 143, 86, 33, 95, 33, 75, -25, 54, 159, -270, -1595, -1595, 152, -271, 145, -270, 138, -263, -39, 26, -22, -81, -32, 55, -39, 54, -46, 47, -47, 40, -46, 33, -23, -88, -22, -95, -15, -102, 137, -256, -8, -103, 138, -249, -1, -102, 145, -242, 152, -241, 166, -249)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8, 9), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(11, 10, 14), PackedInt32Array(11, 14, 15, 16, 17, 18), PackedInt32Array(16, 15, 5, 4), PackedInt32Array(7, 6, 19, 20), PackedInt32Array(21, 1, 0, 22), PackedInt32Array(9, 8, 23, 24), PackedInt32Array(11, 25, 26), PackedInt32Array(27, 21, 22, 20), PackedInt32Array(28, 24, 23, 29), PackedInt32Array(30, 13, 12), PackedInt32Array(30, 12, 3, 2), PackedInt32Array(31, 0, 3), PackedInt32Array(20, 19, 27), PackedInt32Array(20, 22, 32, 33), PackedInt32Array(11, 26, 34), PackedInt32Array(35, 11, 34, 36), PackedInt32Array(35, 36, 37), PackedInt32Array(35, 37, 38), PackedInt32Array(28, 29, 39, 35, 40), PackedInt32Array(33, 32, 31, 3, 41), PackedInt32Array(42, 41, 3), PackedInt32Array(43, 42, 3), PackedInt32Array(43, 3, 35, 44), PackedInt32Array(45, 44, 35), PackedInt32Array(39, 45, 35), PackedInt32Array(46, 40, 35), PackedInt32Array(47, 46, 35), PackedInt32Array(48, 47, 35, 38, 49), PackedInt32Array(50, 48, 49, 51), PackedInt32Array(52, 50, 51, 53), PackedInt32Array(17, 52, 53, 54), PackedInt32Array(55, 25, 11), PackedInt32Array(17, 54, 18), PackedInt32Array(11, 18, 55)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-1600, 1600, -1600, -1600, 1600, -1600, 1600, 1600)])
 parsed_collision_mask = 1
 source_geometry_group_name = &"navigation_polygon_source_group"
@@ -15,28 +20,49 @@ agent_radius = 5.0
 
 [node name="GameMaster" type="Node2D"]
 script = ExtResource("1_277j5")
+daylength = 300
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(3, 3.5)
+scale = Vector2(2.5, 2.75)
+color = Color(0.129412, 1, 1, 1)
+texture = SubResource("PlaceholderTexture2D_7mcl5")
+polygon = PackedVector2Array(0, 2, -2, 0, 0, -2, 2, 0)
 
 [node name="Timer Canvas Layer" type="CanvasLayer" parent="."]
 
 [node name="Timer" parent="Timer Canvas Layer" instance=ExtResource("2_dlvyh")]
 
+[node name="Fairy" parent="." instance=ExtResource("4_taule")]
+position = Vector2(120, -63)
+characterBaseFont = ExtResource("6_idhpc")
+NAME = "Fairy"
+
+[node name="Lumberjack" parent="." instance=ExtResource("5_o2e43")]
+position = Vector2(-92, -1)
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_o30c1")
+metadata/_edit_lock_ = true
 
-[node name="Interactable_Object" parent="NavigationRegion2D" instance=ExtResource("3_rbgvs")]
-position = Vector2(927, 190)
-objectID = "Button1"
+[node name="Tree" parent="NavigationRegion2D" instance=ExtResource("4_vym8j")]
+position = Vector2(152, -256)
+objectID = "Tree"
 
-[node name="InteractableObject" parent="NavigationRegion2D" instance=ExtResource("3_rbgvs")]
-position = Vector2(324, 298)
-objectID = "Button2"
+[node name="Tree2" parent="NavigationRegion2D" instance=ExtResource("4_vym8j")]
+position = Vector2(-8, -88)
+objectID = "Tree2"
 
-[node name="InteractableObject2" parent="NavigationRegion2D" instance=ExtResource("3_rbgvs")]
-position = Vector2(343, 790)
-objectID = "Button3"
+[node name="Tree3" parent="NavigationRegion2D" instance=ExtResource("4_vym8j")]
+position = Vector2(-32, 40)
+objectID = "Tree3"
 
-[node name="InteractableObject3" parent="NavigationRegion2D" instance=ExtResource("3_rbgvs")]
-position = Vector2(802, 801)
-objectID = "Button4"
+[node name="Tree4" parent="NavigationRegion2D" instance=ExtResource("4_vym8j")]
+position = Vector2(136, 72)
+objectID = "Tree4"
 
-[node name="Fairy" parent="." instance=ExtResource("4_taule")]
+[node name="Axe" parent="NavigationRegion2D" instance=ExtResource("4_sd6jc")]
+position = Vector2(48, 85)
+objectID = "Axe"
+
+[connection signal="AnnounceTime" from="Timer Canvas Layer/Timer" to="." method="trackTime"]

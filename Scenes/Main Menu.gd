@@ -130,7 +130,7 @@ func _process(delta):
 
 func IfPlayButtonIsPressed():
 	#go to dev room for testing when hitting play in the main menu
-	get_tree().change_scene_to_file("res://Scenes/devroom.tscn")
+	get_tree().change_scene_to_file("res://Scenes/TheFeyForest.tscn")
 	
 	ButtonPressSoundEffect.play()
 

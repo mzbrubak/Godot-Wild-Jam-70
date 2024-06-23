@@ -1,6 +1,6 @@
 extends Node2D
 var time:int=0
-var daylength:int=60
+@export var daylength:int=60
 var NPCList=[]
 var NPCIntendedTasks=[]
 var NPCActionReady=[]
@@ -18,6 +18,13 @@ func _ready():
 	var characters=find_children("*","Character_Base")
 	for character in characters:
 		character.get_node("Pause Menu Canvas Layer/PauseMenu").dayResetManuallyTriggered.connect(restart_day)
+		print(character.has_method("getnexttask"))
+		print(character.get_method_list())
+		if character.has_method("getnexttask"):
+			character.announceIntent.connect(_on_npc_announce_intent)
+			character.actionReady.connect(_on_npc_action_ready)
+			character.possessionBeginning.connect(_on_NPC_possession_beginning)
+			character.possessionEnding.connect(_on_NPC_possession_ending)
 	
 	# Set the timer canvas layer to be bigger than normal so that the timer is visible
 	get_node("Timer Canvas Layer").scale = Vector2(5, 5)
@@ -39,9 +46,9 @@ func trackTime(t):
 			NPCList[i].getnexttask()
 			
 func restart_day():
-	get_tree().reload_current_scene()
 	for NPC in NPCList:
 		NPC.saveNPCData()
+	get_tree().reload_current_scene()
 	Engine.time_scale=1
 
 func _on_npc_announce_intent(NPC,task):
@@ -70,6 +77,8 @@ func do_NPC_action(NPCindex):
 			if NPCList[NPCindex].interactionCandidates.has(ObjectList[object]):
 				NPCList[NPCindex].interact(ObjectList[object])
 			#add NPC case later (object list just has objects)
+			else:
+				print("Whoops")
 		FIGHT:
 			print("Haven't implemented fighting yet :/")
 		IDLE:
