@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="NPCData" load_steps=12 format=3]
+[gd_resource type="Resource" script_class="NPCData" load_steps=12 format=3 uid="uid://dufkvhd1ka8wl"]
 
 [ext_resource type="Script" path="res://Classes/task.gd" id="1_gpnc6"]
 [ext_resource type="Script" path="res://Classes/NPCData.gd" id="2_5hbvr"]

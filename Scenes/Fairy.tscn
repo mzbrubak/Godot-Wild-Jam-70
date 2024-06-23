@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0hyana6hkmis"]
+[gd_scene load_steps=5 format=3 uid="uid://c0hyana6hkmis"]
 
 [ext_resource type="Script" path="res://Scenes/Fairy.gd" id="1_6wi4k"]
 [ext_resource type="PackedScene" uid="uid://50jtafvlwpyg" path="res://Scenes/Pause Menu.tscn" id="2_1tjkf"]
+[ext_resource type="Texture2D" uid="uid://cc0tl0nyi7gq8" path="res://Art/fairy.svg" id="3_00gxc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lpqcd"]
 radius = 2.0
@@ -27,3 +28,8 @@ zoom = Vector2(5, 5)
 [node name="Pause Menu Canvas Layer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="Pause Menu Canvas Layer" instance=ExtResource("2_1tjkf")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, 4)
+scale = Vector2(0.0506927, 0.0352015)
+texture = ExtResource("3_00gxc")
