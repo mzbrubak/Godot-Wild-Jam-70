@@ -123,7 +123,7 @@ func removeInteraction(interactable):
 	interactionCandidates.erase(interactable)
 
 func interact(interactable):
-	print(self, " interacting with ", interactable)
+	#print(self, " interacting with ", interactable)
 	interactable.IfInteractedWith(self)
 
 func sort_interact(interactable1,interactable2):

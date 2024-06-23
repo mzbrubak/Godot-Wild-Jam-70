@@ -4,6 +4,7 @@ signal possessionBeginning
 signal possessionEnding
 signal announceIntent
 signal actionReady
+
 @export var schedule=Schedule.new()
 var patience:int = 3 #how long character will try to do tasks that are late
 var pathfinder
@@ -16,6 +17,7 @@ var possessionActions: Array[Task]=[]
 enum {IDLE, INTERACT, FIGHT}
 var time:int
 var timer
+var witch
 
 func _ready():
 	MainMenuMusic.stop()
@@ -26,6 +28,7 @@ func _ready():
 	loadNPCData()
 	NavigationServer2D.map_changed.connect(startNavigation)
 	timer = get_parent().get_node("Timer Canvas Layer/Timer")
+	
 	
 
 func _process(_delta):
@@ -68,15 +71,15 @@ func getnexttask():
 	announceIntent.emit(self,schedule.currenttask)
 
 func IfBodyEntered(Body):
-	print(Body," entered interaction area of ",self)
+	#print(Body," entered interaction area of ",self)
 	Body.addInteraction(self)
 
 func IfBodyExited(Body):
-	print(Body," exited interaction area of ",self)
+	#print(Body," exited interaction area of ",self)
 	Body.removeInteraction(self)
 
 func IfInteractedWith(Character):
-	print("Why hello, ", Character,". I'm ",NAME)
+	pass#print("Why hello, ", Character,". I'm ",NAME)
 
 func becomePossessed():
 	isPlayer=true

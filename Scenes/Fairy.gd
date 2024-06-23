@@ -31,7 +31,8 @@ func _physics_process(delta):
 	
 func attemptPossession():
 	if interactionCandidates.is_empty():
-		print("No possessable characters in range.")
+		#print("No possessable characters in range.")
+		pass
 	else:
 		var index=0
 		var possessionCandidate=null
@@ -40,22 +41,26 @@ func attemptPossession():
 				possessionCandidate=interactionCandidates[index]
 			index+=1
 		if possessionCandidate==null:
-			print("No possessable characters in range.")
+			#print("No possessable characters in range.")
+			pass
 		else:
 			if possessionCandidate.find_child("NameEntry").text==possessionCandidate.NAME:
-				print("Possessing ",possessionCandidate)
+				#print("Possessing ",possessionCandidate)
 				possessionCandidate.becomePossessed()
 				find_child("Hitbox").disabled=true
 				possessionCandidate.possessionEnding.connect(endPossession)
 				possessionOffset=position-possessionCandidate.position
+				get_node("Sprite2D").visible=false
 				isPossessing=true
 			else:
-				print("Can't possess character without knowing their name")
+				#print("Can't possess character without knowing their name")
+				pass
 
 func endPossession(Character):
 	position=Character.position+possessionOffset
 	find_child("Hitbox").disabled=false
 	isPossessing=false
 	Character.possessionEnding.disconnect(endPossession)
+	get_node("Sprite2D").visible=true
 	Camera.make_current()
 	

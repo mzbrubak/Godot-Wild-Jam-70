@@ -1,25 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7puflxitp4gc"]
+[gd_scene load_steps=6 format=3 uid="uid://b77bndo1lwd06"]
 
-[ext_resource type="Script" path="res://Scenes/Possessable_NPC.gd" id="1_55x0g"]
-[ext_resource type="PackedScene" uid="uid://50jtafvlwpyg" path="res://Scenes/Pause Menu.tscn" id="2_10hje"]
-[ext_resource type="Texture2D" uid="uid://bltxqcjrp3vl" path="res://Art/person.svg" id="3_eloh2"]
+[ext_resource type="Script" path="res://Scenes/witch.gd" id="1_rqyo1"]
+[ext_resource type="PackedScene" uid="uid://50jtafvlwpyg" path="res://Scenes/Pause Menu.tscn" id="2_ngq14"]
+[ext_resource type="Texture2D" uid="uid://c40bosj866hax" path="res://Art/witch.svg" id="3_4iru5"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3bcws"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pe3dy"]
 radius = 16.0
+height = 32.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_txrfd"]
-radius = 24.0208
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fwkuv"]
+radius = 26.0
+height = 66.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 9
 motion_mode = 1
-script = ExtResource("1_55x0g")
-NAME = "Hans"
+script = ExtResource("1_rqyo1")
+NAME = "didyoureallythinkthatyouwouldbeabletopossessthewitchyoumoronwhatwouldevenbethepointofthisversionofthegameifyoucoulddothatwaitforamorefleshedoutversionofthegame"
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_3bcws")
+shape = SubResource("CapsuleShape2D_pe3dy")
 
 [node name="NameEntry" type="LineEdit" parent="."]
+visible = false
 offset_left = -45.0
 offset_top = -46.0
 offset_right = 45.0
@@ -28,15 +31,15 @@ alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 1.0
-target_desired_distance = 2.0
+path_desired_distance = 8.0
 navigation_layers = 9
 
 [node name="Player Camera" type="Camera2D" parent="."]
 
 [node name="Pause Menu Canvas Layer" type="CanvasLayer" parent="."]
+visible = false
 
-[node name="PauseMenu" parent="Pause Menu Canvas Layer" instance=ExtResource("2_10hje")]
+[node name="PauseMenu" parent="Pause Menu Canvas Layer" instance=ExtResource("2_ngq14")]
 metadata/_edit_use_anchors_ = true
 
 [node name="InteractionArea" type="Area2D" parent="."]
@@ -44,12 +47,13 @@ collision_layer = 2
 collision_mask = 12
 
 [node name="InteractionAreaShap" type="CollisionShape2D" parent="InteractionArea"]
-shape = SubResource("CircleShape2D_txrfd")
+position = Vector2(0, -5)
+shape = SubResource("CapsuleShape2D_fwkuv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-4, -18)
-scale = Vector2(0.0908375, 0.0726291)
-texture = ExtResource("3_eloh2")
+position = Vector2(1, 0.999999)
+scale = Vector2(0.0834383, 0.104742)
+texture = ExtResource("3_4iru5")
 
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_target_reached"]
 [connection signal="body_entered" from="InteractionArea" to="." method="IfBodyEntered"]

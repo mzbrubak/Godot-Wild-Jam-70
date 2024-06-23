@@ -8,9 +8,12 @@ var ObjectList: Dictionary
 var possessedNPCindex=-1
 var fairy
 enum{IDLE, INTERACT, FIGHT}
+var restartmode: bool = false
+
 
 func _ready():
 	MainMenuMusic.stop()
+	fairy=get_node("Fairy")
 	get_node("NavigationRegion2D").bake_navigation_polygon()
 	var objects=find_children("*","StaticBody2D")
 	for object in objects:
@@ -24,8 +27,7 @@ func _ready():
 			character.actionReady.connect(_on_npc_action_ready)
 			character.possessionBeginning.connect(_on_NPC_possession_beginning)
 			character.possessionEnding.connect(_on_NPC_possession_ending)
-		else:#just the fairy
-			fairy=character
+
 
 	
 	
@@ -34,6 +36,11 @@ func _ready():
 
 func _process(delta):
 	MainMenuMusic.stop()
+	if restartmode and Input.is_anything_pressed():
+		restart_day()
+
+
+
 
 func trackTime(t):
 	time=t
@@ -45,7 +52,7 @@ func trackTime(t):
 		elif NPCActionReady[i]==true and time>=NPCIntendedTasks[i].time:
 			do_NPC_action(i)
 		elif time>=NPCIntendedTasks[i].time+NPCList[i].patience:
-			print("Abandoning task")
+			#print("Abandoning task")
 			NPCList[i].getnexttask()
 			
 func restart_day():
@@ -55,7 +62,7 @@ func restart_day():
 	Engine.time_scale=1
 
 func _on_npc_announce_intent(NPC,task):
-	print(NPC," intends to do action ", task.action, " to ", task.target)
+	#print(NPC," intends to do action ", task.action, " to ", task.target)
 	var NPCindex=NPCList.find(NPC)
 	if NPCindex==-1:#meaning NPC not found
 		NPCList.insert(NPCList.size(),NPC)
@@ -81,13 +88,17 @@ func do_NPC_action(NPCindex):
 				NPCList[NPCindex].interact(ObjectList[object])
 			#add NPC case later (object list just has objects)
 			else:
-				print("Whoops")
+				#print("Whoops")
+				pass
 		FIGHT:
-			print("Haven't implemented fighting yet :/")
+			#print("Haven't implemented fighting yet :/")
+			pass
 		IDLE:
-			print("Idling")
+			#print("Idling")
+			pass
 		_:
-			print("How the hell did you get here?")
+			#print("How the hell did you get here?")
+			pass
 	NPCList[NPCindex].getnexttask()
 
 func _on_NPC_possession_beginning(NPC):
@@ -108,3 +119,9 @@ func _on_fairy_name_entry_mode_toggle():
 		fairy.nameentryfield.visible=false
 		for NPC in NPCList:
 			NPC.nameentryfield.visible=false
+
+func _on_caught():
+	get_node("Dialogue Canvas Layer").visible=true
+	await get_tree().create_timer(0.5).timeout
+	restartmode=true
+	#print("GAME OVER")

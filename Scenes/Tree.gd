@@ -5,7 +5,7 @@ const logresource=preload("res://Scenes/log.tscn")
 # Called when the node enters the scene tree for the first time.
 func IfInteractedWith(Character):
 	if chopped==false and "canUseAxe" in Character and Character.canUseAxe==true:
-		print("Chopping down tree")#replace with sound effect and animation
+		#print("Chopping down tree")#replace with sound effect and animation
 		get_node("StumpSprite").visible=true
 		get_node("FullTreeSprite").visible=false
 		chopped=true
@@ -15,7 +15,8 @@ func IfInteractedWith(Character):
 		get_parent().add_child(newLog)
 		get_parent().bake_navigation_polygon()#to account for log hitbox
 	else:
-		print(str(Character.NAME," leaves a mark on ", objectID))
+		pass
+		#print(str(Character.NAME," leaves a mark on ", objectID))
 
 func getLogRotation(Character):
 	var displacement=position-Character.position
