@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://dg2bujnv7hdo1"]
+
+[ext_resource type="Script" path="res://Scenes/Interactable_Object.gd" id="1_es5pr"]
+[ext_resource type="Texture2D" uid="uid://dtnv1030yjxq2" path="res://Art/log.svg" id="2_7t8m3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7xbu"]
+size = Vector2(105.5, 31)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bvc3w"]
+radius = 22.0
+height = 134.0
+
+[node name="Log" type="StaticBody2D"]
+script = ExtResource("1_es5pr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(52, 12)
+rotation = 1.5708
+scale = Vector2(0.232157, 0.214659)
+texture = ExtResource("2_7t8m3")
+
+[node name="HitboxShape" type="CollisionShape2D" parent="."]
+position = Vector2(67, 0.5)
+shape = SubResource("RectangleShape2D_n7xbu")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 12
+
+[node name="InteractionAreaShape" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(67, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_bvc3w")
+
+[connection signal="body_entered" from="InteractionArea" to="." method="IfBodyEntered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="IfBodyExited"]

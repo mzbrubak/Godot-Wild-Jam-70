@@ -6,6 +6,7 @@ func IfInteractedWith(character):
 		get_node("HitboxShape").disabled=true
 		get_node("InteractionArea").queue_free()
 		get_node("Sprite2D").visible=false
+		get_parent().bake_navigation_polygon()#since hitbox is now gone
 		self.reparent(character)
 
 	else:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b2du0skv18jf3"]
+[gd_scene load_steps=15 format=3 uid="uid://b2du0skv18jf3"]
 
 [ext_resource type="Script" path="res://Scenes/level_utilities.gd" id="1_277j5"]
 [ext_resource type="PackedScene" uid="uid://c6k3kcffdrbk" path="res://Scenes/DayTimer.tscn" id="2_dlvyh"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d2p6xfr2uysf2" path="res://Scenes/tree.tscn" id="4_vym8j"]
 [ext_resource type="PackedScene" uid="uid://b7puflxitp4gc" path="res://Scenes/Lumberjack.tscn" id="5_o2e43"]
 [ext_resource type="FontFile" uid="uid://pwg2u1lrabc3" path="res://Fonts/Fairy Font.ttf" id="6_idhpc"]
+[ext_resource type="PackedScene" uid="uid://dg2bujnv7hdo1" path="res://Scenes/log.tscn" id="8_3og8r"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_0wxea"]
 
@@ -52,7 +53,6 @@ position = Vector2(-92, -1)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_o30c1")
-metadata/_edit_lock_ = true
 
 [node name="Tree" parent="NavigationRegion2D" instance=ExtResource("4_vym8j")]
 position = Vector2(152, -256)
@@ -116,6 +116,9 @@ grow_vertical = 0
 [node name="Dialogue" type="Label" parent="Dialogue Canvas Layer/Dialogue Box"]
 layout_mode = 2
 text = "Why am I trying to talk to a tree?"
+
+[node name="Log" parent="." instance=ExtResource("8_3og8r")]
+position = Vector2(-31, 156)
 
 [connection signal="AnnounceTime" from="Timer Canvas Layer/Timer" to="." method="trackTime"]
 [connection signal="NameEntryModeToggle" from="Fairy" to="." method="_on_fairy_name_entry_mode_toggle"]

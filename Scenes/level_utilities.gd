@@ -11,7 +11,7 @@ enum{IDLE, INTERACT, FIGHT}
 
 func _ready():
 	MainMenuMusic.stop()
-	
+	get_node("NavigationRegion2D").bake_navigation_polygon()
 	var objects=find_children("*","StaticBody2D")
 	for object in objects:
 		if object.has_method("IfInteractedWith"):
@@ -26,6 +26,7 @@ func _ready():
 			character.possessionEnding.connect(_on_NPC_possession_ending)
 		else:#just the fairy
 			fairy=character
+
 	
 	
 	# Set the timer canvas layer to be bigger than normal so that the timer is visible

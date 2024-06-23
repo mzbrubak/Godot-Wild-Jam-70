@@ -1,32 +1,39 @@
-[gd_resource type="Resource" script_class="NPCData" load_steps=9 format=3 uid="uid://dufkvhd1ka8wl"]
+[gd_resource type="Resource" script_class="NPCData" load_steps=10 format=3]
 
 [ext_resource type="Script" path="res://Classes/task.gd" id="1_gpnc6"]
 [ext_resource type="Script" path="res://Classes/NPCData.gd" id="2_5hbvr"]
 
-[sub_resource type="Resource" id="Resource_ifjqr"]
+[sub_resource type="Resource" id="Resource_07jrn"]
 script = ExtResource("1_gpnc6")
-time = 21.0
+time = 20.0
+location = Vector2(152, -256)
+action = 1
+target = "Tree"
+
+[sub_resource type="Resource" id="Resource_w1lhv"]
+script = ExtResource("1_gpnc6")
+time = 14.0
 location = Vector2(-8, -88)
 action = 1
 target = "Tree2"
 
-[sub_resource type="Resource" id="Resource_8ip3h"]
+[sub_resource type="Resource" id="Resource_v2vxg"]
 script = ExtResource("1_gpnc6")
-time = 18.0
-location = Vector2(-32, 40)
-action = 1
-target = "Tree3"
-
-[sub_resource type="Resource" id="Resource_u4w34"]
-script = ExtResource("1_gpnc6")
-time = 15.0
+time = 9.0
 location = Vector2(136, 72)
 action = 1
 target = "Tree4"
 
-[sub_resource type="Resource" id="Resource_1rg1i"]
+[sub_resource type="Resource" id="Resource_3010c"]
 script = ExtResource("1_gpnc6")
-time = 14.0
+time = 5.0
+location = Vector2(-32, 40)
+action = 1
+target = "Tree3"
+
+[sub_resource type="Resource" id="Resource_ycjno"]
+script = ExtResource("1_gpnc6")
+time = 2.0
 location = Vector2(48, 85)
 action = 1
 target = "Axe"
@@ -49,5 +56,5 @@ target = ""
 script = ExtResource("2_5hbvr")
 name_real = ""
 name_guessed = "Hans"
-fullschedule = Array[ExtResource("1_gpnc6")]([SubResource("Resource_ifjqr"), SubResource("Resource_8ip3h"), SubResource("Resource_u4w34"), SubResource("Resource_1rg1i"), SubResource("Resource_u2ije")])
+fullschedule = Array[ExtResource("1_gpnc6")]([SubResource("Resource_07jrn"), SubResource("Resource_w1lhv"), SubResource("Resource_v2vxg"), SubResource("Resource_3010c"), SubResource("Resource_ycjno"), SubResource("Resource_u2ije")])
 originalschedule = Array[ExtResource("1_gpnc6")]([SubResource("Resource_w6p44")])
