@@ -31,6 +31,9 @@ func _ready():
 	# Use the main menu add theme font override to use the font we set in the inspector
 	$"Main Menu Title".add_theme_font_override("font", mainMenuFont)
 	
+	# Use the main menu add theme color override to make the color dark teal
+	$"Main Menu Title".add_theme_color_override("font_color", Color(0.4, 0.7, 0.7, 1))
+	
 	# Use the main menu add theme font size override to set the font size to 50
 	$"Main Menu Title".add_theme_font_size_override("font_size", 50)
 	

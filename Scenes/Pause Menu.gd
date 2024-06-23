@@ -25,6 +25,9 @@ func _ready():
 	# Use the pause menu add theme font override to use the font we set in the inspector
 	$"Pause Menu Title".add_theme_font_override("font", pauseMenuFont)
 	
+	# Use the pause menu add theme color override to make the color red
+	$"Pause Menu Title".add_theme_color_override("font_color", Color(1, 0, 0, 1))
+	
 	# Use the pause menu add theme font size override to set the font size to 50
 	$"Pause Menu Title".add_theme_font_size_override("font_size", 50)
 	
@@ -130,6 +133,9 @@ func _ready():
 	# Use the main menu add theme font override to use the font we set in the inspector
 	$"Options Menu In-Game/Options Menu In-Game Title".add_theme_font_override("font", pauseMenuFont)
 	
+	# Use the options menu inside of pause menu and use the add theme color override to make the color green
+	$"Options Menu In-Game/Options Menu In-Game Title".add_theme_color_override("font_color", Color(0, 1, 0, 1))
+	
 	# Use the main menu add theme font size override to set the font size to 50
 	$"Options Menu In-Game/Options Menu In-Game Title".add_theme_font_size_override("font_size", 50)
 	
@@ -161,6 +167,9 @@ func _ready():
 	
 	# Use the resolution drop down menu text to add theme font override to use the font we set in the inspector
 	$"Options Menu In-Game/Resolution Drop Down Menu".add_theme_font_override("font", pauseMenuFont)
+	
+	# Use the resolution drop down menu add theme color override to make the yellow-orange
+	$"Options Menu In-Game/Resolution Drop Down Menu".add_theme_color_override("font_color", Color(1, 0.45, 0, 1))
 	
 	# Use the resolution drop down menu text to add theme font size override to set the font size to 20
 	$"Options Menu In-Game/Resolution Drop Down Menu".add_theme_font_size_override("font_size", 20)
@@ -204,6 +213,9 @@ func _ready():
 	# Use the resolution text to add theme font override to use the font we set in the inspector
 	$"Options Menu In-Game/Resolution Text".add_theme_font_override("font", pauseMenuFont)
 	
+	# Use the resolution text add theme color override to make the color green-blue
+	$"Options Menu In-Game/Resolution Text".add_theme_color_override("font_color", Color(0, 1, 1, 1))
+	
 	# Use the resolution text to add theme font size override to set the font size to 20
 	$"Options Menu In-Game/Resolution Text".add_theme_font_size_override("font_size", 20)
 	
@@ -221,6 +233,9 @@ func _ready():
 	
 	# Use the player camera zoom drop down menu text to add theme font override to use the font we set in the inspector
 	$"Options Menu In-Game/Player Camera Zoom Drop Down Menu".add_theme_font_override("font", pauseMenuFont)
+	
+	# Use the player camera zoom drop down menu add theme color override to make the yellow-orange
+	$"Options Menu In-Game/Player Camera Zoom Drop Down Menu".add_theme_color_override("font_color", Color(1, 0.45, 0, 1))
 	
 	# Use the player camera zoom drop down menu text to add theme font size override to set the font size to 20
 	$"Options Menu In-Game/Player Camera Zoom Drop Down Menu".add_theme_font_size_override("font_size", 20)
@@ -252,6 +267,9 @@ func _ready():
 	# Use the player camera zoom text to add theme font override to use the font we set in the inspector
 	$"Options Menu In-Game/Player Camera Zoom Text".add_theme_font_override("font", pauseMenuFont)
 	
+	# Use the player camera zoom text add theme color override to make the color green-blue
+	$"Options Menu In-Game/Player Camera Zoom Text".add_theme_color_override("font_color", Color(0, 1, 1, 1))
+	
 	# Use the player camera zoom text to add theme font size override to set the font size to 20
 	$"Options Menu In-Game/Player Camera Zoom Text".add_theme_font_size_override("font_size", 20)
 	
@@ -267,6 +285,9 @@ func _ready():
 	
 	# Use the music volume text to add theme font override to use the font we set in the inspector
 	$"Options Menu In-Game/Music Volume Text".add_theme_font_override("font", pauseMenuFont)
+	
+	# Use the music volume text add theme color override to make the color green-blue
+	$"Options Menu In-Game/Music Volume Text".add_theme_color_override("font_color", Color(0, 1, 1, 1))
 	
 	# Use the music volume text to add theme font size override to set the font size to 20
 	$"Options Menu In-Game/Music Volume Text".add_theme_font_size_override("font_size", 20)
@@ -287,6 +308,9 @@ func _ready():
 	# Use the music volume percentage text to add theme font override to use the font we set in the inspector
 	$"Options Menu In-Game/Music Volume Slider/Music Volume Percentage".add_theme_font_override("font", pauseMenuFont)
 	
+	# Use the music volume percentage add theme color override to make the color green-blue
+	$"Options Menu In-Game/Music Volume Slider/Music Volume Percentage".add_theme_color_override("font_color", Color(0, 1, 1, 1))
+	
 	# Use the music volume percentage text to add theme font size override to set the font size to 20
 	$"Options Menu In-Game/Music Volume Slider/Music Volume Percentage".add_theme_font_size_override("font_size", 25)
 	
@@ -302,6 +326,9 @@ func _ready():
 	
 	# Use the SFX volume text to add theme font override to use the font we set in the inspector
 	$"Options Menu In-Game/SFX Volume Text".add_theme_font_override("font", pauseMenuFont)
+	
+	# Use the SFX volume text add theme color override to make the color green-blue
+	$"Options Menu In-Game/SFX Volume Text".add_theme_color_override("font_color", Color(0, 1, 1, 1))
 	
 	# Use the SFX volume text to add theme font size override to set the font size to 20
 	$"Options Menu In-Game/SFX Volume Text".add_theme_font_size_override("font_size", 20)
@@ -321,6 +348,9 @@ func _ready():
 	
 	# Use the SFX volume percentage text to add theme font override to use the font we set in the inspector
 	$"Options Menu In-Game/SFX Volume Slider/SFX Volume Percentage".add_theme_font_override("font", pauseMenuFont)
+	
+	# Use the SFX volume percentage add theme color override to make the color green-blue
+	$"Options Menu In-Game/SFX Volume Slider/SFX Volume Percentage".add_theme_color_override("font_color", Color(0, 1, 1, 1))
 	
 	# Use the SFX volume percentage text to add theme font size override to set the font size to 20
 	$"Options Menu In-Game/SFX Volume Slider/SFX Volume Percentage".add_theme_font_size_override("font_size", 25)

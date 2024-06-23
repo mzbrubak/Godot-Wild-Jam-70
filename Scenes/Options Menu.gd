@@ -26,6 +26,9 @@ func _ready():
 	# Use the main menu add theme font override to use the font we set in the inspector
 	$"Options Menu Title".add_theme_font_override("font", optionsMenuFont)
 	
+	# Use the how to play menu add theme color override to make the color green
+	$"Options Menu Title".add_theme_color_override("font_color", Color(0, 1, 0, 1))
+	
 	# Use the main menu add theme font size override to set the font size to 50
 	$"Options Menu Title".add_theme_font_size_override("font_size", 50)
 	
@@ -57,6 +60,9 @@ func _ready():
 	
 	# Use the resolution drop down menu text to add theme font override to use the font we set in the inspector
 	$"Resolution Drop Down Menu".add_theme_font_override("font", optionsMenuFont)
+	
+	# Use the resolution drop down menu add theme color override to make the yellow-orange
+	$"Resolution Drop Down Menu".add_theme_color_override("font_color", Color(1, 0.45, 0, 1))
 	
 	# Use the resolution drop down menu text to add theme font size override to set the font size to 20
 	$"Resolution Drop Down Menu".add_theme_font_size_override("font_size", 20)
@@ -100,6 +106,9 @@ func _ready():
 	# Use the resolution text to add theme font override to use the font we set in the inspector
 	$"Resolution Text".add_theme_font_override("font", optionsMenuFont)
 	
+	# Use the resolution text add theme color override to make the color green-blue
+	$"Resolution Text".add_theme_color_override("font_color", Color(0, 1, 1, 1))
+	
 	# Use the resolution text to add theme font size override to set the font size to 20
 	$"Resolution Text".add_theme_font_size_override("font_size", 20)
 	
@@ -115,6 +124,9 @@ func _ready():
 	
 	# Use the music volume text to add theme font override to use the font we set in the inspector
 	$"Music Volume Text".add_theme_font_override("font", optionsMenuFont)
+	
+	# Use the music volume text add theme color override to make the color green-blue
+	$"Music Volume Text".add_theme_color_override("font_color", Color(0, 1, 1, 1))
 	
 	# Use the music volume text to add theme font size override to set the font size to 20
 	$"Music Volume Text".add_theme_font_size_override("font_size", 20)
@@ -138,6 +150,9 @@ func _ready():
 	# Use the music volume percentage text to add theme font override to use the font we set in the inspector
 	$"Music Volume Slider/Music Volume Percentage".add_theme_font_override("font", optionsMenuFont)
 	
+	# Use the music volume percentage add theme color override to make the color green-blue
+	$"Music Volume Slider/Music Volume Percentage".add_theme_color_override("font_color", Color(0, 1, 1, 1))
+	
 	# Use the music volume percentage text to add theme font size override to set the font size to 20
 	$"Music Volume Slider/Music Volume Percentage".add_theme_font_size_override("font_size", 25)
 	
@@ -153,6 +168,9 @@ func _ready():
 	
 	# Use the SFX volume text to add theme font override to use the font we set in the inspector
 	$"SFX Volume Text".add_theme_font_override("font", optionsMenuFont)
+	
+	# Use the SFX volume text add theme color override to make the color green-blue
+	$"SFX Volume Text".add_theme_color_override("font_color", Color(0, 1, 1, 1))
 	
 	# Use the SFX volume text to add theme font size override to set the font size to 20
 	$"SFX Volume Text".add_theme_font_size_override("font_size", 20)
@@ -172,6 +190,9 @@ func _ready():
 	
 	# Use the SFX volume percentage text to add theme font override to use the font we set in the inspector
 	$"SFX Volume Slider/SFX Volume Percentage".add_theme_font_override("font", optionsMenuFont)
+	
+	# Use the SFX volume percentage add theme color override to make the color green-blue
+	$"SFX Volume Slider/SFX Volume Percentage".add_theme_color_override("font_color", Color(0, 1, 1, 1))
 	
 	# Use the SFX volume percentage text to add theme font size override to set the font size to 20
 	$"SFX Volume Slider/SFX Volume Percentage".add_theme_font_size_override("font_size", 25)

@@ -22,6 +22,9 @@ func _ready():
 	# Use the credits menu title add theme font override to use the font we set in the inspector
 	$"Credits Menu Title".add_theme_font_override("font", creditsMenuFont)
 	
+	# Use the credits menu add theme color override to make the color light purple
+	$"Credits Menu Title".add_theme_color_override("font_color", Color(0.87, 0.72, 1, 1))
+	
 	# Use the credits menu title add theme font size override to set the font size to 50
 	$"Credits Menu Title".add_theme_font_size_override("font_size", 50)
 	
@@ -60,6 +63,9 @@ func _ready():
 	# Use the programmer text add theme font override to use the font we set in the inspector
 	$"Programmer Text".add_theme_font_override("font", creditsMenuFont)
 	
+	# Add the programmer text color to override the color to orange
+	$"Programmer Text".add_theme_color_override("font_color", Color(1, 0.76, 0, 1))
+	
 	# Add the programmer theme font size to override the value set in the inspector from 1 to size 25
 	$"Programmer Text".add_theme_font_size_override("font_size", 25)
 	
@@ -75,6 +81,9 @@ func _ready():
 	
 	# Use the programmer names text add theme font override to use the font we set in the inspector
 	$"Programmer Names Text".add_theme_font_override("font", creditsMenuFont)
+	
+	# Add the programmer names text color to override the color to orange
+	$"Programmer Names Text".add_theme_color_override("font_color", Color(1, 0.76, 0, 1))
 	
 	# Use the add theme font size override to set the font size to 25 of the Programmer Names Text
 	$"Programmer Names Text".add_theme_font_size_override("font_size", 25)
@@ -92,6 +101,9 @@ func _ready():
 	# Use the art design text add theme font override to use the font we set in the inspector
 	$"Art Design Text".add_theme_font_override("font", creditsMenuFont)
 	
+	# Add the art design text color to override the color to green
+	$"Art Design Text".add_theme_color_override("font_color", Color(0, 0.8, 0, 1))
+	
 	# Set the art design theme font size to override to font size 25
 	$"Art Design Text".add_theme_font_size_override("font_size", 25)
 	
@@ -107,6 +119,9 @@ func _ready():
 	
 	# Use the art design name text add theme font override to use the font we set in the inspector
 	$"Art Design Name Text".add_theme_font_override("font", creditsMenuFont)
+	
+	# Add the art design name text color to override the color to green
+	$"Art Design Name Text".add_theme_color_override("font_color", Color(0, 0.8, 0, 1))
 	
 	# Set the art design name theme font size to override to font size 25
 	$"Art Design Name Text".add_theme_font_size_override("font_size", 25)
@@ -124,6 +139,9 @@ func _ready():
 	# Use the sound composer text add theme font override to use the font we set in the inspector
 	$"Sound Composer Text".add_theme_font_override("font", creditsMenuFont)
 	
+	# Add the sound composer text color to override the color to purple
+	$"Sound Composer Text".add_theme_color_override("font_color", Color(0.78, 0.52, 0.93, 1))
+	
 	# Set the sound composer theme font size to override to font size 25
 	$"Sound Composer Text".add_theme_font_size_override("font_size", 25)
 	
@@ -139,6 +157,9 @@ func _ready():
 	
 	# Use the sound composer name text add theme font override to use the font we set in the inspector
 	$"Sound Composer Name Text".add_theme_font_override("font", creditsMenuFont)
+	
+	# Add the sound composer name text color to override the color to purple
+	$"Sound Composer Name Text".add_theme_color_override("font_color", Color(0.78, 0.52, 0.93, 1))
 	
 	# Set the sound composer name theme font size to override to font size 25
 	$"Sound Composer Name Text".add_theme_font_size_override("font_size", 25)
@@ -156,6 +177,9 @@ func _ready():
 	# Use the producer text add theme font override to use the font we set in the inspector
 	$"Producer Text".add_theme_font_override("font", creditsMenuFont)
 	
+	# Add the producer text color to override the color to yellow
+	$"Producer Text".add_theme_color_override("font_color", Color(1, 1, 0, 1))
+	
 	# Set the producer theme font size to override to font size 25
 	$"Producer Text".add_theme_font_size_override("font_size", 25)
 	
@@ -171,6 +195,9 @@ func _ready():
 	
 	# Use the producer name text add theme font override to use the font we set in the inspector
 	$"Producer Name Text".add_theme_font_override("font", creditsMenuFont)
+	
+	# Add the producer name text color to override the color to yellow
+	$"Producer Name Text".add_theme_color_override("font_color", Color(1, 1, 0, 1))
 	
 	# Set the producer name theme font size to override to font size 25
 	$"Producer Name Text".add_theme_font_size_override("font_size", 25)

@@ -22,6 +22,9 @@ func _ready():
 	# Use the how to play title add theme font override to use the font we set in the inspector
 	$"How to Play Title".add_theme_font_override("font", howToPlayMenuFont)
 	
+	# Use the how to play menu add theme color override to make the color orange
+	$"How to Play Title".add_theme_color_override("font_color", Color(1, 0.45, 0, 1))
+	
 	# Use the how to play title add theme font size override to set the font size to 50
 	$"How to Play Title".add_theme_font_size_override("font_size", 50)
 	
